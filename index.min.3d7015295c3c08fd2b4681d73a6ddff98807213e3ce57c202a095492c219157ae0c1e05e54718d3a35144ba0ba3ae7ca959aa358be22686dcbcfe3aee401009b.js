@@ -5885,7 +5885,7 @@ We explain this in more detail at
 Reproducing the Stack Start needs details from 
 <a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
 <h2 id="pre-computes-for-your-first-million-events">Pre-computes for Your First Million Events</h2>
-<p>DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$</p>
+<p>DataTrails production logs currently have a massif height of 14, which is results in 8192 leaves, which is $$1^{14-1}$$</p>
 <table>
 <thead>
 <tr>
@@ -10959,8 +10959,6 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       
                         
                       
-                        
-                      
 
                       <table class="table table-striped table-bordered">
                         <thead>
@@ -10973,11 +10971,9 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of Assets for the given proof mechanism has been reached.</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to list Assets.</td>
                           
@@ -11245,7 +11241,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
-                            <tr><th>402</th><td>Returned when the user either has not enabled blockchain storage orthe number of assets would exceed the user&rsquo;s quota</td>
+                            <tr><th>402</th><td>Returned when the number of assets would exceed the user&rsquo;s quota</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to create an Asset.</td>
                           
@@ -11278,7 +11274,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Event</h5>
+                      <h5>Retrieves Event</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Event</p>
 
@@ -11532,7 +11528,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Event public url</h5>
+                      <h5>Retrieves the public url for a specific Event.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Event.</p>
 
@@ -11641,7 +11637,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Asset</h5>
+                      <h5>Retrieves a specific Asset</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Asset</p>
 
@@ -12032,7 +12028,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -12399,7 +12395,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Asset public url</h5>
+                      <h5>Retrieves the public url for a specific Asset.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Asset.</p>
 
@@ -13124,8 +13120,6 @@ Find the ASSET_ID with
                       
                         
                       
-                        
-                      
 
                       <table class="table table-striped table-bordered">
                         <thead>
@@ -13138,11 +13132,9 @@ Find the ASSET_ID with
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of Assets for the given proof mechanism has been reached.</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to list Assets.</td>
                           
@@ -13410,7 +13402,7 @@ Find the ASSET_ID with
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
-                            <tr><th>402</th><td>Returned when the user either has not enabled blockchain storage orthe number of assets would exceed the user&rsquo;s quota</td>
+                            <tr><th>402</th><td>Returned when the number of assets would exceed the user&rsquo;s quota</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to create an Asset.</td>
                           
@@ -13443,7 +13435,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Event</h5>
+                      <h5>Retrieves Event</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Event</p>
 
@@ -13697,7 +13689,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Event public url</h5>
+                      <h5>Retrieves the public url for a specific Event.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Event.</p>
 
@@ -13806,7 +13798,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Asset</h5>
+                      <h5>Retrieves a specific Asset</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Asset</p>
 
@@ -14197,7 +14189,7 @@ Find the ASSET_ID with
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -14564,7 +14556,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Asset public url</h5>
+                      <h5>Retrieves the public url for a specific Asset.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Asset.</p>
 
@@ -30935,7 +30927,7 @@ We explain this in more detail at
 Reproducing the Stack Start needs details from 
 <a href="/developers/developer-patterns/navigating-merklelogs">Navigating the Merkle Log</a>.</p>
 <h2 id="pre-computes-for-your-first-million-events">Pre-computes for Your First Million Events</h2>
-<p>DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$</p>
+<p>DataTrails production logs currently have a massif height of 14, which is results in 8192 leaves, which is $$1^{14-1}$$</p>
 <table>
 <thead>
 <tr>
@@ -36009,8 +36001,6 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       
                         
                       
-                        
-                      
 
                       <table class="table table-striped table-bordered">
                         <thead>
@@ -36023,11 +36013,9 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of Assets for the given proof mechanism has been reached.</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to list Assets.</td>
                           
@@ -36295,7 +36283,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
-                            <tr><th>402</th><td>Returned when the user either has not enabled blockchain storage orthe number of assets would exceed the user&rsquo;s quota</td>
+                            <tr><th>402</th><td>Returned when the number of assets would exceed the user&rsquo;s quota</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to create an Asset.</td>
                           
@@ -36328,7 +36316,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Event</h5>
+                      <h5>Retrieves Event</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Event</p>
 
@@ -36582,7 +36570,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Event public url</h5>
+                      <h5>Retrieves the public url for a specific Event.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Event.</p>
 
@@ -36691,7 +36679,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Asset</h5>
+                      <h5>Retrieves a specific Asset</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Asset</p>
 
@@ -37082,7 +37070,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -37449,7 +37437,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Asset public url</h5>
+                      <h5>Retrieves the public url for a specific Asset.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Asset.</p>
 
@@ -38174,8 +38162,6 @@ Find the ASSET_ID with
                       
                         
                       
-                        
-                      
 
                       <table class="table table-striped table-bordered">
                         <thead>
@@ -38188,11 +38174,9 @@ Find the ASSET_ID with
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of assets exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header if the &lsquo;x-request-total-count&rsquo; header on the request is set to &rsquo;true&rsquo;. The exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;. Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of Assets for the given proof mechanism has been reached.</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to list Assets.</td>
                           
@@ -38460,7 +38444,7 @@ Find the ASSET_ID with
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
-                            <tr><th>402</th><td>Returned when the user either has not enabled blockchain storage orthe number of assets would exceed the user&rsquo;s quota</td>
+                            <tr><th>402</th><td>Returned when the number of assets would exceed the user&rsquo;s quota</td>
                           
                             <tr><th>403</th><td>Returned when the user is not authorized to create an Asset.</td>
                           
@@ -38493,7 +38477,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Event</h5>
+                      <h5>Retrieves Event</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Event</p>
 
@@ -38747,7 +38731,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{asset_uuid}/events/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Event public url</h5>
+                      <h5>Retrieves the public url for a specific Event.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Event.</p>
 
@@ -38856,7 +38840,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}</span></h4>
                       </div>
-                      <h5>Retrieves an Asset</h5>
+                      <h5>Retrieves a specific Asset</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves a specific Asset</p>
 
@@ -39247,7 +39231,7 @@ Find the ASSET_ID with
                           
                             <tr><th>200</th><td>A successful response.</td>
                           
-                            <tr><th>206</th><td>The number of Events exceeds the server&rsquo;s limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
+                            <tr><th>206</th><td>The number of events exceeds the servers limit. The approximate number of matching results is provided by the x-total-count header, the exact limit is available in the content-range header. The value format is &lsquo;items 0-LIMIT/TOTAL&rsquo;.  Note that x-total-count is always present for 200 and 206 responses. It is the servers best available approximation. Similarly, in any result set, you may get a few more than LIMIT items.</td>
                           
                             <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
                           
@@ -39614,7 +39598,7 @@ Find the ASSET_ID with
                       <div class="overflow-auto">
                       <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v2/assets/{uuid}:publicurl</span></h4>
                       </div>
-                      <h5>Retrieves the Asset public url</h5>
+                      <h5>Retrieves the public url for a specific Asset.</h5>
                       <p><a href=""></a></p>
                       <p>Description: Retrieves the public url for a specific Asset.</p>
 

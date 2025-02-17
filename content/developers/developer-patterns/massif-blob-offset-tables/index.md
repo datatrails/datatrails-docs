@@ -81,7 +81,7 @@ Reproducing the Stack Start needs details from [Navigating the Merkle Log](/deve
 
 ## Pre-computes for Your First Million Events
 
-DataTrails production logs currently have a massif height of 14, which is results in 8129 leaves, which is $$1^{14-1}$$
+DataTrails production logs currently have a massif height of 14, which is results in 8192 leaves, which is $$1^{14-1}$$
 
 | Massif | Stack Start| mmr Start |  First leaf | Last Leaf | First Node  | Last Node | Peak Stack |
 | -------| ---------- | --------- | ---------- | ---------- | ----------- | --------- | ---------  |

@@ -165,7 +165,8 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
 
 ```bash
 curl -H "@$HOME/.datatrails/bearer-token.txt" \
-    https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$ATTACHMENT_ID
+    --output $BLOB_FILE
+    https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$BLOB_ID
 ```
 
 ### Retrieve a Specific Attachment on an Event

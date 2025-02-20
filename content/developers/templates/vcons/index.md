@@ -163,10 +163,6 @@ There is [vcon issue](https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-conta
 ### subject (REQUIRED)
 
 The [vCon unique identifier (uuid)](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2).
-
-### subject (REQUIRED)
-
-The [vCon unique identifier (uuid)](https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2).
 Subject is used to align with the [SCITT Protected Header](https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:)
 
 ### timestamp_declared (REQUIRED)

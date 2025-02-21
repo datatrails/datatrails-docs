@@ -38,7 +38,7 @@ Assets support attachments by creating an [Asset-Event](/developers/api-referenc
 - `"arc_file_name": "conformance.pdf"`
 - `"arc_display_name": "Conformance Report"`
 
-Example of an Asset-event with two attachments:
+An example of an Asset-event with two attachments:
 
 ```json
   {
@@ -68,15 +68,15 @@ Example of an Asset-event with two attachments:
   }
 ```
 
-The name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event, such as the additional `"security_report"` attachment.
+In the above example, the name of the parent attribute (`"conformance_report"`) can be any value, providing a means to name multiple attachments within a single event, such as the additional `"security_report"` attachment.
 
 The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to reference a DataTrails [Blob](/developers/api-reference/blobs-api/) based attachment.
 
-## Asset-Event Attachment API Examples
+## Create an Asset-Event Based Attachment
 
-- Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
-
-- Upload the content of the Attachment using the [Blobs API](/developers/api-reference/blobs-api/).
+- [Create a bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
+- [Create an Asset](/developers/api-reference/assets-api/) to associate the attachment.
+- Upload the content of an Attachment using the [Blobs API](/developers/api-reference/blobs-api/).
 
 ### Asset-Event Attachment Variables
 
@@ -101,7 +101,7 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
   ASSET_ID=assets/a1234567-890a  
   BLOB_ID=blobs/b1234567-890b  
   BLOB_HASH=h1234567h  
-  BLOB_FILE=conformance.pdf
+  BLOB_FILE=cat.jpg
 
 ### Create an Asset-Event Attachment
 
@@ -113,15 +113,15 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
     "operation": "Record",
     "behaviour": "RecordEvidence",
     "event_attributes": {
-      "arc_display_type": "Safety Conformance",
-      "arc_description": "Safety conformance approved for version 1.6.",
-      "conformance_report": {
+      "arc_display_type": "Cat-ID",
+      "arc_description": "Fydor, the cat on the scene",
+      "cat-id": {
         "arc_attribute_type": "arc_attachment",
         "arc_blob_hash_value": "$BLOB_HASH",
         "arc_blob_identity": "$BLOB_ID",
         "arc_blob_hash_alg": "SHA256",
         "arc_file_name": "$BLOB_FILE",
-        "arc_display_name": "Conformance Report"
+        "arc_display_name": "Fydor"
       }
     }
   }
@@ -147,49 +147,52 @@ The DataTrails platform evaluates `"arc_attribute_type": "arc_attachment"` to re
     "asset_identity": "assets/a1234567-890a",
     "event_attributes": {
       "arc_description": "Safety conformance approved for version 1.6.",
-      "conformance_report": {
+      "cat-id": {
         "arc_attribute_type": "arc_attachment",
         "arc_blob_hash_value": "h1234567h",
         "arc_blob_identity": "blobs/b1234567-890b",
         "arc_blob_hash_alg": "SHA256",
         "arc_file_name": "cat.jpg",
-        "arc_display_name": "Conformance Report"
+        "arc_display_name": "Fydor"
       },
-      "arc_display_type": "Safety Conformance"
+      "arc_display_type": "Cat-ID"
     },
     "..."
   }
   ```
 
-### Retrieve a Specific Attachment on an Asset
+### Retrieve an Asset-Event Attachment
 
-```bash
-curl -H "@$HOME/.datatrails/bearer-token.txt" \
-    --output $BLOB_FILE
-    https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$BLOB_ID
-```
+- When creating an attachment, an Asset-Event is created.
+  In addition to the Asset_ID captured above, capture the Event_ID
 
-### Retrieve a Specific Attachment on an Event
+  ```bash
+  EVENT_ID=events/e1234567-890e
+  ```
 
-```bash
-ASSET_ID=<asset-id>
-curl -H "@$HOME/.datatrails/bearer-token.txt" \
-    https://app.datatrails.ai/archivist/v2/attachments/assets/$ASSET_ID/events/$EVENT_ID/$ATTACHMENT_ID
-```
+- The `attachments/assets` Resource does not support `/blobs/` as part of the resource identifier.
+  The `ATTACHMENT_ID` variable will parse the ID from the `$BLOB_ID`
 
-### Retrieve Information About a Specific Attachment
+  ```bash
+  ATTACHMENT_ID=$(echo ${BLOB_ID} | cut -d '/' -f 2)
 
-It’s also possible to retrieve information about specific attachment using the Attachments API.
+  curl -H "@$HOME/.datatrails/bearer-token.txt" \
+      --output $BLOB_FILE \
+      https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$EVENT_ID/$ATTACHMENT_ID
+  ```
 
-This information includes the `scanned_status` of the attachment.
-Attachment scanning happens in batch, daily.
+### Retrieve Metadata About an Asset-Event Attachment
 
-To do so, simply issue a request as above with the suffix `/info`.
+Metadata information includes the `scanned_status` of the attachment.
+Attachment scanning happens daily batches.
 
-```bash
-curl -H "@$HOME/.datatrails/bearer-token.txt" \
-    https://app.datatrails.ai/archivist/v2/attachments/assets/$ASSET_ID/$ATTACHMENT_ID/info
-```
+- Issue a request as above with the suffix `/info`.
+
+  ```bash
+  curl -H "@$HOME/.datatrails/bearer-token.txt" \
+      https://app.datatrails.ai/archivist/v2/attachments/$ASSET_ID/$EVENT_ID/$ATTACHMENT_ID/info \
+      | jq
+  ```
 
 The response will include basic information about the attachment:
 
@@ -210,49 +213,6 @@ The response will include basic information about the attachment:
   "scanned_timestamp": ""
 }
 ```
-
-### Integrity Protecting External Content
-
-To integrity protect content located external to the DataTrails platform, exclude the `"arc_attribute_type": "arc_attachment"`, `"arc_blob_identity"` and `"arc_display_name"` as not being relevant to external content.
-
-  ```json
-  cat > /tmp/event.json <<EOF
-  {
-    "operation": "Record",
-    "behaviour": "RecordEvidence",
-    "event_attributes": {
-      "arc_blob_hash_value": "$BLOB_HASH",
-      "arc_blob_hash_alg": "SHA256",
-      "arc_file_name": "$BLOB_FILE"
-    }
-  }
-  EOF
-  ```
-
-- Post to the Integrity protected content as an Event:
-
-  ```bash
-  curl -X POST \
-    -H "@$HOME/.datatrails/bearer-token.txt" \
-    -H "Content-type: application/json" \
-    -d "@/tmp/event.json" \
-    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
-    | jq
-  ```
-
-- Capture the new Event ID from above:
-
-  ```bash
-  EVENT_ID=<event-id>
-  ```
-
-- Query the newly created Event, with integrity protection:
-
-  ```bash
-  curl -H "@$HOME/.datatrails/bearer-token.txt" \
-      https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events/$EVENT_ID \
-      | jq
-  ```
 
 ## Attachment OpenAPI Docs
 

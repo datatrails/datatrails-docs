@@ -18,7 +18,7 @@ The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, 
 
 {{< note >}}
 **Note:** Blobs cannot be searched or listed as a collection using the blobs resource.
-BLobs must be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
+Blobs must be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
 Take note of the Blob ID returned in the API response, it will be needed for use with Assets and Events.<br>
 For information on Attachments and how to implement them, please refer to [the Events API Reference](../events-api/#adding-attachments).
 {{< /note >}}

@@ -585,9 +585,6 @@ There is
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
 <p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
-<h3 id="subject-required-1">subject (REQUIRED)</h3>
-<p>The 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.
 Subject is used to align with the 
 <a href="https://www.ietf.org/archive/id/draft-ietf-scitt-architecture-08.html#:~:text=Subject:" target="_blank" rel="noopener">SCITT Protected Header</a></p>
@@ -25626,9 +25623,6 @@ Currently, this is <code>SHA-256</code>, but should be sourced by the vCon objec
 There is 
 <a href="https://github.com/ietf-wg-vcon/draft-ietf-vcon-vcon-container/issues/7" target="_blank" rel="noopener">vcon issue</a>, and discussion for using <code>application/vcon+json</code></p>
 <h3 id="subject-required">subject (REQUIRED)</h3>
-<p>The 
-<a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.</p>
-<h3 id="subject-required-1">subject (REQUIRED)</h3>
 <p>The 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.2" target="_blank" rel="noopener">vCon unique identifier (uuid)</a>.
 Subject is used to align with the 

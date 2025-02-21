@@ -140,7 +140,7 @@ Recording the current state of a vCon on a SCITT Transparency Service secures th
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
 <p>The following provides a template for securing a vCon with a SCITT Signed Statement.</p>
 <h2 id="version">Version</h2>
-<p>Template Version <code>0.2.0</code></p>
+<p>Template Version <code>0.3.0</code></p>
 <h2 id="vcon-signed-statement-example">vCon Signed Statement Example</h2>
 <p>The following example highlights a typical SCITT Signed Statement, based on a vCon:</p>
 <blockquote class="caution callout">
@@ -231,7 +231,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="mi">-6804</span><span class="err">:</span><span class="p">[</span>                          <span class="nv">meta-map</span> <span class="p">(</span><span class="nb">* </span><span class="nv">tstr</span> <span class="nv">=&gt;</span> <span class="nv">tstr</span><span class="p">)</span>      <span class="nv">/</span>
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link</span><span class="s">&#34;:         &#39;scitt&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;conserver_link_name&#34;</span><span class="err">:</span>    <span class="ss">&#39;scitt_created</span><span class="o">&#39;</span>,
-</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.2.0&#39;,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.3.0&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
@@ -267,7 +267,7 @@ There is
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;scitt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;scitt_created&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.3.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
@@ -331,7 +331,7 @@ This property may prove to be redundant to the
 In both instances, the <code>conserver_link</code> would be <code>scitt</code>.</p>
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
-This template applies to version <code>0.2.0</code></p>
+This template applies to version <code>0.3.0</code></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
@@ -418,13 +418,13 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 <a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
 </ul>
 `},{id:2,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"DataTrails Event vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
-Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
+Recording a cryptographic hash of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deletion.</p>
 <h2 id="version">Version</h2>
-<p>Template Version <code>0.2.0</code></p>
+<p>Template Version <code>0.3.0</code></p>
 <h2 id="vcon-event-example">vCon Event Example</h2>
 <p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <p>The following example highlights a typical 
-<a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
+<a href="../../api-reference/asset-events-api/">DataTrails Asset-Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
@@ -432,7 +432,7 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_created&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;DataTrails&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;datatrails_created&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.3.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA-256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vcon+json&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="s2">&#34;5cdc3d525e...bfac2e948f31b61&#34;</span><span class="p">,</span>
@@ -528,7 +528,7 @@ This property may prove to be redundant to the
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails-created</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_created&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
@@ -538,7 +538,7 @@ This property may prove to be redundant to the
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails_consent_revoked</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_consent_revoked&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
@@ -567,7 +567,7 @@ This property may prove to be redundant to the
 In both instances, the <code>conserver_link</code> would be <code>DataTrails</code>.</p>
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
-This template applies to version <code>0.2.0</code></p>
+This template applies to version <code>0.3.0</code></p>
 <h3 id="payload-required">payload (REQUIRED)</h3>
 <p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
 Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>
@@ -25182,7 +25182,7 @@ Recording the current state of a vCon on a SCITT Transparency Service secures th
 SCITT supports the ongoing verification of goods and services where the authenticity of entities, evidence, policy, and artifacts can be assured and the actions of entities can be guaranteed to be authorized, non-repudiable, immutable, and auditable.</p>
 <p>The following provides a template for securing a vCon with a SCITT Signed Statement.</p>
 <h2 id="version">Version</h2>
-<p>Template Version <code>0.2.0</code></p>
+<p>Template Version <code>0.3.0</code></p>
 <h2 id="vcon-signed-statement-example">vCon Signed Statement Example</h2>
 <p>The following example highlights a typical SCITT Signed Statement, based on a vCon:</p>
 <blockquote class="caution callout">
@@ -25273,7 +25273,7 @@ SCITT supports the ongoing verification of goods and services where the authenti
 </span></span><span class="line"><span class="cl"><span class="mi">-6804</span><span class="err">:</span><span class="p">[</span>                          <span class="nv">meta-map</span> <span class="p">(</span><span class="nb">* </span><span class="nv">tstr</span> <span class="nv">=&gt;</span> <span class="nv">tstr</span><span class="p">)</span>      <span class="nv">/</span>
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link</span><span class="s">&#34;:         &#39;scitt&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;conserver_link_name&#34;</span><span class="err">:</span>    <span class="ss">&#39;scitt_created</span><span class="o">&#39;</span>,
-</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.2.0&#39;,
+</span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;conserver_link_version</span><span class="s">&#34;: &#39;0.3.0&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;timestamp_declared&#34;</span><span class="err">:</span>     <span class="ss">&#39;2024-05-07T16:33:29.004994</span><span class="o">&#39;</span>,
 </span></span><span class="line"><span class="cl">        <span class="mi">0</span><span class="err">:</span> <span class="ss">&#39;vcon_operation</span><span class="s">&#34;:         &#39;vcon_create&#39;,
 </span></span></span><span class="line"><span class="cl"><span class="s">        0: &#39;vcon_draft_version&#34;</span><span class="err">:</span>     <span class="ss">&#39;01</span><span class="o">&#39;</span>,
@@ -25309,7 +25309,7 @@ There is
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;scitt&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;scitt_created&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.3.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2024-05-07T16:33:29.004994&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_operation&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_create&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;vcon_draft_version&#34;</span><span class="p">:</span> <span class="s2">&#34;01&#34;</span><span class="p">,</span>
@@ -25373,7 +25373,7 @@ This property may prove to be redundant to the
 In both instances, the <code>conserver_link</code> would be <code>scitt</code>.</p>
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
-This template applies to version <code>0.2.0</code></p>
+This template applies to version <code>0.3.0</code></p>
 <h3 id="timestamp_declared-required">timestamp_declared (REQUIRED)</h3>
 <p>Set to 
 <a href="https://www.ietf.org/archive/id/draft-ietf-vcon-vcon-container-01.html#section-4.1.4" target="_blank" rel="noopener">vCon updated_at</a>, capturing the datetime the vCon was updated.
@@ -25460,13 +25460,13 @@ Set the <code>VCON</code> env variable to the <code>vcon_uuid</code></p>
 <a href="https://www.conserver.io/" target="_blank" rel="noopener">vCons and Conserver.io</a></li>
 </ul>
 `}).add({id:2,href:"https://docs.datatrails.ai/developers/templates/vcons/",title:"DataTrails Event vCon Template",description:"Creating DataTrails Events for vCons",content:`<p>vCons safely and securely carry conversations from the network elements that create them to the applications that analyze them, enabling responsible management of the most personal of data.
-Recording the current state of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deleting a specific version.</p>
+Recording a cryptographic hash of a vCon on DataTrails secures the integrity and inclusion of the vCon from tampering or deletion.</p>
 <h2 id="version">Version</h2>
-<p>Template Version <code>0.2.0</code></p>
+<p>Template Version <code>0.3.0</code></p>
 <h2 id="vcon-event-example">vCon Event Example</h2>
 <p>The following provides a template for how to secure a vCon on DataTrails.</p>
 <p>The following example highlights a typical 
-<a href="../../api-reference/events-api/">DataTrails Event</a>, based on a vCon:</p>
+<a href="../../api-reference/asset-events-api/">DataTrails Asset-Event</a>, based on a vCon:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
@@ -25474,7 +25474,7 @@ Recording the current state of a vCon on DataTrails secures the integrity and in
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;vcon_created&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link&#34;</span><span class="p">:</span> <span class="s2">&#34;DataTrails&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_name&#34;</span><span class="p">:</span>  <span class="s2">&#34;datatrails_created&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.2.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conserver_link_version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.3.0&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA-256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload_preimage_content_type&#34;</span><span class="p">:</span> <span class="s2">&#34;application/vcon+json&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;payload&#34;</span><span class="p">:</span> <span class="s2">&#34;5cdc3d525e...bfac2e948f31b61&#34;</span><span class="p">,</span>
@@ -25570,7 +25570,7 @@ This property may prove to be redundant to the
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails-created</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_created&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
@@ -25580,7 +25580,7 @@ This property may prove to be redundant to the
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">datatrails_consent_revoked</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">links.datatrails</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist/v2&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;https://app.datatrails.ai/archivist&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">vcon_operation</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;vcon_consent_revoked&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">auth</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;OIDC-client-credentials&#34;</span><span class="w">
@@ -25609,7 +25609,7 @@ This property may prove to be redundant to the
 In both instances, the <code>conserver_link</code> would be <code>DataTrails</code>.</p>
 <h3 id="conserver_link_version-optional">conserver_link_version (OPTIONAL)</h3>
 <p>The version of the <code>conserver_link</code>.
-This template applies to version <code>0.2.0</code></p>
+This template applies to version <code>0.3.0</code></p>
 <h3 id="payload-required">payload (REQUIRED)</h3>
 <p>The hash of the vCon as it&rsquo;s recorded on the SCITT Transparency Service.
 Setting the <code>payload_hash_alg</code> indicates the payload is a hash of content in <code>payload_preimage_content_type</code> format, using the <code>payload_hash_alg</code> algorithm.</p>

@@ -95,10 +95,7 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: `events/<event-id>`
 
-{{< note >}}
-**Note:** The current preview limits fetching Events to the Event identity.
-Querying across event attributes and trails are coming in a future preview.
-{{< /note >}}
+
 
 #### Fetch Events by Identity
 
@@ -115,6 +112,112 @@ Querying across event attributes and trails are coming in a future preview.
       -H "@$HOME/.datatrails/bearer-token.txt" \
       "https://app.datatrails.ai/archivist/v1/events/$EVENT_ID" | jq
   ```
+
+
+
+#### Fetch Multiple Events
+
+- To fetch multiple events use a search document and post it to Events Search endpoint
+  Search document has following form:
+
+  ```json
+  {
+    "filter": "",
+    "top": 10,
+    "skip": 0,
+  }
+  ```
+
+{{< note >}}
+**Note:** The current preview does not support filtering of  Events.
+Filtering across event attributes and trails are coming in a future preview.
+{{< /note >}}
+
+  where top indicates number of results to return (max. 50) and skip indicates how many results to skip over before retruning set of results.
+
+  Response will be a list of events matching above criteria:
+
+  ```json
+  {
+    "events": [
+      {
+        "identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "attributes": {
+          "inspector": "Clouseau",
+          "arc_display_type": "Safety Conformance",
+          "Safety Rating": "90"
+        },
+        "trails": [
+          "Safety Conformance",
+          "Clouseau"
+        ],
+        "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "created_at": 1736421833577,
+        "confirmation_status": "STORED",
+        "merklelog_commit": {
+          "index": "0",
+          "idtimestamp": ""
+        }
+      },
+      {
+        "identity": "events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+        "attributes": {
+          "inspector": "Clouseau",
+          "arc_display_type": "Safety Conformance",
+          "Safety Rating": "99"
+        },
+        "trails": [
+          "Safety Conformance",
+          "Clouseau"
+        ],
+        "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "created_at": 1736421873579,
+        "confirmation_status": "STORED",
+        "merklelog_commit": {
+          "index": "0",
+          "idtimestamp": ""
+        }
+      }
+    ],
+  }
+  ```
+  
+  Use `top` and `skip` alongside `x-total-count` response header to navigate results. If sum of `skip` and number of results in response is less than the count of all results (this will be returned in `x-total-count` response header) there is more results to retrieve, to get next set of results sumply re-issue `/search` request with skip increased by number of results in current response.
+
+- To fetch all Event records, simply create search document and save to a file `search.json`:
+
+  ```json
+  {
+    "filter": "",
+    "top": 10,
+    "skip": 0,
+  }
+  ```
+
+  and `POST` it to Search endpoint:
+
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -d @$HOME/search.json \
+      "https://app.datatrails.ai/archivist/v1/events/search" \
+      | jq
+  ```
+
+  if `x-total-count` response header has value greater than 10 (as indicated by value of `top` in `search.json`) modify `serch.json` to to following:
+
+  ```json
+  {
+    "filter": "",
+    "top": 10,
+    "skip": 10,
+  }
+  ```
+
+  and `POST` to the same nedpoint again to retrieve second page of results, and repeat this process until `skip` + numer or results in response is equal `x-total-count`.
+
 
 ## Events OpenAPI Docs
 

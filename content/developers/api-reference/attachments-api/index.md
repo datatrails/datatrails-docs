@@ -214,6 +214,49 @@ The response will include basic information about the attachment:
 }
 ```
 
+### Integrity Protecting External Content
+
+To integrity protect content located external to the DataTrails platform, exclude the `"arc_attribute_type": "arc_attachment"`, `"arc_blob_identity"` and `"arc_display_name"` as not being relevant to external content.
+
+  ```json
+  cat > /tmp/event.json <<EOF
+  {
+    "operation": "Record",
+    "behaviour": "RecordEvidence",
+    "event_attributes": {
+      "arc_blob_hash_value": "$BLOB_HASH",
+      "arc_blob_hash_alg": "SHA256",
+      "arc_file_name": "$BLOB_FILE"
+    }
+  }
+  EOF
+  ```
+
+- Post to the Integrity protected content as an Event:
+
+  ```bash
+  curl -X POST \
+    -H "@$HOME/.datatrails/bearer-token.txt" \
+    -H "Content-type: application/json" \
+    -d "@/tmp/event.json" \
+    https://app.datatrails.ai/archivist/v2/assets/$ASSET_ID/events \
+    | jq
+  ```
+
+- Capture the new Event ID from above:
+
+  ```bash
+  EVENT_ID=<event-id>
+  ```
+
+- Query the newly created Event, with integrity protection:
+
+  ```bash
+  curl -H "@$HOME/.datatrails/bearer-token.txt" \
+      https://app.datatrails.ai/archivist/v2/$ASSET_ID/events/$EVENT_ID \
+      | jq
+  ```
+
 ## Attachment OpenAPI Docs
 
 {{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/attachmentsv2.swagger.json" >}}

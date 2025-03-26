@@ -31,12 +31,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 
 ## Events API Examples
 
-{{< note >}}
-**Note:** If you are looking for a simple way to test DataTrails APIs you might prefer the [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
-
-Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
-{{< /note >}}
-
 ### Event Creation
 
 - Create the [bearer_token](/developers/developer-patterns/getting-access-tokens-using-app-registrations) and store in a file in a secure local directory with 0600 permissions.
@@ -95,8 +89,6 @@ Additional YAML examples can be found in the articles in the [Overview](/platfor
 
 Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: `events/<event-id>`
 
-
-
 #### Fetch Events by Identity
 
 - Replace the `<event-id>` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
@@ -113,19 +105,19 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
       "https://app.datatrails.ai/archivist/v1/events/$EVENT_ID" | jq
   ```
 
-
-
 #### Fetch Multiple Events
 
 - To fetch multiple events use a search document and post it to Events Search endpoint
   Search document has following form:
 
-  ```json
+  ```bash
+  cat > /tmp/search.json <<EOF
   {
     "filter": "",
     "top": 10,
-    "skip": 0,
+    "skip": 0
   }
+  EOF
   ```
 
 {{< note >}}
@@ -133,7 +125,7 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
 Filtering across event attributes and trails are coming in a future preview.
 {{< /note >}}
 
-  where top indicates number of results to return (max. 50) and skip indicates how many results to skip over before retruning set of results.
+  where top indicates number of results to return (max. 50) and skip indicates how many results to skip over before returning set of results.
 
   Response will be a list of events matching above criteria:
 
@@ -184,40 +176,50 @@ Filtering across event attributes and trails are coming in a future preview.
   }
   ```
   
-  Use `top` and `skip` alongside `x-total-count` response header to navigate results. If sum of `skip` and number of results in response is less than the count of all results (this will be returned in `x-total-count` response header) there is more results to retrieve, to get next set of results sumply re-issue `/search` request with skip increased by number of results in current response.
+  Use `top` and `skip` alongside `x-total-count` response header to navigate results. If sum of `skip` and number of results in response is less than the count of all results (this will be returned in `x-total-count` response header) there is more results to retrieve, to get next set of results sImply re-issue `/search` request with skip increased by number of results in current response.
 
 - To fetch all Event records, simply create search document and save to a file `search.json`:
 
-  ```json
+  ```bash
+  cat > /tmp/search.json <<EOF
   {
     "filter": "",
     "top": 10,
     "skip": 0,
   }
+  EOF
   ```
 
-  and `POST` it to Search endpoint:
+  Then `POST` `search.json` to the Search endpoint:
 
   ```bash
   curl -X POST \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      -d @$HOME/search.json \
+      -d /tmp/search.json \
       "https://app.datatrails.ai/archivist/v1/events/search" \
       | jq
   ```
 
-  if `x-total-count` response header has value greater than 10 (as indicated by value of `top` in `search.json`) modify `serch.json` to to following:
+  If `x-total-count` response header has value greater than 10 (as indicated by value of `top` in `search.json`) modify `search.json` to the following:
 
-  ```json
+  ```bash
+  cat > /tmp/search.json <<EOF
   {
     "filter": "",
     "top": 10,
     "skip": 10,
-  }
+  EOF
   ```
 
-  and `POST` to the same nedpoint again to retrieve second page of results, and repeat this process until `skip` + numer or results in response is equal `x-total-count`.
+  and `POST` to the same endpoint again to retrieve second page of results, and repeat this process until `skip` + number or results in response is equal `x-total-count`.
 
+  ```bash
+  curl -X POST \
+      -H "@$HOME/.datatrails/bearer-token.txt" \
+      -d /tmp/search.json \
+      "https://app.datatrails.ai/archivist/v1/events/search" \
+      | jq
+  ```
 
 ## Events OpenAPI Docs
 

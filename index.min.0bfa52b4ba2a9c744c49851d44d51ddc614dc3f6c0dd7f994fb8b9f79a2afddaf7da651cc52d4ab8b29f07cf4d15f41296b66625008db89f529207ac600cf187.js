@@ -1189,10 +1189,11 @@ This has many use cases relating to content authenticity but can also be applied
 `},{id:6,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="events">Events</h2>
 <p>The principal objects in the DataTrails platform are <em>Events</em>.
 These are the records that represent the collective 
-<a href="/platform/overview/core-concepts/#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of evidence contributed by all stakeholders about a particular thing.</p>
-<p>That &rsquo;thing&rsquo; really can represent anything: a file, a piece of data, a physical thing or even a business process.
+<a href="/platform/overview/core-concepts/#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of evidence contributed by all stakeholders about a particular <em>thing</em>.</p>
+<p>That <em>thing</em> can represent anything: a file, a piece of data, a physical thing or even a business process.
+All that&rsquo;s needed is an identifier of the <em>thing</em> to corelate across the Events recorded about the <em>thing</em>.
 As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it.
-If there are <em>moments that matter</em> they can be committed to the immutable audit log.</p>
+If there are <em>moments that matter</em> they can be committed to the DataTrails immutable audit log.</p>
 <p>What defines a moment that matters? It&rsquo;s all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger.
 Simply looking and knowing the current state of things isn&rsquo;t enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered.</p>
 <p>DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
@@ -1372,7 +1373,7 @@ This enables much greater flexibility and expressivity than traditional hierarch
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> Observe that there are 2 lists in the <code>filters</code> which concern different attributes.
-The effect of this is to say that an Asset matches the filters if it matches <em>at least one</em> entry from <em>every list</em>.
+The effect of this is to say that an Asset matches the filters if it matches <em>at least one</em> entry from *every list_.
 Or in other words, inner lists are <code>OR</code>, while outer lists are <code>AND</code>.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">Filters</span> <span class="err">=</span> <span class="p">[</span>
@@ -10418,7 +10419,7 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="assets-with-a-primary-image">Assets With a Primary Image</h3>
+<h3 id="primary-image">Primary Image</h3>
 <p>An Asset can have a primary image, displayed in the DataTrails Application.
 The image must first be uploaded with the 
 <a href="/developers/api-reference/blobs-api/">Blobs API</a>, with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.</p>
@@ -10426,9 +10427,14 @@ The image must first be uploaded with the
 <li>
 <p>Define the asset parameters, with the image information from the uploaded Blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>file.jpg
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/asset.json <span class="s">&lt;&lt;EOF
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>cat.jpg
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=cat.jpg<br>
+BLOB_HASH=h1234567h</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/asset.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;behaviours&#34;: [&#34;RecordEvidence&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
@@ -10437,7 +10443,7 @@ The image must first be uploaded with the
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;weight&#34;: &#34;3.6kg&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_primary_image&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_attribute_type&#34;: &#34;arc_attachment&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;blobs/$BLOB_ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;$BLOB_ID&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_alg&#34;: &#34;SHA256&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_value&#34;: &#34;$BLOB_HASH&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;arc_primary_image&#34;,
@@ -12563,7 +12569,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -12610,6 +12616,64 @@ Find the ASSET_ID with
 <a href="#fetch-events-for-a-specific-asset">Fetch Specific Events by Identity</a></p>
 </li>
 </ul>
+<h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
+<p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
+See 
+<a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
+<h3 id="asset-event-primary-image">Asset-Event Primary Image</h3>
+<p>Asset-Events can use the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a> to associate a primary image in the DataTrails Application.</p>
+<h4 id="primary-image-variables">Primary Image Variables</h4>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
+<blockquote class="note callout">
+    <div><strong></strong> NOTE: The <code>ASSET_ID</code> dependency will be removed with 
+<a href="/developers/api-reference/events-api/">Non-asset based Events (preview)</a></div>
+  </blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>&lt;file.ext&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=conformance.pdf<br>
+BLOB_HASH=h1234567hh</p>
+</li>
+<li>
+<p>Associate a Blob as the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_ID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>POST the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="adding-attachments">Adding Attachments</h3>
+<p>To associate an Attachment with an Asset-Event, see the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
 <p>There are two 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
@@ -12654,7 +12718,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -12734,7 +12798,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -12773,161 +12837,64 @@ Find the ASSET_ID with
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="adding-attachments">Adding Attachments</h3>
-<p>The following assumes that an attachment has already been uploaded to DataTrails using the 
-<a href="../blobs-api">Blob API</a>.</p>
-<p>This attachment uuid is generically referred to as:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-</span></span></code></pre></div><p>Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.</p>
-<ul>
-<li>
-<p>After uploading the content, use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to the Event.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;idp.synsation.io/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b@synsation.io&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Add the request to the Asset Record by POSTing it to the resource:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>The response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:13:21Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:15:02Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;idp.synsation.io/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b@synsation.io&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></li>
-</ul>
-<h3 id="event-record-retrieval">Event Record Retrieval</h3>
-<p>Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span>
+<h2 id="asset-event-record-retrieval">Asset Event Record Retrieval</h2>
+<p>Asset Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/a1234567-890a/events/<span class="nv">$EVENT_ID</span>
 </span></span></code></pre></div><p>If you do not know the Event’s identity you can fetch Event records using other information you do know.</p>
-<h4 id="fetch-all-events">Fetch All Events</h4>
+<h3 id="fetch-all-asset-events">Fetch All Asset Events</h3>
 <ul>
 <li>
-<p>To fetch all Event records, simply <code>GET</code> the Events resources:</p>
+<p>To fetch all Asset Event records, simply <code>GET</code> the Events resources:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-events-for-a-specific-asset">Fetch Events for a Specific Asset</h4>
+<h3 id="fetch-asset-events-for-a-specific-asset">Fetch Asset Events for a Specific Asset</h3>
 <ul>
 <li>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/</span><span class="nv">$ASSET_ID</span><span class="s2">/events?page_size=5&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/</span><span class="nv">$ASSET_ID</span><span class="s2">/events?page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-specific-events-by-identity">Fetch Specific Events by Identity</h4>
+<h3 id="fetch-specific-asset-events-by-identity">Fetch Specific Asset Events by Identity</h3>
 <ul>
 <li>
 <p>If you know the unique identity of the Asset and Event record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/assets/</span><span class="nv">$ASSET_ID</span><span class="s2">/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/</span><span class="nv">$ASSET_ID</span><span class="s2">/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-event-by-type">Fetch Event by Type</h4>
+<h3 id="fetch-asset-event-by-type">Fetch Asset Event by Type</h3>
 <ul>
 <li>
-<p>To fetch all Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
+<p>To fetch all Asset Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-event-by-asset-attribute">Fetch Event by Asset Attribute</h4>
+<h3 id="fetch-asset-event-by-asset-attribute">Fetch Asset Event by Asset Attribute</h3>
 <ul>
 <li>
-<p>To fetch all Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
+<p>To fetch all Asset Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-events-by-filtering-for-presence-of-a-field">Fetch Events by Filtering for Presence of a Field</h4>
+<h3 id="fetch-asset-events-by-filtering-for-presence-of-an-attribute">Fetch Asset Events by Filtering for Presence of an Attribute</h3>
 <ul>
 <li>
-<p>To fetch all Events with a field set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<p>To fetch all Asset Events with an Attribute set to any value, <code>GET</code> the Asset-Events resource and filter on most available attributes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*&amp;page_size=5&#34;</span> <span class="se">\\
@@ -12935,33 +12902,33 @@ Find the ASSET_ID with
 </span></span></code></pre></div><p>Returns all Events which have <code>arc_display_type</code> that is not empty.</p>
 </li>
 </ul>
-<h4 id="fetch-events-which-are-missing-a-field">Fetch Events Which are Missing a Field</h4>
+<h3 id="fetch-asset-events-which-are-missing-a-field">Fetch Asset Events Which are Missing a Field</h3>
 <ul>
 <li>
-<p>To fetch all Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<p>To fetch all Asset Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+</span></span></code></pre></div><p>Returns all Asset Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
 </li>
 </ul>
-<h4 id="fetch-events-by-minimum-confirmation-status">Fetch Events by Minimum Confirmation Status</h4>
+<h3 id="fetch-asset-events-by-minimum-confirmation-status">Fetch Asset Events by Minimum Confirmation Status</h3>
 <ul>
 <li>
-<p>To fetch all Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.</p>
+<p>To fetch all Asset Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 <li>
-<p>To fetch all Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
+<p>To fetch all Asset Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
+</span></span></code></pre></div><p>Returns all Asset Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
 </li>
 </ul>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
@@ -14649,19 +14616,14 @@ Find the ASSET_ID with
   </div>
 
 
-`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.io" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
+`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Attachments apply to 
+<a href="/developers/api-reference/asset-events-api/">Asset-Events</a>, and Asset-free 
+<a href="/developers/api-reference/events-api/">Events</a> (preview).
+There are subtle differences that are documented below.</div>
   </blockquote>
-<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.
-Events can also have a primary image associated with the event, providing feedback within the DataTrails application.</p>
-<p>The steps include:</p>
+<p>The steps to make an attachment include:</p>
 <ol>
 <li>Uploading content to the DataTrails 
 <a href="/developers/api-reference/blobs-api/">Blobs API</a>.</li>
@@ -14670,52 +14632,96 @@ Events can also have a primary image associated with the event, providing feedba
 <a href="/developers/api-reference/events-api/">Event</a></li>
 <li>Querying the Attachment, through an Asset or an Event</li>
 </ol>
-<h2 id="attachment-api-examples">Attachment API Examples</h2>
+<h3 id="asset-event-attachments">Asset-Event Attachments</h3>
+<p>Assets support attachments by creating an 
+<a href="/developers/api-reference/asset-events-api/">Asset-Event</a> with nested <code>arc_</code> 
+<a href="/glossary/reserved-attributes/">reserved attributes</a>.</p>
 <ul>
-<li>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-</li>
-<li>
-<p>Upload the content of the Attachment using the 
-<a href="/developers/api-reference/blobs-api/">Blobs API</a>.</p>
-</li>
+<li><code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code></li>
+<li><code>&quot;arc_blob_identity&quot;: &quot;blobs/b1234567-890b&quot;</code></li>
+<li><code>&quot;arc_blob_hash_alg&quot;: &quot;SHA256&quot;</code></li>
+<li><code>&quot;arc_blob_hash_value&quot;: &quot;h1234567h&quot;</code></li>
+<li><code>&quot;arc_file_name&quot;: &quot;conformance.pdf&quot;</code></li>
+<li><code>&quot;arc_display_name&quot;: &quot;Conformance Report&quot;</code></li>
 </ul>
-<h3 id="event-attachments">Event Attachments</h3>
+<p>An example of an Asset-event with two attachments:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a/events/e1234567-890e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance approved for version 1.6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b1234567-890b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;conformance.pdf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;security_report&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b890123-456b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h8901234h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;security-report.pdf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Security Report&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>In the above example, the name of the parent attribute (<code>&quot;conformance_report&quot;</code>) can be any value, providing a means to name multiple attachments within a single event, such as the additional <code>&quot;security_report&quot;</code> attachment.</p>
+<p>The DataTrails platform evaluates <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> to reference a DataTrails 
+<a href="/developers/api-reference/blobs-api/">Blob</a> based attachment.</p>
+<h2 id="create-an-asset-event-based-attachment">Create an Asset-Event Based Attachment</h2>
 <ul>
 <li>
-<p>To associate an existing Blob, set the <code>Asset_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code>:</p>
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Create a bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</li>
+<li>
+<a href="/developers/api-reference/assets-api/">Create an Asset</a> to associate the attachment.</li>
+<li>Upload the content of an Attachment using the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>.</li>
+</ul>
+<h3 id="asset-event-attachment-variables">Asset-Event Attachment Variables</h3>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>ASSET_ID</code>, <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
 <blockquote class="note callout">
-    <div><strong></strong> NOTE: The <code>ASSET_ID</code> dependency will be removed with Non-asset based Events</div>
+    <div><strong></strong> <p>The <code>BLOB_HASH</code> is required, as it creates integrity protection between the content uploaded through the Blobs API, and the integrity protected reference of the Attachment.
+Storing the hash in the attachment assures any tampering of the blob storage, including tampering within the DataTrails platform, would be evident.</p>
+<p>When retrieving the blob, the hash retrieved should be compared to the hash of the Attachment API to assure the content has not been tampered with.</p>
+</div>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
 </span></span><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>file.jpg
 </span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
-</span></span></code></pre></div></li>
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>conformance.pdf
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_HASH=h1234567h<br>
+BLOB_FILE=cat.jpg</p>
+</li>
 </ul>
-<h3 id="asset-attachments">Asset Attachments</h3>
-<p>Set the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to the Event.
-The name of the attribute (<code>&quot;conformance_report&quot;</code> in the following example), can be any value.
-The DataTrails platform evaluates <code>arc_attribute_type</code> within the attribute properties to understand it references a DataTrails Blob based attachment.</p>
+<h3 id="create-an-asset-event-attachment">Create an Asset-Event Attachment</h3>
 <ul>
 <li>
-<p>Create the event payload, referencing the Blob as an integrity protected Attachment:</p>
+<p>Create an event, referencing the Blob as an integrity protected Attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/event.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;operation&#34;: &#34;Record&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;behaviour&#34;: &#34;RecordEvidence&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;event_attributes&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_description&#34;: &#34;Safety conformance approved for version 1.6. See attached conformance report&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_evidence&#34;: &#34;DVA Conformance Report attached&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;conformance_report&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Cat-ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_description&#34;: &#34;Fydor, the cat on the scene&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;cat-id&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_attribute_type&#34;: &#34;arc_attachment&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_value&#34;: &#34;$BLOB_HASH&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;blobs/$BLOB_ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;$BLOB_ID&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_alg&#34;: &#34;SHA256&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_file_name&#34;: &#34;$BLOB_FILE&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;Conformance Report&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;Fydor&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">    }
 </span></span></span><span class="line"><span class="cl"><span class="s">  }
 </span></span></span><span class="line"><span class="cl"><span class="s">}
@@ -14727,105 +14733,57 @@ The DataTrails platform evaluates <code>arc_attribute_type</code> within the att
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx...xxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a/events/e1234567-890e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;file.jpg&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cat-id&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxx&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b1234567-890b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;cat.jpg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Fydor&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Cat-ID&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:14Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:14Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:16Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;...&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="event-primary-image">Event Primary Image</h3>
-<p>Events can use the same Blobs API to associate a primary image in the DataTrails Application.
-The same, or different blobs can be an attribute attachment and/or the primary image.</p>
+<h3 id="retrieve-an-asset-event-attachment">Retrieve an Asset-Event Attachment</h3>
 <ul>
 <li>
-<p>Associate a Blob as the Event Primary Image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+<p>When creating an attachment, an Asset-Event is created.
+In addition to the Asset_ID captured above, capture the Event_ID</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">EVENT_ID</span><span class="o">=</span>events/e1234567-890e
 </span></span></code></pre></div></li>
 <li>
-<p>POST the Event Primary Image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+<p>The <code>attachments/assets</code> Resource does not support <code>/blobs/</code> as part of the resource identifier.
+The <code>ATTACHMENT_ID</code> variable will parse the ID from the <code>$BLOB_ID</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ATTACHMENT_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">\${</span><span class="nv">BLOB_ID</span><span class="si">}</span> <span class="p">|</span> cut -d <span class="s1">&#39;/&#39;</span> -f 2<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="nv">$BLOB_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/<span class="nv">$ASSET_ID</span>/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="retrieve-metadata-about-an-asset-event-attachment">Retrieve Metadata About an Asset-Event Attachment</h3>
+<p>Metadata information includes the <code>scanned_status</code> of the attachment.
+Attachment scanning happens daily batches.</p>
+<ul>
+<li>
+<p>Issue a request as above with the suffix <code>/info</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/<span class="nv">$ASSET_ID</span>/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>/info <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
-</span></span></code></pre></div><h3 id="retrieve-a-specific-attachment-on-an-event">Retrieve a Specific Attachment on an Event</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
-</span></span><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
-</span></span></code></pre></div><h3 id="retrieve-information-about-a-specific-attachment">Retrieve Information About a Specific Attachment</h3>
-<p>It’s also possible to retrieve information about specific attachment using the Attachments API.</p>
-<p>This information includes the <code>scanned_status</code> of the attachment.
-Attachment scanning happens in batch, daily.</p>
-<p>To do so, simply issue a request as above with the suffix <code>/info</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/<span class="nv">$ATTACHMENT_ID</span>/info
-</span></span></code></pre></div><p>The response will include basic information about the attachment:</p>
+<p>The response will include basic information about the attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hash&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
@@ -14871,7 +14829,7 @@ Attachment scanning happens in batch, daily.</p>
 <li>
 <p>Query the newly created Event, with integrity protection:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
@@ -15950,39 +15908,40 @@ Attachment scanning happens in batch, daily.</p>
   </div>
 
 </p>
-`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
-<h2 id="blob-api-examples">Blob API Examples</h2>
-<p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
+`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
+<a href="/developers/api-reference/attachments-api/">attaching</a> them to 
+<a href="/developers/api-reference/assets-api/">Assets</a> and 
+<a href="/developers/api-reference/events-api/">Events (preview)</a>.</p>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
+    <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection using the blobs resource.
+Blobs must be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
 Take note of the Blob ID returned in the API response, it will be needed for use with Assets and Events.<br>
 For information on Attachments and how to implement them, please refer to 
 <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
   </blockquote>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-<h3 id="upload-a-blob">Upload a Blob</h3>
+<h2 id="blob-api-examples">Blob API Examples</h2>
+<ul>
+<li>Create the 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</li>
+</ul>
+<h3 id="reference-a-sample-file">Reference a Sample File</h3>
+<p>An attachment can be any type of file, from media files to code files.
+The sample uses Fyodor (cat.jpg), but the <code>BLOB_FILE</code> can be replaced with any content you desire:</p>
 <ul>
 <li>
-<p>Download a file, or select another file for upload:</p>
+<p>Download a picture of Fyodor, or select another file for upload:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/archivist/v2/attachments/publicassets/208c5282-750e-4302-86f8-eb751de89005/events/4161673f-efa4-4391-bf06-347edd53024e/dae5a430-7d2e-4b88-b753-c09bdcc48c33 <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o cat.jpg
 </span></span></code></pre></div></li>
+</ul>
+<h3 id="upload-a-blob">Upload a Blob</h3>
+<ul>
 <li>
 <p>Identify the file to upload:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>./cat.jpg
 </span></span></code></pre></div></li>
 <li>
-<p>Upload the blob stored at /path/to/file:</p>
+<p>Upload the blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
@@ -15993,33 +15952,41 @@ For information on Attachments and how to implement them, please refer to
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hash&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b123467-890b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;mime_type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">21779</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenantid&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T23:45:29Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_status&#34;</span><span class="p">:</span> <span class="s2">&#34;NOT_SCANNED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_bad_reason&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenantid&#34;</span><span class="p">:</span> <span class="s2">&#34;t1234567-890t&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T23:45:29Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="retrieve-a-blob">Retrieve a Blob</h3>
 <ul>
 <li>
-<p>Capture the Blob identity from the above POST:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+<p>Capture the Blob identity from the above POST.<br>
+Note, the <code>&lt;blob-id&gt;</code> combines <code>blobs/</code> and the value.<br>
+example:<code>&quot;identity&quot;: &quot;blobs/b123467-890b&quot;</code> becomes <code>BLOB_ID=blobs/b123467-890b</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>blobs/&lt;blob-id&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a specific Blob, downloading the <code>cat.jpg</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="s2">&#34;</span><span class="nv">$BLOB_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/blobs/<span class="nv">$BLOB_ID</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/<span class="nv">$BLOB_ID</span>
 </span></span></code></pre></div></li>
 </ul>
+<h3 id="finding-blobs">Finding Blobs</h3>
+<p>The Blobs API does not support a discovery or query API that lists all possible blobs.
+Blobs are discovered through their usage within the DataTrails platform, such as the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a> or the 
+<a href="/developers/api-reference/assets-api/#primary-image">Asset Primary Image</a>, 
+<a href="/developers/api-reference/asset-events-api/#asset-event-primary-image">Asset-event Primary Image</a>, or the 
+<a href="/developers/api-reference/events-api/#event-primary-image">Event (preview) Primary Image</a>.</p>
+<p>Through the above APIs, capture the value of the <code>&quot;arc_blob_identity&quot;</code>, nested below a named attribute with an <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code>, then use the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a> to get metadata about the attachment.</p>
 <h2 id="blobs-openapi-docs">Blobs OpenAPI Docs</h2>
 
  
@@ -18067,6 +18034,58 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
+<h3 id="datatrails-reserved-attributes-1">DataTrails Reserved Attributes</h3>
+<p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
+See 
+<a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
+<h3 id="event-primary-image">Event Primary Image</h3>
+<p>Events can use the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a> to associate a primary image in the DataTrails Application.</p>
+<h4 id="primary-image-variables">Primary Image Variables</h4>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>&lt;file.ext&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=conformance.pdf<br>
+BLOB_HASH=h1234567h</p>
+</li>
+<li>
+<p>Associate a Blob as the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_ID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>POST the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="adding-attachments">Adding Attachments</h3>
+<p>To associate an Attachment with an Event, see the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="event-record-retrieval">Event Record Retrieval</h3>
 <p>Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: <code>events/&lt;event-id&gt;</code></p>
 <blockquote class="note callout">
@@ -26228,10 +26247,11 @@ This has many use cases relating to content authenticity but can also be applied
 `}).add({id:6,href:"https://docs.datatrails.ai/platform/overview/advanced-concepts/",title:"Advanced Concepts",description:"DataTrails Advanced Concepts",content:`<h2 id="events">Events</h2>
 <p>The principal objects in the DataTrails platform are <em>Events</em>.
 These are the records that represent the collective 
-<a href="/platform/overview/core-concepts/#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of evidence contributed by all stakeholders about a particular thing.</p>
-<p>That &rsquo;thing&rsquo; really can represent anything: a file, a piece of data, a physical thing or even a business process.
+<a href="/platform/overview/core-concepts/#the-golden-thread">&lsquo;Golden Thread&rsquo;</a> of evidence contributed by all stakeholders about a particular <em>thing</em>.</p>
+<p>That <em>thing</em> can represent anything: a file, a piece of data, a physical thing or even a business process.
+All that&rsquo;s needed is an identifier of the <em>thing</em> to corelate across the Events recorded about the <em>thing</em>.
 As long as shared accountability needs to be traced and trustworthy, Events can be recorded about it.
-If there are <em>moments that matter</em> they can be committed to the immutable audit log.</p>
+If there are <em>moments that matter</em> they can be committed to the DataTrails immutable audit log.</p>
 <p>What defines a moment that matters? It&rsquo;s all about the use case: if you think you might need to prove something in a multi-party dispute later, chances are you can save a lot of time and stress by committing it to the ledger.
 Simply looking and knowing the current state of things isn&rsquo;t enough: sure, it has software version 3.0 now but when was that released? Before the major incident? After the major incident? This morning before the support call? By recording events into an immutable audit trail, questions relating to that fact can be answered.</p>
 <p>DataTrails ensures complete and tamper-proof lineage and provenance for all Asset attributes by enforcing a simple rule:
@@ -26411,7 +26431,7 @@ This enables much greater flexibility and expressivity than traditional hierarch
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span></code></pre></div><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> Observe that there are 2 lists in the <code>filters</code> which concern different attributes.
-The effect of this is to say that an Asset matches the filters if it matches <em>at least one</em> entry from <em>every list</em>.
+The effect of this is to say that an Asset matches the filters if it matches <em>at least one</em> entry from *every list_.
 Or in other words, inner lists are <code>OR</code>, while outer lists are <code>AND</code>.</p>
 <p>For example:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">Filters</span> <span class="err">=</span> <span class="p">[</span>
@@ -35457,7 +35477,7 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="assets-with-a-primary-image">Assets With a Primary Image</h3>
+<h3 id="primary-image">Primary Image</h3>
 <p>An Asset can have a primary image, displayed in the DataTrails Application.
 The image must first be uploaded with the 
 <a href="/developers/api-reference/blobs-api/">Blobs API</a>, with the BLOB_ID, BLOB_HASH and BLOB_FILE captured for uploading the asset.</p>
@@ -35465,9 +35485,14 @@ The image must first be uploaded with the
 <li>
 <p>Define the asset parameters, with the image information from the uploaded Blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>file.jpg
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/asset.json <span class="s">&lt;&lt;EOF
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>cat.jpg
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=cat.jpg<br>
+BLOB_HASH=h1234567h</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/asset.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;behaviours&#34;: [&#34;RecordEvidence&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
@@ -35476,7 +35501,7 @@ The image must first be uploaded with the
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;weight&#34;: &#34;3.6kg&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_primary_image&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_attribute_type&#34;: &#34;arc_attachment&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;blobs/$BLOB_ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;$BLOB_ID&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_alg&#34;: &#34;SHA256&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_value&#34;: &#34;$BLOB_HASH&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;arc_primary_image&#34;,
@@ -37602,7 +37627,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -37649,6 +37674,64 @@ Find the ASSET_ID with
 <a href="#fetch-events-for-a-specific-asset">Fetch Specific Events by Identity</a></p>
 </li>
 </ul>
+<h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
+<p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
+See 
+<a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
+<h3 id="asset-event-primary-image">Asset-Event Primary Image</h3>
+<p>Asset-Events can use the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a> to associate a primary image in the DataTrails Application.</p>
+<h4 id="primary-image-variables">Primary Image Variables</h4>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
+<blockquote class="note callout">
+    <div><strong></strong> NOTE: The <code>ASSET_ID</code> dependency will be removed with 
+<a href="/developers/api-reference/events-api/">Non-asset based Events (preview)</a></div>
+  </blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>&lt;file.ext&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=conformance.pdf<br>
+BLOB_HASH=h1234567hh</p>
+</li>
+<li>
+<p>Associate a Blob as the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_ID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>POST the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="adding-attachments">Adding Attachments</h3>
+<p>To associate an Attachment with an Asset-Event, see the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="document-profile-event-creation">Document Profile Event Creation</h3>
 <p>There are two 
 <a href="/developers/developer-patterns/document-profile/">Document Profile Events</a> that are available as part of the document lifecycle. These are to <code>publish</code> a new version and to <code>withdraw</code> the document from use.</p>
@@ -37693,7 +37776,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -37773,7 +37856,7 @@ Find the ASSET_ID with
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
@@ -37812,161 +37895,64 @@ Find the ASSET_ID with
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="adding-attachments">Adding Attachments</h3>
-<p>The following assumes that an attachment has already been uploaded to DataTrails using the 
-<a href="../blobs-api">Blob API</a>.</p>
-<p>This attachment uuid is generically referred to as:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-</span></span></code></pre></div><p>Each attachment has an associated hash value and the name of the hash algorithm used that you can also get from the Blob API response.</p>
-<ul>
-<li>
-<p>After uploading the content, use the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to the Event.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;photo.jpg&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;idp.synsation.io/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b@synsation.io&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Add the request to the Asset Record by POSTing it to the resource:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>The response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;safety_conformance.pdf&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:13:21Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T15:15:02Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;idp.synsation.io/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;phil.b@synsation.io&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;job.idp.server/1234&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;bob@job&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;COMMITTED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;0x07569&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div></li>
-</ul>
-<h3 id="event-record-retrieval">Event Record Retrieval</h3>
-<p>Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span>
+<h2 id="asset-event-record-retrieval">Asset Event Record Retrieval</h2>
+<p>Asset Event records in DataTrails are tokenized at creation time and referred to in all future API calls by a permanent unique identity of the form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">assets/a1234567-890a/events/<span class="nv">$EVENT_ID</span>
 </span></span></code></pre></div><p>If you do not know the Event’s identity you can fetch Event records using other information you do know.</p>
-<h4 id="fetch-all-events">Fetch All Events</h4>
+<h3 id="fetch-all-asset-events">Fetch All Asset Events</h3>
 <ul>
 <li>
-<p>To fetch all Event records, simply <code>GET</code> the Events resources:</p>
+<p>To fetch all Asset Event records, simply <code>GET</code> the Events resources:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-events-for-a-specific-asset">Fetch Events for a Specific Asset</h4>
+<h3 id="fetch-asset-events-for-a-specific-asset">Fetch Asset Events for a Specific Asset</h3>
 <ul>
 <li>
 <p>If you know the unique identity of the Asset record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/</span><span class="nv">$ASSET_ID</span><span class="s2">/events?page_size=5&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/</span><span class="nv">$ASSET_ID</span><span class="s2">/events?page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-specific-events-by-identity">Fetch Specific Events by Identity</h4>
+<h3 id="fetch-specific-asset-events-by-identity">Fetch Specific Asset Events by Identity</h3>
 <ul>
 <li>
 <p>If you know the unique identity of the Asset and Event record simply <code>GET</code> the resource:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/assets/</span><span class="nv">$ASSET_ID</span><span class="s2">/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivst/v2/</span><span class="nv">$ASSET_ID</span><span class="s2">/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-event-by-type">Fetch Event by Type</h4>
+<h3 id="fetch-asset-event-by-type">Fetch Asset Event by Type</h3>
 <ul>
 <li>
-<p>To fetch all Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
+<p>To fetch all Asset Events of a specific type, <code>GET</code> the Events resource and filter on <code>arc_display_type</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=Software%20Package%20Release&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-event-by-asset-attribute">Fetch Event by Asset Attribute</h4>
+<h3 id="fetch-asset-event-by-asset-attribute">Fetch Asset Event by Asset Attribute</h3>
 <ul>
 <li>
-<p>To fetch all Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
+<p>To fetch all Asset Events of a specific Asset attribute, <code>GET</code> the Events resource and filter on <code>asset_attributes</code> at the Asset level:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?asset_attributes.document_status=Published&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h4 id="fetch-events-by-filtering-for-presence-of-a-field">Fetch Events by Filtering for Presence of a Field</h4>
+<h3 id="fetch-asset-events-by-filtering-for-presence-of-an-attribute">Fetch Asset Events by Filtering for Presence of an Attribute</h3>
 <ul>
 <li>
-<p>To fetch all Events with a field set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<p>To fetch all Asset Events with an Attribute set to any value, <code>GET</code> the Asset-Events resource and filter on most available attributes.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type=*&amp;page_size=5&#34;</span> <span class="se">\\
@@ -37974,33 +37960,33 @@ Find the ASSET_ID with
 </span></span></code></pre></div><p>Returns all Events which have <code>arc_display_type</code> that is not empty.</p>
 </li>
 </ul>
-<h4 id="fetch-events-which-are-missing-a-field">Fetch Events Which are Missing a Field</h4>
+<h3 id="fetch-asset-events-which-are-missing-a-field">Fetch Asset Events Which are Missing a Field</h3>
 <ul>
 <li>
-<p>To fetch all Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields. For example:</p>
+<p>To fetch all Asset Events with a field which is not set to any value, <code>GET</code> the Events resource and filter on most available fields.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?event_attributes.arc_display_type!=*&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>Returns all Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
+</span></span></code></pre></div><p>Returns all Asset Events which do not have <code>arc_display_type</code> or in which <code>arc_display_type</code> is empty.</p>
 </li>
 </ul>
-<h4 id="fetch-events-by-minimum-confirmation-status">Fetch Events by Minimum Confirmation Status</h4>
+<h3 id="fetch-asset-events-by-minimum-confirmation-status">Fetch Asset Events by Minimum Confirmation Status</h3>
 <ul>
 <li>
-<p>To fetch all Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.</p>
+<p>To fetch all Asset Events with a specified confirmation status or higher, <code>GET</code> the Events resource and filter on <code>minimum_trust</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=COMMITTED&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 <li>
-<p>To fetch all Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
+<p>To fetch all Asset Events which have a <code>confirmation_status</code> level of COMMITTED, CONFIRMED or UNEQUIVOCAL.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v2/assets/-/events?minimum_trust=CONFIRMED&amp;page_size=5&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
-</span></span></code></pre></div><p>Returns all Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
+</span></span></code></pre></div><p>Returns all Asset Events which have a <code>confirmation_status</code> level of CONFIRMED or UNEQUIVOCAL.</p>
 </li>
 </ul>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
@@ -39688,19 +39674,14 @@ Find the ASSET_ID with
   </div>
 
 
-`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.io" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
+`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
+<blockquote class="note callout">
+    <div><strong></strong> Attachments apply to 
+<a href="/developers/api-reference/asset-events-api/">Asset-Events</a>, and Asset-free 
+<a href="/developers/api-reference/events-api/">Events</a> (preview).
+There are subtle differences that are documented below.</div>
   </blockquote>
-<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.
-Events can also have a primary image associated with the event, providing feedback within the DataTrails application.</p>
-<p>The steps include:</p>
+<p>The steps to make an attachment include:</p>
 <ol>
 <li>Uploading content to the DataTrails 
 <a href="/developers/api-reference/blobs-api/">Blobs API</a>.</li>
@@ -39709,52 +39690,96 @@ Events can also have a primary image associated with the event, providing feedba
 <a href="/developers/api-reference/events-api/">Event</a></li>
 <li>Querying the Attachment, through an Asset or an Event</li>
 </ol>
-<h2 id="attachment-api-examples">Attachment API Examples</h2>
+<h3 id="asset-event-attachments">Asset-Event Attachments</h3>
+<p>Assets support attachments by creating an 
+<a href="/developers/api-reference/asset-events-api/">Asset-Event</a> with nested <code>arc_</code> 
+<a href="/glossary/reserved-attributes/">reserved attributes</a>.</p>
 <ul>
-<li>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-</li>
-<li>
-<p>Upload the content of the Attachment using the 
-<a href="/developers/api-reference/blobs-api/">Blobs API</a>.</p>
-</li>
+<li><code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code></li>
+<li><code>&quot;arc_blob_identity&quot;: &quot;blobs/b1234567-890b&quot;</code></li>
+<li><code>&quot;arc_blob_hash_alg&quot;: &quot;SHA256&quot;</code></li>
+<li><code>&quot;arc_blob_hash_value&quot;: &quot;h1234567h&quot;</code></li>
+<li><code>&quot;arc_file_name&quot;: &quot;conformance.pdf&quot;</code></li>
+<li><code>&quot;arc_display_name&quot;: &quot;Conformance Report&quot;</code></li>
 </ul>
-<h3 id="event-attachments">Event Attachments</h3>
+<p>An example of an Asset-event with two attachments:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a/events/e1234567-890e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance approved for version 1.6&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b1234567-890b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;conformance.pdf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;security_report&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b890123-456b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h8901234h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;security-report.pdf&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Security Report&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;...&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></div><p>In the above example, the name of the parent attribute (<code>&quot;conformance_report&quot;</code>) can be any value, providing a means to name multiple attachments within a single event, such as the additional <code>&quot;security_report&quot;</code> attachment.</p>
+<p>The DataTrails platform evaluates <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> to reference a DataTrails 
+<a href="/developers/api-reference/blobs-api/">Blob</a> based attachment.</p>
+<h2 id="create-an-asset-event-based-attachment">Create an Asset-Event Based Attachment</h2>
 <ul>
 <li>
-<p>To associate an existing Blob, set the <code>Asset_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code>:</p>
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">Create a bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</li>
+<li>
+<a href="/developers/api-reference/assets-api/">Create an Asset</a> to associate the attachment.</li>
+<li>Upload the content of an Attachment using the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>.</li>
+</ul>
+<h3 id="asset-event-attachment-variables">Asset-Event Attachment Variables</h3>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>ASSET_ID</code>, <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
 <blockquote class="note callout">
-    <div><strong></strong> NOTE: The <code>ASSET_ID</code> dependency will be removed with Non-asset based Events</div>
+    <div><strong></strong> <p>The <code>BLOB_HASH</code> is required, as it creates integrity protection between the content uploaded through the Blobs API, and the integrity protected reference of the Attachment.
+Storing the hash in the attachment assures any tampering of the blob storage, including tampering within the DataTrails platform, would be evident.</p>
+<p>When retrieving the blob, the hash retrieved should be compared to the hash of the Attachment API to assure the content has not been tampered with.</p>
+</div>
   </blockquote>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
 </span></span><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
-</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>file.jpg
 </span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
-</span></span></code></pre></div></li>
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>conformance.pdf
+</span></span></code></pre></div><p>Example:</p>
+<p>ASSET_ID=assets/a1234567-890a<br>
+BLOB_ID=blobs/b1234567-890b<br>
+BLOB_HASH=h1234567h<br>
+BLOB_FILE=cat.jpg</p>
+</li>
 </ul>
-<h3 id="asset-attachments">Asset Attachments</h3>
-<p>Set the <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code> key-value pair within a dictionary of blob information to add the attachment to the Event.
-The name of the attribute (<code>&quot;conformance_report&quot;</code> in the following example), can be any value.
-The DataTrails platform evaluates <code>arc_attribute_type</code> within the attribute properties to understand it references a DataTrails Blob based attachment.</p>
+<h3 id="create-an-asset-event-attachment">Create an Asset-Event Attachment</h3>
 <ul>
 <li>
-<p>Create the event payload, referencing the Blob as an integrity protected Attachment:</p>
+<p>Create an event, referencing the Blob as an integrity protected Attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/event.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;operation&#34;: &#34;Record&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;behaviour&#34;: &#34;RecordEvidence&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;event_attributes&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_description&#34;: &#34;Safety conformance approved for version 1.6. See attached conformance report&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_evidence&#34;: &#34;DVA Conformance Report attached&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;conformance_report&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Cat-ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_description&#34;: &#34;Fydor, the cat on the scene&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;cat-id&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_attribute_type&#34;: &#34;arc_attachment&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_value&#34;: &#34;$BLOB_HASH&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;blobs/$BLOB_ID&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_identity&#34;: &#34;$BLOB_ID&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_blob_hash_alg&#34;: &#34;SHA256&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_file_name&#34;: &#34;$BLOB_FILE&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;Conformance Report&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      &#34;arc_display_name&#34;: &#34;Fydor&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">    }
 </span></span></span><span class="line"><span class="cl"><span class="s">  }
 </span></span></span><span class="line"><span class="cl"><span class="s">}
@@ -39766,105 +39791,57 @@ The DataTrails platform evaluates <code>arc_attribute_type</code> within the att
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="p">|</span> jq
 </span></span></code></pre></div><p>The response:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx...xxxxxxx/events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a/events/e1234567-890e&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;assets/a1234567-890a&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6. See attached conformance report&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_evidence&#34;</span><span class="p">:</span> <span class="s2">&#34;DVA Conformance Report attached&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;conformance_report&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;file.jpg&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Conformance Report&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_description&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety conformance approved for version 1.6.&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cat-id&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxx&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b1234567-890b&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;cat.jpg&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Fydor&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Cat-ID&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;asset_attributes&#34;</span><span class="p">:</span> <span class="p">{},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_declared&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:14Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:14Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_committed&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-28T01:50:16Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_declared&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;principal_accepted&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;issuer&#34;</span><span class="p">:</span> <span class="s2">&#34;https://app.datatrails.ai/appidpv1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;subject&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-integration&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;PENDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_id&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;block_number&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;transaction_index&#34;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;from&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenant_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;merklelog_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;commit&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;confirm&#34;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;unequivocal&#34;</span><span class="p">:</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;...&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="event-primary-image">Event Primary Image</h3>
-<p>Events can use the same Blobs API to associate a primary image in the DataTrails Application.
-The same, or different blobs can be an attribute attachment and/or the primary image.</p>
+<h3 id="retrieve-an-asset-event-attachment">Retrieve an Asset-Event Attachment</h3>
 <ul>
 <li>
-<p>Associate a Blob as the Event Primary Image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;operation&#34;</span><span class="p">:</span> <span class="s2">&#34;Record&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;behaviour&#34;</span><span class="p">:</span> <span class="s2">&#34;RecordEvidence&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/$BLOB_ID&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+<p>When creating an attachment, an Asset-Event is created.
+In addition to the Asset_ID captured above, capture the Event_ID</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">EVENT_ID</span><span class="o">=</span>events/e1234567-890e
 </span></span></code></pre></div></li>
 <li>
-<p>POST the Event Primary Image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events <span class="se">\\
+<p>The <code>attachments/assets</code> Resource does not support <code>/blobs/</code> as part of the resource identifier.
+The <code>ATTACHMENT_ID</code> variable will parse the ID from the <code>$BLOB_ID</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ATTACHMENT_ID</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="si">\${</span><span class="nv">BLOB_ID</span><span class="si">}</span> <span class="p">|</span> cut -d <span class="s1">&#39;/&#39;</span> -f 2<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="nv">$BLOB_FILE</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/<span class="nv">$ASSET_ID</span>/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="retrieve-metadata-about-an-asset-event-attachment">Retrieve Metadata About an Asset-Event Attachment</h3>
+<p>Metadata information includes the <code>scanned_status</code> of the attachment.
+Attachment scanning happens daily batches.</p>
+<ul>
+<li>
+<p>Issue a request as above with the suffix <code>/info</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/<span class="nv">$ASSET_ID</span>/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>/info <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
-<h3 id="retrieve-a-specific-attachment-on-an-asset">Retrieve a Specific Attachment on an Asset</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
-</span></span></code></pre></div><h3 id="retrieve-a-specific-attachment-on-an-event">Retrieve a Specific Attachment on an Event</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ASSET_ID</span><span class="o">=</span>&lt;asset-id&gt;
-</span></span><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span>/<span class="nv">$ATTACHMENT_ID</span>
-</span></span></code></pre></div><h3 id="retrieve-information-about-a-specific-attachment">Retrieve Information About a Specific Attachment</h3>
-<p>It’s also possible to retrieve information about specific attachment using the Attachments API.</p>
-<p>This information includes the <code>scanned_status</code> of the attachment.
-Attachment scanning happens in batch, daily.</p>
-<p>To do so, simply issue a request as above with the suffix <code>/info</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/attachments/assets/<span class="nv">$ASSET_ID</span>/<span class="nv">$ATTACHMENT_ID</span>/info
-</span></span></code></pre></div><p>The response will include basic information about the attachment:</p>
+<p>The response will include basic information about the attachment:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hash&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
@@ -39910,7 +39887,7 @@ Attachment scanning happens in batch, daily.</p>
 <li>
 <p>Query the newly created Event, with integrity protection:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/assets/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v2/<span class="nv">$ASSET_ID</span>/events/<span class="nv">$EVENT_ID</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
@@ -40989,39 +40966,40 @@ Attachment scanning happens in batch, daily.</p>
   </div>
 
 </p>
-`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
-<h2 id="blob-api-examples">Blob API Examples</h2>
-<p>The Blobs API enables you to upload Binary Large OBjects (BLOBs) such as documents, process artifacts and images to attach to your evidence ledger.</p>
+`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
+<a href="/developers/api-reference/attachments-api/">attaching</a> them to 
+<a href="/developers/api-reference/assets-api/">Assets</a> and 
+<a href="/developers/api-reference/events-api/">Events (preview)</a>.</p>
 <blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection in their own right: they must always be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
+    <div><strong></strong> <strong>Note:</strong> Blobs cannot be searched or listed as a collection using the blobs resource.
+Blobs must be associated with an Asset or Event through an Attachment Attribute and can only be downloaded by users with appropriate access rights to that Attachment.
 Take note of the Blob ID returned in the API response, it will be needed for use with Assets and Events.<br>
 For information on Attachments and how to implement them, please refer to 
 <a href="../events-api/#adding-attachments">the Events API Reference</a>.</div>
   </blockquote>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-<h3 id="upload-a-blob">Upload a Blob</h3>
+<h2 id="blob-api-examples">Blob API Examples</h2>
+<ul>
+<li>Create the 
+<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</li>
+</ul>
+<h3 id="reference-a-sample-file">Reference a Sample File</h3>
+<p>An attachment can be any type of file, from media files to code files.
+The sample uses Fyodor (cat.jpg), but the <code>BLOB_FILE</code> can be replaced with any content you desire:</p>
 <ul>
 <li>
-<p>Download a file, or select another file for upload:</p>
+<p>Download a picture of Fyodor, or select another file for upload:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl https://app.datatrails.ai/archivist/v2/attachments/publicassets/208c5282-750e-4302-86f8-eb751de89005/events/4161673f-efa4-4391-bf06-347edd53024e/dae5a430-7d2e-4b88-b753-c09bdcc48c33 <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o cat.jpg
 </span></span></code></pre></div></li>
+</ul>
+<h3 id="upload-a-blob">Upload a Blob</h3>
+<ul>
 <li>
 <p>Identify the file to upload:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>./cat.jpg
 </span></span></code></pre></div></li>
 <li>
-<p>Upload the blob stored at /path/to/file:</p>
+<p>Upload the blob:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
@@ -41032,33 +41010,41 @@ For information on Attachments and how to implement them, please refer to
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;hash&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;value&#34;</span><span class="p">:</span> <span class="s2">&#34;h1234567h&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;blobs/b123467-890b&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;mime_type&#34;</span><span class="p">:</span> <span class="s2">&#34;image/jpeg&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;size&#34;</span><span class="p">:</span> <span class="mi">21779</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenantid&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T23:45:29Z&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_status&#34;</span><span class="p">:</span> <span class="s2">&#34;NOT_SCANNED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_bad_reason&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scanned_timestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;tenantid&#34;</span><span class="p">:</span> <span class="s2">&#34;t1234567-890t&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;timestamp_accepted&#34;</span><span class="p">:</span> <span class="s2">&#34;2025-01-27T23:45:29Z&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="retrieve-a-blob">Retrieve a Blob</h3>
 <ul>
 <li>
-<p>Capture the Blob identity from the above POST:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+<p>Capture the Blob identity from the above POST.<br>
+Note, the <code>&lt;blob-id&gt;</code> combines <code>blobs/</code> and the value.<br>
+example:<code>&quot;identity&quot;: &quot;blobs/b123467-890b&quot;</code> becomes <code>BLOB_ID=blobs/b123467-890b</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>blobs/&lt;blob-id&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>Retrieve a specific Blob, downloading the <code>cat.jpg</code> file:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;content_type=image/jpg&#34;</span> <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --output <span class="s2">&#34;</span><span class="nv">$BLOB_FILE</span><span class="s2">&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/blobs/<span class="nv">$BLOB_ID</span>
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/<span class="nv">$BLOB_ID</span>
 </span></span></code></pre></div></li>
 </ul>
+<h3 id="finding-blobs">Finding Blobs</h3>
+<p>The Blobs API does not support a discovery or query API that lists all possible blobs.
+Blobs are discovered through their usage within the DataTrails platform, such as the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a> or the 
+<a href="/developers/api-reference/assets-api/#primary-image">Asset Primary Image</a>, 
+<a href="/developers/api-reference/asset-events-api/#asset-event-primary-image">Asset-event Primary Image</a>, or the 
+<a href="/developers/api-reference/events-api/#event-primary-image">Event (preview) Primary Image</a>.</p>
+<p>Through the above APIs, capture the value of the <code>&quot;arc_blob_identity&quot;</code>, nested below a named attribute with an <code>&quot;arc_attribute_type&quot;: &quot;arc_attachment&quot;</code>, then use the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a> to get metadata about the attachment.</p>
 <h2 id="blobs-openapi-docs">Blobs OpenAPI Docs</h2>
 
  
@@ -43106,6 +43092,58 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 </ul>
+<h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
+<h3 id="datatrails-reserved-attributes-1">DataTrails Reserved Attributes</h3>
+<p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
+See 
+<a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
+<h3 id="event-primary-image">Event Primary Image</h3>
+<p>Events can use the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a> to associate a primary image in the DataTrails Application.</p>
+<h4 id="primary-image-variables">Primary Image Variables</h4>
+<ul>
+<li>
+<p>To associate an existing Blob, set the <code>BLOB_ID</code>, <code>BLOB_HASH</code> value and <code>BLOB_FILE</code> from the 
+<a href="/developers/api-reference/blobs-api/">Blobs API</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">BLOB_ID</span><span class="o">=</span>&lt;blob-id&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_FILE</span><span class="o">=</span>&lt;file.ext&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">BLOB_HASH</span><span class="o">=</span>&lt;hash-value&gt;
+</span></span></code></pre></div><p>Example:</p>
+<p>BLOB_ID=blobs/b1234567-890b<br>
+BLOB_FILE=conformance.pdf<br>
+BLOB_HASH=h1234567h</p>
+</li>
+<li>
+<p>Associate a Blob as the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_primary_image&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_value&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_HASH&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_ID&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>POST the Event Primary Image:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/event.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/events <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="adding-attachments">Adding Attachments</h3>
+<p>To associate an Attachment with an Event, see the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="event-record-retrieval">Event Record Retrieval</h3>
 <p>Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: <code>events/&lt;event-id&gt;</code></p>
 <blockquote class="note callout">

@@ -6,12 +6,12 @@ date: 2022-10-19T07:39:44-07:00
 lastmod: 2022-10-19T07:39:44-07:00
 draft: false
 images: []
-menu: 
+menu:
   glossary:
     parent: "glossary"
 weight: 51
 toc: true
-aliases: 
+aliases:
   - /docs/glossary/common-rkvst-terms/
 ---
 
@@ -30,7 +30,6 @@ Select a term for more information.
 | [audit trail](https://en.wiktionary.org/wiki/audit_trail) | a formal record of activities (Events) that are made against a piece of data (an Asset)|
 | [bearer token](/platform/overview/creating-an-asset/#creating-an-asset)        | access token for DataTrails API; created using Custom Integration credentials                                               |
 | [behaviors](/platform/overview/creating-an-asset/#creating-an-asset)          | detail what class of events in an Asset lifecycle you might wish to record                                           |
-| [compliance policy](/platform/administration/compliance-policies/)   | user-defined rule sets that Assets can be tested against
 | [custom integration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/#creating-an-app-registration)    | client ID and client secret credentials that are used to access the DataTrails API. Formerly known as an App Registration                                                             |
 | [document hash](/developers/developer-patterns/document-profile/) | cryptographic 'fingerprint' of a file or document that proves it is unmodified|
 | [document status](/developers/developer-patterns/document-profile/) | when dealing with Document profile Assets in DataTrails you can attach certain lifecycle stage metadata to them such as 'Draft', 'Published', or 'Withdrawn' in order to properly convey whether or not someone checking provenance of the document should rely on a particular version|
@@ -42,7 +41,7 @@ Select a term for more information.
 | [leaf](/developers/developer-patterns/navigating-merklelogs/) | a leaf is the term used for a node in the Merkle tree. It is labeled with a hash of the data block that it contains. Each leaf is stored in a massif |
 | [linked folder](/platform/administration/dropbox-integration/#editing-the-list-of-linked-folders) | a folder that has been selected to be linked to DataTrails during the configuration of an Integration|
 | [massif](/developers/developer-patterns/navigating-merklelogs/) | the Merkle log is divided into massifs each of which stores the verification data for a fixed number of leaves  |
-| [Merkle log](/developers/developer-patterns/navigating-merklelogs/) | the Merkle log is the name for the verifiable data structure that is used by DataTrails to store the Event transaction data. It is append only and is based on a type of Merkle tree that is built from multiple massifs |  
+| [Merkle log](/developers/developer-patterns/navigating-merklelogs/) | the Merkle log is the name for the verifiable data structure that is used by DataTrails to store the Event transaction data. It is append only and is based on a type of Merkle tree that is built from multiple massifs |
 | [Merkle Mountain Range (MMR)](/developers/developer-patterns/navigating-merklelogs/) | As the massifs grow and multiply, the structure is called a Merkle Mountain Range (MMR) representing the multiple peaks. Its key characteristic is that previously added values, and also the organization of those values, does not change as new entries are appended to the log |
 | [metadata](https://en.wiktionary.org/wiki/metadata) | structured information about a file. In DataTrails this metadata is recorded in the Asset and Event attributes|
 | [OBAC](/platform/administration/sharing-access-outside-your-tenant/)                | Organization-Based Access Control; policy allows sharing with the Administrator of another organization                  |

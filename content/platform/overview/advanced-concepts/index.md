@@ -6,12 +6,12 @@ date: 2021-06-14T10:57:58+01:00
 lastmod: 2024-03-19T10:57:58+01:00
 draft: false
 images: []
-menu: 
+menu:
   platform:
     parent: "overview"
 weight: 32
 toc: true
-aliases: 
+aliases:
   - /docs/overview/advanced-concepts/
 ---
 
@@ -62,7 +62,7 @@ See the [Templates](/developers/templates/) section for domain specific examples
 ### Deleting Assets (untracking)
 
 An essential value of storing evidence in DataTrails is that data is always available to stakeholders and cannot be shredded or manipulated later.
-Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).
+Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches (for instance as a result of decommissioning or disposal of the corresponding physical asset).
 
 To accommodate this need DataTrails separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting).
 When for any reason it becomes desirable to remove an Asset, the Asset owner can make it *untracked* so that it does not appear in lists or searches.
@@ -195,14 +195,14 @@ A simple Access Policy may look like this:
           // Grant access to partner organizations by Subject Identity
           "subjects": [
             // The Subject Identity for a known partner eg ACME Co
-            "subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
+            "subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ],
 
           // Grant access to local users by attribute (eg email address)
-          "user_attributes": [ 
-            { "or": [ "email=bill@synsation.com" ] } 
+          "user_attributes": [
+            { "or": [ "email=bill@synsation.com" ] }
           ],
-          
+
           // Select which Asset attributes these users can see
           "asset_attributes_read": [
             "arc_display_name",

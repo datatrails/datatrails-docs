@@ -89,9 +89,11 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 
 Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: `events/<event-id>`
 
-#### Fetch Events by Identity
+## Fetch Events by Identity
 
-- Replace the `<event-id>` below, using the event-id from the created event above: `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:
+- Replace the `<event-id>` below, using the event-id from the created event above.  
+  `"identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`:  
+  Note, "`events/`" must be included as it's part of the resource name:
 
   ```bash
   EVENT_ID=<event-id>
@@ -102,129 +104,124 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
   ```bash
   curl -X GET \
       -H "@$HOME/.datatrails/bearer-token.txt" \
-      "https://app.datatrails.ai/archivist/v1/events/$EVENT_ID" | jq
+      "https://app.datatrails.ai/archivist/v1/$EVENT_ID" | jq
   ```
 
-#### Fetch Multiple Events
+## Filtering and Paging Events
 
-- To fetch multiple events use a search document and post it to Events Search endpoint
+- To fetch multiple events, use a search document, posting to the `/events/search` endpoint  
   Search document has following form:
 
   ```bash
   cat > /tmp/search.json <<EOF
   {
     "filter": "",
-    "top": 10,
+    "top": 20,
     "skip": 0
   }
   EOF
   ```
 
-{{< note >}}
-**Note:** The current preview does not support filtering of  Events.
-Filtering across event attributes and trails are coming in a future preview.
-{{< /note >}}
+  where:  
+  `filter` = attribute name/value pairs  
+  `top` = number of results to return (max. 50) and  
+  `skip` = how many results to skip over before returning set of results
 
-  where top indicates number of results to return (max. 50) and skip indicates how many results to skip over before returning set of results.
+  {{< note >}}
+  **Note:** The current preview does not support filtering of Events.
+  Filtering across event attributes and trails are coming in a future preview.
+  {{< /note >}}
 
-  Response will be a list of events matching above criteria:
+  - Post `search.json` to the `/search` endpoint:
 
-  ```json
-  {
-    "events": [
-      {
-        "identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "attributes": {
-          "inspector": "Clouseau",
-          "arc_display_type": "Safety Conformance",
-          "Safety Rating": "90"
+    ```bash
+    curl -X POST \
+        -H "@$HOME/.datatrails/bearer-token.txt" \
+        -d "@/tmp/search.json" \
+        "https://app.datatrails.ai/archivist/v1/events/search" \
+        | jq
+    ```
+
+  - The response will include a list of events matching above criteria:
+
+    ```json
+    {
+      "events": [
+        {
+          "identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "attributes": {
+            "inspector": "Clouseau",
+            "arc_display_type": "Safety Conformance",
+            "Safety Rating": "90"
+          },
+          "trails": [
+            "Safety Conformance",
+            "Clouseau"
+          ],
+          "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "created_at": 1736421833577,
+          "confirmation_status": "STORED",
+          "merklelog_commit": {
+            "index": "0",
+            "idtimestamp": ""
+          }
         },
-        "trails": [
-          "Safety Conformance",
-          "Clouseau"
-        ],
-        "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "created_at": 1736421833577,
-        "confirmation_status": "STORED",
-        "merklelog_commit": {
-          "index": "0",
-          "idtimestamp": ""
+        {
+          "identity": "events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
+          "attributes": {
+            "inspector": "Clouseau",
+            "arc_display_type": "Safety Conformance",
+            "Safety Rating": "99"
+          },
+          "trails": [
+            "Safety Conformance",
+            "Clouseau"
+          ],
+          "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+          "created_at": 1736421873579,
+          "confirmation_status": "STORED",
+          "merklelog_commit": {
+            "index": "0",
+            "idtimestamp": ""
+          }
         }
-      },
-      {
-        "identity": "events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
-        "attributes": {
-          "inspector": "Clouseau",
-          "arc_display_type": "Safety Conformance",
-          "Safety Rating": "99"
-        },
-        "trails": [
-          "Safety Conformance",
-          "Clouseau"
-        ],
-        "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "created_at": 1736421873579,
-        "confirmation_status": "STORED",
-        "merklelog_commit": {
-          "index": "0",
-          "idtimestamp": ""
-        }
-      }
-    ],
-  }
-  ```
-  
-  Use `top` and `skip` alongside `x-total-count` response header to navigate results. If sum of `skip` and number of results in response is less than the count of all results (this will be returned in `x-total-count` response header) there is more results to retrieve, to get next set of results sImply re-issue `/search` request with skip increased by number of results in current response.
+      ]
+    }
+    ```
 
-- To fetch all Event records, simply create search document and save to a file `search.json`:
+  ### Fetch Paged Results
+
+  Use `top` and `skip` alongside `x-total-count` response header to navigate results.
+  If sum of `skip` and number of results in response is less than the count of all results (`x-total-count` in the response header) there are more results to retrieve.
+  To get the next set of results, re-issue the `/search` request with `skip` increased by number of results in current response.
+
+  If `x-total-count` response header has value greater than 2 (as indicated by value of `top` in `search.json`) modify `search.json` to the following:
 
   ```bash
   cat > /tmp/search.json <<EOF
   {
     "filter": "",
-    "top": 10,
-    "skip": 0,
-  }
+    "top": 2,
+    "skip": 2
   EOF
   ```
 
-  Then `POST` `search.json` to the Search endpoint:
+  - Post to the `/events/search/` endpoint to retrieve another page of results, repeating this process until `skip` + number or results in the response is equal to `x-total-count`.
 
-  ```bash
-  curl -X POST \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
-      -d /tmp/search.json \
-      "https://app.datatrails.ai/archivist/v1/events/search" \
-      | jq
-  ```
-
-  If `x-total-count` response header has value greater than 10 (as indicated by value of `top` in `search.json`) modify `search.json` to the following:
-
-  ```bash
-  cat > /tmp/search.json <<EOF
-  {
-    "filter": "",
-    "top": 10,
-    "skip": 10,
-  EOF
-  ```
-
-  and `POST` to the same endpoint again to retrieve second page of results, and repeat this process until `skip` + number or results in response is equal `x-total-count`.
-
-  ```bash
-  curl -X POST \
-      -H "@$HOME/.datatrails/bearer-token.txt" \
-      -d /tmp/search.json \
-      "https://app.datatrails.ai/archivist/v1/events/search" \
-      | jq
-  ```
-
-## Events OpenAPI Docs
-
-{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/events.swagger.json" >}}
+    ```bash
+    curl -X POST \
+        -H "@$HOME/.datatrails/bearer-token.txt" \
+        -d /tmp/search.json \
+        "https://app.datatrails.ai/archivist/v1/events/search" \
+        | jq
+    ```
 
 ## Integrity Protecting Content
 
 Integrity protected content can be hashed within an Event using the [Attachments API](/developers/api-reference/attachments-api/).
+
+## Events OpenAPI Docs
+
+{{< openapi url="https://raw.githubusercontent.com/datatrails/datatrails-openapi/main/doc/events.swagger.json" >}}

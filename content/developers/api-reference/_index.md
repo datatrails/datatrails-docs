@@ -20,7 +20,6 @@ aliases:
       <a href="/developers/api-reference/asset-events-api/">Asset-Events API &rarr;</a><br>
       <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
       <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
-      <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>

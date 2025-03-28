@@ -6,12 +6,12 @@ date: 2021-06-09T11:39:03+01:00
 lastmod: 2021-06-09T11:39:03+01:00
 draft: false
 images: []
-menu: 
+menu:
   developers:
     parent: "yaml-reference"
 weight: 203
 toc: true
-aliases: 
+aliases:
   - /docs/yaml-reference/events/
 ---
 
@@ -47,7 +47,6 @@ steps:
       arc_description: Opened Courts of Justice Paris Front Door
       arc_display_type: open
       arc_evidence: ARQC 0x12345678
-      arc_correlation_value: be5c8061-236d-4400-a625-b74a34e5801b
       wavestone_door_name: Courts of Justice Paris Front Door
       wavestone_evt_type: door_open
     location:

@@ -6,12 +6,12 @@ date: 2022-10-19T07:39:44-07:00
 lastmod: 2022-10-19T07:39:44-07:00
 draft: false
 images: []
-menu: 
+menu:
   glossary:
     parent: "glossary"
 weight: 52
 toc: true
-aliases: 
+aliases:
   - /docs/glossary/reserved-attributes/
 ---
 
@@ -37,7 +37,6 @@ Select an attribute to see an example of it in use.
 | [arc_blob_hash_value](/developers/api-reference/blobs-api/)                             | When `arc_attribute_type` = `"arc_attachment"`, the value must equal the hash value within the associated `arc_blob_identity`|
 | [arc_blob_identity](/developers/api-reference/blobs-api/)                               | A reference to a [Blob](/developers/api-reference/blobs-api/) |
 | [arc_blob_hash_alg](/developers/api-reference/blobs-api/)                               | The algorithm of the `arc_blob_hash_value` (eg: "SHA256") |
-| [arc_correlation_value](/platform/administration/compliance-policies/#creating-a-compliance-policy) | links Events together for evaluation in Compliance Policies |
 | [arc_description](/developers/api-reference/asset-events-api/#event-creation)  | brief description of the Event being recorded |
 | [arc_display_type](/developers/api-reference/asset-events-api/)          | classification of the type of Event being performed that can be used for grouping or access control |
 | [arc_file_name](/developers/api-reference/blobs-api/)                                   | When `arc_attribute_type` = `"arc_attachment"`, the file name of the blob. |

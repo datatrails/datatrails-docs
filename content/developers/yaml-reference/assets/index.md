@@ -23,7 +23,8 @@ aliases:
 
 ## Assets Create
 
-Adding an `asset_label` allows your Asset to be referenced in later steps of the story. For example, when you want to add an Event to the Asset after it is created.
+Adding an `asset_label` allows your Asset to be referenced in later steps of the story.
+For example, when you want to add an Event to the Asset after it is created.
 
 The `arc_namespace` (for the Asset) and the `namespace` (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
 

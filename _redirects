@@ -29,7 +29,6 @@
 /platform/administration/sharing-assets-with-obac/ /platform/administration/sharing-access-outside-your-tenant/
 /platform/administration/sharing-assets-outside-your-tenant/ /platform/administration/sharing-access-outside-your-tenant/
 /docs/developer-patterns/3rdparty-verification/ /developers/developer-patterns/3rdparty-verification/
-/docs/beyond-the-basics/compliance-policies/ /platform/administration/compliance-policies/
 ../quickstart/grouping-assets-by-location /platform/administration/grouping-assets-by-location/
 /docs/rkvst-basics/grouping-assets-by-location/ /platform/administration/grouping-assets-by-location/
 /docs/glossary/common-rkvst-terms/ /glossary/common-datatrails-terms/
@@ -40,7 +39,6 @@
 /docs/api-reference/attachments-api/ /developers/api-reference/attachments-api/
 /docs/api-reference/blobs-api/ /developers/api-reference/blobs-api/
 /docs/developer-patterns/scitt-api/ /developers/developer-patterns/scitt-api/
-/docs/api-reference/compliance-api/ /developers/api-reference/compliance-api/
 /docs/api-reference/events-api/ /developers/api-reference/events-api/
 /docs/api-reference/iam-policies-api/ /developers/api-reference/iam-policies-api/
 /docs/api-reference/iam-subjects-api/ /developers/api-reference/iam-subjects-api/
@@ -53,7 +51,6 @@
 /docs/yaml-reference/events/ /developers/yaml-reference/events/
 /docs/yaml-reference/locations/ /developers/yaml-reference/locations/
 /docs/yaml-reference/subjects/ /developers/yaml-reference/subjects/
-/docs/yaml-reference/compliance/ /developers/yaml-reference/compliance/
 /docs/yaml-reference/estate-info/ /developers/yaml-reference/estate-info/
 /docs/integrations/ /developers/integrations/
 /docs/developer-patterns/ /developers/developer-patterns/

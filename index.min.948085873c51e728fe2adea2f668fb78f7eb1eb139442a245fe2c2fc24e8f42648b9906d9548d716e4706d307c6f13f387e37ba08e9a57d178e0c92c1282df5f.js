@@ -1221,7 +1221,7 @@ As Assets are retired, Events can still be correlated by Trails or Event Attribu
 <a href="/developers/templates/">Templates</a> section for domain specific examples.</p>
 <h3 id="deleting-assets-untracking">Deleting Assets (untracking)</h3>
 <p>An essential value of storing evidence in DataTrails is that data is always available to stakeholders and cannot be shredded or manipulated later.
-Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).</p>
+Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches (for instance as a result of decommissioning or disposal of the corresponding physical asset).</p>
 <p>To accommodate this need DataTrails separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting).
 When for any reason it becomes desirable to remove an Asset, the Asset owner can make it <em>untracked</em> so that it does not appear in lists or searches.</p>
 <blockquote class="caution callout">
@@ -1335,14 +1335,14 @@ This enables much greater flexibility and expressivity than traditional hierarch
 </span></span><span class="line"><span class="cl">          <span class="c1">// Grant access to partner organizations by Subject Identity
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// The Subject Identity for a known partner eg ACME Co
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s2">&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s2">&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Grant access to local users by attribute (eg email address)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> 
-</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
-</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span>
@@ -8306,364 +8306,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`},{id:25,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
-<p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
-<p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
-<p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Creation and editing of Compliance Policies is <strong>only supported through the API</strong>.</div>
-  </blockquote>
-<p>DataTrails allows for several types of Compliance Policies:</p>
-<h3 id="compliance_since">COMPLIANCE_SINCE</h3>
-<p>Checks that the time elapsed since a specific type of Event has not exceeded a defined threshold.</p>
-<p>For example, &ldquo;time since last maintenance must be less than 72 hours&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_since" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_since-0" type="button" role="tab" aria-controls="compliance_since-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_since-1" type="button" role="tab" aria-controls="compliance_since-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_since"><div id="compliance_since-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_since-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_SINCE policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance should be performed every 72h</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Regular Maintenance</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_SINCE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">time_period_seconds</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;259200&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_since-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_since-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance should be performed every 72h&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Regular Maintenance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_current_outstanding">COMPLIANCE_CURRENT_OUTSTANDING</h3>
-<p>Checks if there is a closing Event addressing an outstanding Event.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<p>This allows you to identify which closing Event belongs with each opening Event.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;a Maintenance Request Event must be addressed by a Maintenance Performed Event&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_current_outstanding" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_current_outstanding-0" type="button" role="tab" aria-controls="compliance_current_outstanding-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_current_outstanding-1" type="button" role="tab" aria-controls="compliance_current_outstanding-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_current_outstanding"><div id="compliance_current_outstanding-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_current_outstanding-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_CURRENT_OUTSTANDING policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outstanding Maintenance Requests</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_CURRENT_OUTSTANDING</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_current_outstanding-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_current_outstanding-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_period_outstanding">COMPLIANCE_PERIOD_OUTSTANDING</h3>
-<p>Checks if the time between correlated Events does not exceed set threshold.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;a Maintenance Request Event must be addressed by a Maintenance Performed Event within 72 hours&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_period_outstanding" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_period_outstanding-0" type="button" role="tab" aria-controls="compliance_period_outstanding-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_period_outstanding-1" type="button" role="tab" aria-controls="compliance_period_outstanding-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_period_outstanding"><div id="compliance_period_outstanding-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_period_outstanding-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_PERIOD_OUTSTANDING policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">There should not be outstanding Maintenance Requests for longer than 72hr</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outstanding Maintenance Requests 72hr</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_PERIOD_OUTSTANDING</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">time_period_seconds</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;259200&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_period_outstanding-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_period_outstanding-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_PERIOD_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests longer than 72hr&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests 72hr&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_dynamic_tolerance">COMPLIANCE_DYNAMIC_TOLERANCE</h3>
-<p>Checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;the time between a Maintenance Request Event and Maintenance Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean&rdquo;.</p>
-<p>The <code>dynamic_window</code> is the time period to evaluate on, in this case, one week. The <code>dynamic_variability</code> is the number of standard deviations from the mean allowed, in this case, 0.5.</p>
-<ul class="nav nav-tabs" id="compliance_dynamic_tolerance" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_dynamic_tolerance-0" type="button" role="tab" aria-controls="compliance_dynamic_tolerance-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_dynamic_tolerance-1" type="button" role="tab" aria-controls="compliance_dynamic_tolerance-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_dynamic_tolerance"><div id="compliance_dynamic_tolerance-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_dynamic_tolerance-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_DYNAMIC_TOLERANCE policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Average time between Maintenance Requested/Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outlying Maintenance Requests</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_DYNAMIC_TOLERANCE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dynamic_window</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;604800&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dynamic_variability</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0.5&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_dynamic_tolerance-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_dynamic_tolerance-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_DYNAMIC_TOLERANCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Average time between Maintenance Requested/Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outlying Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_window&#34;</span><span class="p">:</span> <span class="mi">604800</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_variability&#34;</span><span class="p">:</span> <span class="mf">0.5</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_richness">COMPLIANCE_RICHNESS</h3>
-<p>Checks whether Attributes are within expected bounds or otherwise meet defined conditions.</p>
-<p>This type of policy uses <code>richness_assertions</code>. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.</p>
-<p>The operator can be one of six relational operators: equal to (<code>=</code>), not equal to (<code>!=</code>), greater than (<code>&gt;</code>), less than (<code>&lt;</code>), greater than or equal to (<code>&gt;=</code>), less than or equal to (<code>&lt;=</code>).</p>
-<p>For example, &ldquo;radiation level must be less than 7&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_richness" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_richness-0" type="button" role="tab" aria-controls="compliance_richness-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_richness-1" type="button" role="tab" aria-controls="compliance_richness-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_richness"><div id="compliance_richness-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_richness-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_RICHNESS policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Radiation level must be less than 7&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Rad Limit</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_RICHNESS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">richness_assertions</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_richness-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_richness-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad Limit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;richness_assertions&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h2 id="checking-compliance-status">Checking Compliance Status</h2>
-<p>You may check the compliance status of a specific Asset within your tenancy.</p>
-<p><ul class="nav nav-tabs" id="compliance_status" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_status-0" type="button" role="tab" aria-controls="compliance_status-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_status-1" type="button" role="tab" aria-controls="compliance_status-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_status"><div id="compliance_status-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_status-0">
-<p>Create a yaml file, using the desired Asset ID as your <code>asset_label</code>. Setting <code>report: true</code> will print the compliance information for the Asset when the file is run.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_COMPLIANT_AT</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of desired Asset.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_status-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_status-1">
-<p>Run the following command using the desired Asset ID to check its compliance status. See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance/assets/&lt;asset-id&gt;
-</span></span></code></pre></div><p>You may also determine compliance at a 
-<a href="/platform/overview/advanced-concepts/#perspectives">historical date</a> by adding the desired date to the query.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
-</span></span></code></pre></div></div></div>
-
-<br>
-An example response for a non-compliant Asset</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant&#34;</span>: false,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliance&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliance_policy_identity&#34;</span>: <span class="s2">&#34;compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76&#34;</span>,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliant&#34;</span>: false,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;reason&#34;</span>: <span class="s2">&#34;No events found&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:04:41Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>An example response for a compliant Asset</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant&#34;</span>: true,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliance&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliance_policy_identity&#34;</span>: <span class="s2">&#34;compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76&#34;</span>,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliant&#34;</span>: true,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;reason&#34;</span>: <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`},{id:26,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+`},{id:25,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -9229,7 +8872,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`},{id:26,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -10341,7 +9984,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`},{id:27,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a>: where a series of Events are grounded to a specific Asset.</li>
@@ -12494,7 +12137,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
   </div>
 
 
-`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/asset-events-api/",title:"Asset-Events API",description:"Asset-Events API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`},{id:28,href:"https://docs.datatrails.ai/developers/api-reference/asset-events-api/",title:"Asset-Events API",description:"Asset-Events API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a> (this API): where a series of Events are grounded to a specific Asset.</li>
@@ -14616,7 +14259,7 @@ BLOB_HASH=h1234567hh</p>
   </div>
 
 
-`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
+`},{id:29,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
 <blockquote class="note callout">
     <div><strong></strong> Attachments apply to 
 <a href="/developers/api-reference/asset-events-api/">Asset-Events</a>, and Asset-free 
@@ -15908,7 +15551,7 @@ Attachment scanning happens daily batches.</p>
   </div>
 
 </p>
-`},{id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
+`},{id:30,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
 <a href="/developers/api-reference/attachments-api/">attaching</a> them to 
 <a href="/developers/api-reference/assets-api/">Assets</a> and 
 <a href="/developers/api-reference/events-api/">Events (preview)</a>.</p>
@@ -16469,7 +16112,7 @@ Blobs are discovered through their usage within the DataTrails platform, such as
   </div>
 
 
-`},{id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`},{id:31,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -16644,1319 +16287,7 @@ Over time, as new information is available, authors can publish new statements w
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
-<h2 id="compliance-api-examples">Compliance API Examples</h2>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-<h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
-<p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
-<p>Compliance Policies are created once and then Assets can be tested against them at any point in time.</p>
-<p>For instance, a policy might state that “Maintenance Alarm Events must be addressed with a Maintenance Report Event recorded in 72 hours”.</p>
-<p>This creates a Compliance Policy object in the system against which any Asset can be tested as needed.</p>
-<p>DataTrails allows users to define Compliance Policies of the following types:</p>
-<h4 id="compliance_since">COMPLIANCE_SINCE</h4>
-<p>This Compliance Policy checks if the time since the last occurrence of a specific Event type has elapsed a specified threshold.</p>
-<p>For example “Time since last Maintenance must be less than 72 hours”:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance should be performed every 72h&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Regular Maintenance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event we want to check with this Compliance Policy</td>
-</tr>
-<tr>
-<td><code>time_period_seconds</code></td>
-<td>The maximum amount of time allowed since a specified Event type last occurred, in seconds</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_current_outstanding">COMPLIANCE_CURRENT_OUTSTANDING</h4>
-<p>This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding Event.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, defining pairs of Events like <code>Maintenance Request</code> and <code>Maintenance Performed</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_period_outstanding">COMPLIANCE_PERIOD_OUTSTANDING</h4>
-<p>This Compliance Policy will only pass if the time between a pair of correlated Events did not exceed the defined threshold.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events does not exceed the maximum 72 hours:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_PERIOD_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-<tr>
-<td><code>time_period_seconds</code></td>
-<td>Maximum amount of time that can elapse between associated Events, in seconds</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_dynamic_tolerance">COMPLIANCE_DYNAMIC_TOLERANCE</h4>
-<p>This Compliance Policy will only pass if the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_DYNAMIC_TOLERANCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Average time between Maintenance Requested/Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outlying Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_window&#34;</span><span class="p">:</span> <span class="mi">604800</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_variability&#34;</span><span class="p">:</span> <span class="mf">0.5</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-<tr>
-<td><code>dynamic_window</code></td>
-<td>Number of seconds in the past - only Events in this time window are considered</td>
-</tr>
-<tr>
-<td><code>dynamic_variability</code></td>
-<td>Exceeding this number of standard deviations from the mean will cause compliance to fail for a particular pair of matching Events</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_richness">COMPLIANCE_RICHNESS</h4>
-<p>This Compliance Policy will only pass if attributes are within expected bounds or otherwise meet defined conditions.</p>
-<p>An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example <code>rad&lt;7</code>.</p>
-<p>The operator can be one of six relational operators: equal to, not equal to, greater than, less than, greater than or equal to, less than or equal to; <code>[=|!=|&gt;|&lt;|&gt;=|&lt;=]</code>.</p>
-<p>Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (<code>OR</code> logic). For example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">“or”:</span> <span class="err">[“rad&lt;7”,</span> <span class="err">“rad=10”]</span><span class="p">}</span><span class="err">.</span> 
-</span></span></code></pre></div><p>The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (<code>AND</code> logic).</p>
-<p>Compliance is a signal, not a perfect answer. Therefore equivalence of floats is exact, not approximate.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad limit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;richness_assertions&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;rad&lt;7&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>richness_assertions</code></td>
-<td>The assertions to be made, against Asset attributes, to check if the Asset is compliant.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="compliance-policy-creation">Compliance Policy Creation</h3>
-<p>Create a Compliance Policy with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div><p>Using data from <code>/path/to/jsonfile</code> in the format described in 
-<a href="#types-of-compliance-policies">Types of Compliance Policies</a>.</p>
-<p>Sample response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;compliance_policies/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="checking-compliance">Checking Compliance</h3>
-<p>The compliance v1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
-<p>Query the endpoint:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
-</span></span></code></pre></div><p>or if determining compliance at some historical date:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z&#34;</span>
-</span></span></code></pre></div><p>The response is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;compliance_policy_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;compliance_policies/0000-0000-000000000-00000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;compliant&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;reason&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="compliance-openapi-docs">Compliance OpenAPI Docs</h2>
-<p>
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>API to manage Compliance.</p>
-    </div>
-      <div class="accordion" id='Compliance_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
-                      </div>
-                      <h5>List all compliance status relevant to an asset</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: </p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API1' aria-expanded="true" aria-controls='collapserequestCompliance_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "compliance": [
-    {
-      "compliance_policy_identity": "compliance_policies/0000-0000-000000000-00000000",
-      "compliant": false
-    }
-  ],
-  "compliant": false,
-  "compliant_at": "2019-11-27T14:44:19Z"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>compliance</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>simple compliance status against a compliance policy.</td>
-                                  
-                                
-                                <tr>
-                                  <th>compliant</th>
-                                  <td>boolean</td>
-                                  
-                                    <td>overall compliance status for the asset</td>
-                                  
-                                
-                                <tr>
-                                  <th>compliant_at</th>
-                                  <td>string</td>
-                                  
-                                    <td>time at which compliance is determined</td>
-                                  
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>206</th><td>The number of compliance statements exceeds the servers limit.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-<br></p>
-
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>API to manage Compliance Policies.</p>
-    </div>
-      <div class="accordion" id='Compliance_Policies_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
-                      </div>
-                      <h5>List Compliance Policies</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Retrieves a list of Compliance Policies</p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "compliance_policies": [
-    {
-      "asset_filter": [
-        {
-          "or": [
-            "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-          ]
-        }
-      ],
-      "compliance_type": "COMPLIANCE_SINCE",
-      "description": "sample compliance policy",
-      "display_name": "my compliance policy",
-      "event_display_type": "tracked event",
-      "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-      "time_period_seconds": 86400
-    }
-  ],
-  "next_page_token": "NDYzZmFiM2EtYmFlNS00MzQ5LThmNzYtZjY0NTRkYTIwYzlkCg=="
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>compliance_policies</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>compliance policy</td>
-                                  
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API2' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
-                      </div>
-                      <h5>Create a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Creates a Compliance Policy</p>
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestCompliance_Policies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
-                                    <span>Example Request</span>
-                                  </button>
-                              </h3>
-                              <div id='collapserequestCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_Policies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <table class="table table-striped table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Description</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                  <tr>
-                                    <th>asset_filter</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>Filter</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>closing_event_display_type</th>
-                                    <td>string</td>
-                                    
-                                      <td>this is the correlated event type - required except for RICHNESS policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>compliance_type</th>
-                                    <td></td>
-                                    
-                                      <td>policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>description</th>
-                                    <td>string</td>
-                                    
-                                      <td>Customer description of the compliance policy.</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>display_name</th>
-                                    <td>string</td>
-                                    
-                                      <td>display name</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>dynamic_variability</th>
-                                    <td>number</td>
-                                    
-                                      <td>number of standard deviations - required for DYNAMIC_TOLERANCE</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>dynamic_window</th>
-                                    <td>string</td>
-                                    
-                                      <td>valid period for policy - required for DYNAMIC_TOLERANCE</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>event_display_type</th>
-                                    <td>string</td>
-                                    
-                                      <td>this is the target event_display_type - required except for RICHNESS policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>richness_assertions</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>Filter</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>time_period_seconds</th>
-                                    <td>string</td>
-                                    
-                                      <td>time delta - required for SINCE and PERIOD_OUTSTANDING</td>
-                                    
-                                  
-                                </tbody>
-                              </table>
-                            
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of compliance policies has been reached.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API3' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
-                      </div>
-                      <h5>Delete a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Deletes a Compliance Policy</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API3'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API3' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API4' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
-                      </div>
-                      <h5>Retrieves a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Retrieves a specific Compliance Policy</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API4'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API4' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-
-`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API (preview)",description:"Events API Reference (preview)",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`},{id:32,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API (preview)",description:"Events API Reference (preview)",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a>: where a series of Events are grounded to a specific Asset.</li>
@@ -18517,7 +16848,7 @@ Querying across event attributes and trails are coming in a future preview.</div
 <h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
 <p>Integrity protected content can be hashed within an Event using the 
 <a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
-`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -20206,7 +18537,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`},{id:34,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -21123,7 +19454,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:37,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`},{id:35,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -22268,7 +20599,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:38,href:"https://docs.datatrails.ai/developers/api-reference/members-api/",title:"Members API",description:"Members API Reference",content:`<blockquote class="note callout">
+`},{id:36,href:"https://docs.datatrails.ai/developers/api-reference/members-api/",title:"Members API",description:"Members API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -23047,7 +21378,7 @@ using the following API call:</p>
   </div>
 
 
-`},{id:39,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`},{id:37,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -23889,7 +22220,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:40,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`},{id:38,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -24302,7 +22633,7 @@ within the product, but its possible to retrieve and modify some configs program
   </div>
 
 <br></p>
-`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`},{id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24342,7 +22673,7 @@ within the product, but its possible to retrieve and modify some configs program
 </tr>
 <tr>
 <td><strong>wait_time</strong></td>
-<td>Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for demonstration and/or testing Compliance Policies.</td>
+<td>Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for live demonstrations.</td>
 </tr>
 </tbody>
 </table>
@@ -24364,14 +22695,15 @@ within the product, but its possible to retrieve and modify some configs program
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`},{id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
 </div>
   </blockquote>
 <h2 id="assets-create">Assets Create</h2>
-<p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story. For example, if you want to add a Compliance Policy for the Asset after it is created.</p>
+<p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story.
+For example, when you want to add an Event to the Asset after it is created.</p>
 <p>The <code>arc_namespace</code> (for the Asset) and the <code>namespace</code> (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable <code>ARCHIVIST_NAMESPACE</code> (default value is namespace).</p>
 <p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
 <p>For example:</p>
@@ -24486,7 +22818,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24512,7 +22844,6 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Opened Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_evidence</span><span class="p">:</span><span class="w"> </span><span class="l">ARQC 0x12345678</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_correlation_value</span><span class="p">:</span><span class="w"> </span><span class="l">be5c8061-236d-4400-a625-b74a34e5801b</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">wavestone_door_name</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">wavestone_evt_type</span><span class="p">:</span><span class="w"> </span><span class="l">door_open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w">
@@ -24588,7 +22919,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24637,7 +22968,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`},{id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24747,41 +23078,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`},{id:46,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<h2 id="compliance-policies-create">Compliance Policies Create</h2>
-<p>This action creates a Compliance Policy that assets may be tested against.</p>
-<p>The specific fields required for creating Compliance Policies vary depending on the type of policy being used. Please see the 
-<a href="/platform/administration/compliance-policies/">Compliance Policies</a> section for details regarding Compliance Policy types and YAML Runner examples of each.</p>
-<p>For example, a <code>COMPLIANCE_RICHNESS</code> policy that asserts radiation level must be less than 7:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_RICHNESS policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Radiation level must be less than 7&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Rad Limit</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_RICHNESS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">richness_assertions</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span></code></pre></div><h2 id="compliance-compliant-at">Compliance Compliant At</h2>
-<p>The <code>COMPLIANCE_COMPLIANT_AT</code> action checks an Asset against its Compliance Policies.</p>
-<p><code>asset_label</code> is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form <code>assets/&lt;asset-id&gt;</code>. Setting <code>report: true</code> will trigger a report to be printed on the Asset&rsquo;s compliance status.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_COMPLIANT_AT</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`},{id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`},{id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -24794,7 +23091,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`},{id:48,href:"https://docs.datatrails.ai/developers/integrations/",title:"Integrations",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`},{id:45,href:"https://docs.datatrails.ai/developers/integrations/",title:"Integrations",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Integrations</h1>
       <p>How to integrate DataTrails into partners and platforms
@@ -24802,7 +23099,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/integrations/n8n/">Integrating DataTrails with n8n&rarr;</a><br>
     </div>
 </div>
-`},{id:49,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+`},{id:46,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -24817,7 +23114,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`},{id:50,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`},{id:47,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -24833,7 +23130,7 @@ If you are looking for a simple way to test our API you might prefer our
 <p>Retrieve the number of remaining Access Policies:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/caps?service=access_policies&#34;</span>    
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/caps?service=access_policies&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;caps&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -24849,7 +23146,6 @@ If you are looking for a simple way to test our API you might prefer our
 <li>applications</li>
 <li>assets</li>
 <li>blobs</li>
-<li>compliance_policies</li>
 <li>locations</li>
 <li>members</li>
 </ul>
@@ -24935,7 +23231,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`},{id:51,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`},{id:48,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -24947,7 +23243,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
     </div>
 </div>
-`},{id:52,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
+`},{id:49,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Templates</h1>
       <p>A collection of templates for various scenarios.
@@ -24958,7 +23254,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/templates/scitt/">Creating SCITT Entries on the DataTrails Platform &rarr;</a><br>
     </div>
 </div>
-`},{id:53,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:50,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -24968,11 +23264,10 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
-      <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`},{id:54,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`},{id:51,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -24982,7 +23277,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/asset-events-api/">Asset-Events API &rarr;</a><br>
       <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
       <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
-      <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
@@ -24993,7 +23287,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`},{id:55,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`},{id:52,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -25009,7 +23303,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`},{id:56,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`},{id:53,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -25037,7 +23331,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`},{id:57,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`},{id:54,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>
@@ -26279,7 +24573,7 @@ As Assets are retired, Events can still be correlated by Trails or Event Attribu
 <a href="/developers/templates/">Templates</a> section for domain specific examples.</p>
 <h3 id="deleting-assets-untracking">Deleting Assets (untracking)</h3>
 <p>An essential value of storing evidence in DataTrails is that data is always available to stakeholders and cannot be shredded or manipulated later.
-Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches or compliance queries (for instance as a result of decommissioning or disposal of the corresponding physical asset).</p>
+Given this, it is not possible to actually delete Assets from the system, but there will be cases where it is desirable to hide Assets in the UI or omit them from default searches (for instance as a result of decommissioning or disposal of the corresponding physical asset).</p>
 <p>To accommodate this need DataTrails separates the Asset estate into 2 classes: tracked Assets (those that are interesting to the system and actively recording events) and untracked Assets (those that are no longer actively interesting).
 When for any reason it becomes desirable to remove an Asset, the Asset owner can make it <em>untracked</em> so that it does not appear in lists or searches.</p>
 <blockquote class="caution callout">
@@ -26393,14 +24687,14 @@ This enables much greater flexibility and expressivity than traditional hierarch
 </span></span><span class="line"><span class="cl">          <span class="c1">// Grant access to partner organizations by Subject Identity
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;subjects&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="c1">// The Subject Identity for a known partner eg ACME Co
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s2">&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s2">&#34;subjects/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Grant access to local users by attribute (eg email address)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span> 
-</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span> 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;user_attributes&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&#34;email=bill@synsation.com&#34;</span> <span class="p">]</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">          <span class="p">],</span>
-</span></span><span class="line"><span class="cl">          
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">          <span class="c1">// Select which Asset attributes these users can see
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>          <span class="nt">&#34;asset_attributes_read&#34;</span><span class="p">:</span> <span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s2">&#34;arc_display_name&#34;</span><span class="p">,</span>
@@ -33364,364 +31658,7 @@ You would disconnect in Dropbox if you no longer wish to use DataTrails for prov
 </ol>
 <p>This is how to connect and disconnect DataTrails and Dropbox, it is that simple! Please see our 
 <a href="https://support.datatrails.ai/hc/en-gb/articles/14378210620562-Dropbox-File-and-Folder-Management-FAQ" target="_blank" rel="noopener">FAQ</a> for more information.</p>
-`}).add({id:25,href:"https://docs.datatrails.ai/platform/administration/compliance-policies/",title:"Compliance Policies",description:"Creating and Managing Compliance Policies",content:`<h2 id="creating-a-compliance-policy">Creating a Compliance Policy</h2>
-<p>Compliance Policies are user-defined rule sets that Assets can be tested against. Compliance Policies only need to be created once; all applicable Assets will be tested against that policy thereafter.</p>
-<p>For example, a policy might assert that “Maintenance Alarm Events must be addressed by a Maintenance Report Event, recorded within 72 hours of the alarm”. This creates a Compliance Policy in the system which any Asset can be tested against as needed.</p>
-<p>As compliance is ensured by a regular series of Events, an Audit Trail builds up over time that allows compliance to be checked for the entire lifetime of the Asset.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> Creation and editing of Compliance Policies is <strong>only supported through the API</strong>.</div>
-  </blockquote>
-<p>DataTrails allows for several types of Compliance Policies:</p>
-<h3 id="compliance_since">COMPLIANCE_SINCE</h3>
-<p>Checks that the time elapsed since a specific type of Event has not exceeded a defined threshold.</p>
-<p>For example, &ldquo;time since last maintenance must be less than 72 hours&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_since" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_since-0" type="button" role="tab" aria-controls="compliance_since-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_since-1" type="button" role="tab" aria-controls="compliance_since-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_since"><div id="compliance_since-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_since-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_SINCE policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance should be performed every 72h</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Regular Maintenance</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_SINCE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">time_period_seconds</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;259200&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_since-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_since-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance should be performed every 72h&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Regular Maintenance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_current_outstanding">COMPLIANCE_CURRENT_OUTSTANDING</h3>
-<p>Checks if there is a closing Event addressing an outstanding Event.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<p>This allows you to identify which closing Event belongs with each opening Event.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;a Maintenance Request Event must be addressed by a Maintenance Performed Event&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_current_outstanding" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_current_outstanding-0" type="button" role="tab" aria-controls="compliance_current_outstanding-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_current_outstanding-1" type="button" role="tab" aria-controls="compliance_current_outstanding-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_current_outstanding"><div id="compliance_current_outstanding-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_current_outstanding-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_CURRENT_OUTSTANDING policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outstanding Maintenance Requests</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_CURRENT_OUTSTANDING</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_current_outstanding-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_current_outstanding-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_period_outstanding">COMPLIANCE_PERIOD_OUTSTANDING</h3>
-<p>Checks if the time between correlated Events does not exceed set threshold.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;a Maintenance Request Event must be addressed by a Maintenance Performed Event within 72 hours&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_period_outstanding" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_period_outstanding-0" type="button" role="tab" aria-controls="compliance_period_outstanding-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_period_outstanding-1" type="button" role="tab" aria-controls="compliance_period_outstanding-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_period_outstanding"><div id="compliance_period_outstanding-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_period_outstanding-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_PERIOD_OUTSTANDING policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">There should not be outstanding Maintenance Requests for longer than 72hr</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outstanding Maintenance Requests 72hr</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_PERIOD_OUTSTANDING</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">time_period_seconds</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;259200&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_period_outstanding-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_period_outstanding-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_PERIOD_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests longer than 72hr&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests 72hr&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_dynamic_tolerance">COMPLIANCE_DYNAMIC_TOLERANCE</h3>
-<p>Checks that the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event Attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, &ldquo;the time between a Maintenance Request Event and Maintenance Performed Event in the last week does not exceed a variation of 0.5 standard deviations around the mean&rdquo;.</p>
-<p>The <code>dynamic_window</code> is the time period to evaluate on, in this case, one week. The <code>dynamic_variability</code> is the number of standard deviations from the mean allowed, in this case, 0.5.</p>
-<ul class="nav nav-tabs" id="compliance_dynamic_tolerance" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_dynamic_tolerance-0" type="button" role="tab" aria-controls="compliance_dynamic_tolerance-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_dynamic_tolerance-1" type="button" role="tab" aria-controls="compliance_dynamic_tolerance-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_dynamic_tolerance"><div id="compliance_dynamic_tolerance-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_dynamic_tolerance-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_DYNAMIC_TOLERANCE policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Average time between Maintenance Requested/Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Outlying Maintenance Requests</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_DYNAMIC_TOLERANCE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Request</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">closing_event_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">Maintenance Performed</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dynamic_window</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;604800&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">dynamic_variability</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0.5&#34;</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_dynamic_tolerance-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_dynamic_tolerance-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_DYNAMIC_TOLERANCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Average time between Maintenance Requested/Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outlying Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_window&#34;</span><span class="p">:</span> <span class="mi">604800</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_variability&#34;</span><span class="p">:</span> <span class="mf">0.5</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h3 id="compliance_richness">COMPLIANCE_RICHNESS</h3>
-<p>Checks whether Attributes are within expected bounds or otherwise meet defined conditions.</p>
-<p>This type of policy uses <code>richness_assertions</code>. An assertion is comprised of an attribute name, comparison value, and an operator to compare with.</p>
-<p>The operator can be one of six relational operators: equal to (<code>=</code>), not equal to (<code>!=</code>), greater than (<code>&gt;</code>), less than (<code>&lt;</code>), greater than or equal to (<code>&gt;=</code>), less than or equal to (<code>&lt;=</code>).</p>
-<p>For example, &ldquo;radiation level must be less than 7&rdquo;.</p>
-<ul class="nav nav-tabs" id="compliance_richness" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_richness-0" type="button" role="tab" aria-controls="compliance_richness-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_richness-1" type="button" role="tab" aria-controls="compliance_richness-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_richness"><div id="compliance_richness-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_richness-0">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_RICHNESS policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Radiation level must be less than 7&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Rad Limit</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_RICHNESS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">richness_assertions</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_richness-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_richness-1">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad Limit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;richness_assertions&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>Use the curl command to run your JSON file! See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div></div></div>
-
-<h2 id="checking-compliance-status">Checking Compliance Status</h2>
-<p>You may check the compliance status of a specific Asset within your tenancy.</p>
-<p><ul class="nav nav-tabs" id="compliance_status" role="tablist"><li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link active" data-bs-target="#compliance_status-0" type="button" role="tab" aria-controls="compliance_status-0" aria-selected="true">YAML</button>
-		</li>
-	  
-		<li class="nav-item">
-			<button data-bs-toggle="tab" class="nav-link" data-bs-target="#compliance_status-1" type="button" role="tab" aria-controls="compliance_status-1" aria-selected="false">JSON</button>
-		</li></ul>
-<div class="tab-content" id="compliance_status"><div id="compliance_status-0" class="tab-pane fade show active" role="tabpanel" aria-labelledby="compliance_status-0">
-<p>Create a yaml file, using the desired Asset ID as your <code>asset_label</code>. Setting <code>report: true</code> will print the compliance information for the Asset when the file is run.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_COMPLIANT_AT</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of desired Asset.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">assets/&lt;asset-id&gt;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span></code></pre></div><p>Use the 
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">archivist_runner</a> command to run your YAML file!</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ archivist_runner <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u https://app.datatrails.ai <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div></div>
-  <div id="compliance_status-1" class="tab-pane fade" role="tabpanel" aria-labelledby="compliance_status-1">
-<p>Run the following command using the desired Asset ID to check its compliance status. See instructions for 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations/">creating your <code>BEARER_TOKEN_FILE</code></a> here.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance/assets/&lt;asset-id&gt;
-</span></span></code></pre></div><p>You may also determine compliance at a 
-<a href="/platform/overview/advanced-concepts/#perspectives">historical date</a> by adding the desired date to the query.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/compliance/assets/&lt;asset-id&gt;?compliant_at=2019-11-27T14:44:19Z&#34;</span>
-</span></span></code></pre></div></div></div>
-
-<br>
-An example response for a non-compliant Asset</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant&#34;</span>: false,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliance&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliance_policy_identity&#34;</span>: <span class="s2">&#34;compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76&#34;</span>,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliant&#34;</span>: false,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;reason&#34;</span>: <span class="s2">&#34;No events found&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:04:41Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div><p>An example response for a compliant Asset</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="o">{</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant&#34;</span>: true,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliance&#34;</span>: <span class="o">[</span>
-</span></span><span class="line"><span class="cl">        <span class="o">{</span>
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliance_policy_identity&#34;</span>: <span class="s2">&#34;compliance_policies/71fb7b23-485a-492b-9957-e5d1c9400a76&#34;</span>,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;compliant&#34;</span>: true,
-</span></span><span class="line"><span class="cl">            <span class="s2">&#34;reason&#34;</span>: <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="o">}</span>
-</span></span><span class="line"><span class="cl">    <span class="o">]</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;next_page_token&#34;</span>: <span class="s2">&#34;&#34;</span>,
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;compliant_at&#34;</span>: <span class="s2">&#34;2024-01-17T10:16:12Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="o">}</span>
-</span></span></code></pre></div>`}).add({id:26,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
+`}).add({id:25,href:"https://docs.datatrails.ai/platform/administration/grouping-assets-by-location/",title:"Grouping Assets by Location",description:"Adding a Location",content:`<p>Locations associate an Asset with a &lsquo;home&rsquo; that can help when governing sharing policies with OBAC and ABAC. Locations do not need pinpoint precision and can be named by site, building, or other logical grouping.</p>
 <p>It may be useful to indicate an Asset&rsquo;s origin. For example, if tracking traveling consultant&rsquo;s laptops, you may wish to associate them with a &lsquo;home&rsquo; office.</p>
 <blockquote class="caution callout">
     <div><strong></strong> <strong>Caution:</strong> It is important to recognize that the location does not necessarily denote the Asset’s current position in space; it simply determines which facility the Asset belongs to. For things that move around, use GIS coordinates on Events instead. See 
@@ -34287,7 +32224,7 @@ For more information on creating Events, please visit
 </div></p>
 </li>
 </ol>
-`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
+`}).add({id:26,href:"https://docs.datatrails.ai/developers/api-reference/app-registrations-api/",title:"App Registrations API",description:"App Registrations API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -35399,7 +33336,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`}).add({id:27,href:"https://docs.datatrails.ai/developers/api-reference/assets-api/",title:"Assets API",description:"Assets API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a>: where a series of Events are grounded to a specific Asset.</li>
@@ -37552,7 +35489,7 @@ Here we assume we are working with an Asset with identity <code>assets/xxxxxxxx-
   </div>
 
 
-`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/asset-events-api/",title:"Asset-Events API",description:"Asset-Events API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`}).add({id:28,href:"https://docs.datatrails.ai/developers/api-reference/asset-events-api/",title:"Asset-Events API",description:"Asset-Events API Reference",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a> (this API): where a series of Events are grounded to a specific Asset.</li>
@@ -39674,7 +37611,7 @@ BLOB_HASH=h1234567hh</p>
   </div>
 
 
-`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
+`}).add({id:29,href:"https://docs.datatrails.ai/developers/api-reference/attachments-api/",title:"Attachments API",description:"Attachments API Reference",content:`<p>The Attachments API enables attaching and querying Binary Large OBjects (BLOBs) such as documents, process artifacts and images to Assets and Events.</p>
 <blockquote class="note callout">
     <div><strong></strong> Attachments apply to 
 <a href="/developers/api-reference/asset-events-api/">Asset-Events</a>, and Asset-free 
@@ -40966,7 +38903,7 @@ Attachment scanning happens daily batches.</p>
   </div>
 
 </p>
-`}).add({id:31,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
+`}).add({id:30,href:"https://docs.datatrails.ai/developers/api-reference/blobs-api/",title:"Blobs API",description:"Blobs API Reference",content:`<p>The Blobs API enables uploading Binary Large OBjects (BLOBs) such as documents, process artifacts and images, 
 <a href="/developers/api-reference/attachments-api/">attaching</a> them to 
 <a href="/developers/api-reference/assets-api/">Assets</a> and 
 <a href="/developers/api-reference/events-api/">Events (preview)</a>.</p>
@@ -41527,7 +39464,7 @@ Blobs are discovered through their usage within the DataTrails platform, such as
   </div>
 
 
-`}).add({id:32,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
+`}).add({id:31,href:"https://docs.datatrails.ai/developers/developer-patterns/scitt-api/",title:"Quickstart: SCITT Statements (Preview)",description:"Getting Started with SCITT: creating a collection of statements  (Preview)",content:`<blockquote class="caution callout">
     <div><strong></strong> The SCITT API is currently in preview and subject to change</div>
   </blockquote>
 <p>The <strong>S</strong>upply <strong>C</strong>hain <strong>I</strong>ntegrity, <strong>T</strong>ransparency and <strong>T</strong>rust (SCITT) initiative is a set of 
@@ -41702,1319 +39639,7 @@ Over time, as new information is available, authors can publish new statements w
 <li>
 <a href="SCITT.io">SCITT.io</a></li>
 </ul>
-`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/compliance-api/",title:"Compliance API",description:"Compliance API Reference",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
-If you are looking for a simple way to test our API you might prefer our 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
-<h2 id="compliance-api-examples">Compliance API Examples</h2>
-<p>Create the 
-<a href="/developers/developer-patterns/getting-access-tokens-using-app-registrations">bearer_token</a> and store in a file in a secure local directory with 0600 permissions.</p>
-<h3 id="types-of-compliance-policies">Types of Compliance Policies</h3>
-<p>Compliance posture is measured against user-defined rule sets called Compliance Policies.</p>
-<p>Compliance Policies are created once and then Assets can be tested against them at any point in time.</p>
-<p>For instance, a policy might state that “Maintenance Alarm Events must be addressed with a Maintenance Report Event recorded in 72 hours”.</p>
-<p>This creates a Compliance Policy object in the system against which any Asset can be tested as needed.</p>
-<p>DataTrails allows users to define Compliance Policies of the following types:</p>
-<h4 id="compliance_since">COMPLIANCE_SINCE</h4>
-<p>This Compliance Policy checks if the time since the last occurrence of a specific Event type has elapsed a specified threshold.</p>
-<p>For example “Time since last Maintenance must be less than 72 hours”:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_SINCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance should be performed every 72h&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Regular Maintenance&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event we want to check with this Compliance Policy</td>
-</tr>
-<tr>
-<td><code>time_period_seconds</code></td>
-<td>The maximum amount of time allowed since a specified Event type last occurred, in seconds</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_current_outstanding">COMPLIANCE_CURRENT_OUTSTANDING</h4>
-<p>This Compliance Policy will only pass if there is an associated closing event addressing a specified outstanding Event.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, defining pairs of Events like <code>Maintenance Request</code> and <code>Maintenance Performed</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_period_outstanding">COMPLIANCE_PERIOD_OUTSTANDING</h4>
-<p>This Compliance Policy will only pass if the time between a pair of correlated Events did not exceed the defined threshold.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events does not exceed the maximum 72 hours:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_PERIOD_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-<tr>
-<td><code>time_period_seconds</code></td>
-<td>Maximum amount of time that can elapse between associated Events, in seconds</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_dynamic_tolerance">COMPLIANCE_DYNAMIC_TOLERANCE</h4>
-<p>This Compliance Policy will only pass if the time between correlated Events is not excessively different to the observed average normal duration for similar Events.</p>
-<p>To correlate Events, define the attribute <code>arc_correlation_value</code> in the Event attributes and set it to the same value on each pair of Events that are to be associated.</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> To properly track and assess Events, the <code>arc_correlation_value</code> should be unique to each pair of Events.</div>
-  </blockquote>
-<p>For example, a policy checking that the time between <code>Maintenance Request</code> and <code>Maintenance Performed</code> Events in the last week does not exceed a variability of 0.5 standard deviations around the mean:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_DYNAMIC_TOLERANCE&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Average time between Maintenance Requested/Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outlying Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_window&#34;</span><span class="p">:</span> <span class="mi">604800</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dynamic_variability&#34;</span><span class="p">:</span> <span class="mf">0.5</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>event_display_type</code></td>
-<td>Type of Event that should be addressed by the Event defined in <code>closing_event_display_type</code></td>
-</tr>
-<tr>
-<td><code>closing_event_display_type</code></td>
-<td>Type of Event addressing the Event defined in <code>event_display_type</code></td>
-</tr>
-<tr>
-<td><code>dynamic_window</code></td>
-<td>Number of seconds in the past - only Events in this time window are considered</td>
-</tr>
-<tr>
-<td><code>dynamic_variability</code></td>
-<td>Exceeding this number of standard deviations from the mean will cause compliance to fail for a particular pair of matching Events</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="compliance_richness">COMPLIANCE_RICHNESS</h4>
-<p>This Compliance Policy will only pass if attributes are within expected bounds or otherwise meet defined conditions.</p>
-<p>An assertion is comprised of: an attribute name, a comparison value and an operator to compare with; for example <code>rad&lt;7</code>.</p>
-<p>The operator can be one of six relational operators: equal to, not equal to, greater than, less than, greater than or equal to, less than or equal to; <code>[=|!=|&gt;|&lt;|&gt;=|&lt;=]</code>.</p>
-<p>Assertions are comprised of two lists, an inner list and outer list. The inner list states that, if any of the assertions pass, then the list is compliant (<code>OR</code> logic). For example:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span><span class="err">“or”:</span> <span class="err">[“rad&lt;7”,</span> <span class="err">“rad=10”]</span><span class="p">}</span><span class="err">.</span> 
-</span></span></code></pre></div><p>The outer list states that, all inner lists need to be compliant in order for the policy to be compliant (<code>AND</code> logic).</p>
-<p>Compliance is a signal, not a perfect answer. Therefore equivalence of floats is exact, not approximate.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_RICHNESS&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad level is less than 7&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Rad limit&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;richness_assertions&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;rad&lt;7&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
-
-
-
-
-<table class='table table-striped table-bordered'>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>richness_assertions</code></td>
-<td>The assertions to be made, against Asset attributes, to check if the Asset is compliant.</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="compliance-policy-creation">Compliance Policy Creation</h3>
-<p>Create a Compliance Policy with:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X POST <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;Content-type: application/json&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/path/to/jsonfile&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance_policies
-</span></span></code></pre></div><p>Using data from <code>/path/to/jsonfile</code> in the format described in 
-<a href="#types-of-compliance-policies">Types of Compliance Policies</a>.</p>
-<p>Sample response:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;compliance_policies/6a951b62-0a26-4c22-a886-1082297b063b&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance_type&#34;</span><span class="p">:</span> <span class="s2">&#34;COMPLIANCE_CURRENT_OUTSTANDING&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;There should be no outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;display_name&#34;</span><span class="p">:</span> <span class="s2">&#34;Outstanding Maintenance Requests&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;asset_filter&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span> <span class="nt">&#34;or&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;attributes.arc_home_location_identity=locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b&#34;</span><span class="p">]}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;event_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Maintenance Request&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;closing_event_display_type&#34;</span><span class="p">:</span>  <span class="s2">&#34;Maintenance Performed&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;time_period_seconds&#34;</span><span class="p">:</span> <span class="s2">&#34;259200&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="checking-compliance">Checking Compliance</h3>
-<p>The compliance v1 endpoint reports on the status of an Asset’s compliance with Compliance Policies.</p>
-<p>Query the endpoint:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b
-</span></span></code></pre></div><p>or if determining compliance at some historical date:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -v -X GET <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/compliance/assets/6a951b62-0a26-4c22-a886-1082297b063b?compliant_at=2019-11-27T14:44:19Z&#34;</span>
-</span></span></code></pre></div><p>The response is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliance&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;compliance_policy_identity&#34;</span><span class="p">:</span> <span class="s2">&#34;compliance_policies/0000-0000-000000000-00000000&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;compliant&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&#34;reason&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;compliant_at&#34;</span><span class="p">:</span> <span class="s2">&#34;2019-11-27T14:44:19Z&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="compliance-openapi-docs">Compliance OpenAPI Docs</h2>
-<p>
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>API to manage Compliance.</p>
-    </div>
-      <div class="accordion" id='Compliance_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_API1' aria-expanded="true" aria-controls='collapseCompliance_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance/assets/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance/assets/{uuid}</span></h4>
-                      </div>
-                      <h5>List all compliance status relevant to an asset</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: </p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_API1' aria-expanded="true" aria-controls='collapserequestCompliance_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "compliance": [
-    {
-      "compliance_policy_identity": "compliance_policies/0000-0000-000000000-00000000",
-      "compliant": false
-    }
-  ],
-  "compliant": false,
-  "compliant_at": "2019-11-27T14:44:19Z"
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>compliance</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>simple compliance status against a compliance policy.</td>
-                                  
-                                
-                                <tr>
-                                  <th>compliant</th>
-                                  <td>boolean</td>
-                                  
-                                    <td>overall compliance status for the asset</td>
-                                  
-                                
-                                <tr>
-                                  <th>compliant_at</th>
-                                  <td>string</td>
-                                  
-                                    <td>time at which compliance is determined</td>
-                                  
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td>Token to retrieve the next page of results or empty if there are none.</td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>206</th><td>The number of compliance statements exceeds the servers limit.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the no asset with the provided id can be found.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-<br></p>
-
- 
- 
-  
-  
-  <div class="$openapi-spec-content">
-    <div class="description">
-      <p>API to manage Compliance Policies.</p>
-    </div>
-      <div class="accordion" id='Compliance_Policies_API0'></div>
-      
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API1'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapseCompliance_Policies_API1'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API1' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
-                      </div>
-                      <h5>List Compliance Policies</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Retrieves a list of Compliance Policies</p>
-
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API1'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API1' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API1'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API1' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API1' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "compliance_policies": [
-    {
-      "asset_filter": [
-        {
-          "or": [
-            "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-          ]
-        }
-      ],
-      "compliance_type": "COMPLIANCE_SINCE",
-      "description": "sample compliance policy",
-      "display_name": "my compliance policy",
-      "event_display_type": "tracked event",
-      "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-      "time_period_seconds": 86400
-    }
-  ],
-  "next_page_token": "NDYzZmFiM2EtYmFlNS00MzQ5LThmNzYtZjY0NTRkYTIwYzlkCg=="
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>compliance_policies</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>compliance policy</td>
-                                  
-                                
-                                <tr>
-                                  <th>next_page_token</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API2'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapseCompliance_Policies_API2'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">post</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API2' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">post</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies</span></h4>
-                      </div>
-                      <h5>Create a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Creates a Compliance Policy</p>
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerrequestCompliance_Policies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapserequestCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
-                                    <span>Example Request</span>
-                                  </button>
-                              </h3>
-                              <div id='collapserequestCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerrequestCompliance_Policies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <table class="table table-striped table-bordered">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Description</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                  <tr>
-                                    <th>asset_filter</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>Filter</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>closing_event_display_type</th>
-                                    <td>string</td>
-                                    
-                                      <td>this is the correlated event type - required except for RICHNESS policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>compliance_type</th>
-                                    <td></td>
-                                    
-                                      <td>policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>description</th>
-                                    <td>string</td>
-                                    
-                                      <td>Customer description of the compliance policy.</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>display_name</th>
-                                    <td>string</td>
-                                    
-                                      <td>display name</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>dynamic_variability</th>
-                                    <td>number</td>
-                                    
-                                      <td>number of standard deviations - required for DYNAMIC_TOLERANCE</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>dynamic_window</th>
-                                    <td>string</td>
-                                    
-                                      <td>valid period for policy - required for DYNAMIC_TOLERANCE</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>event_display_type</th>
-                                    <td>string</td>
-                                    
-                                      <td>this is the target event_display_type - required except for RICHNESS policy type</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>richness_assertions</th>
-                                    <td>array</td>
-                                    
-                                      
-                                      
-                                      
-                                      <td>Filter</td>
-                                    
-                                  
-                                  <tr>
-                                    <th>time_period_seconds</th>
-                                    <td>string</td>
-                                    
-                                      <td>time delta - required for SINCE and PERIOD_OUTSTANDING</td>
-                                    
-                                  
-                                </tbody>
-                              </table>
-                            
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API2'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API2' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API2'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API2' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API2' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>402</th><td>Returned when the user&rsquo;s quota of compliance policies has been reached.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-        
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API3'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapseCompliance_Policies_API3'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">delete</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API3' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">delete</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
-                      </div>
-                      <h5>Delete a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Deletes a Compliance Policy</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API3'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API3' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API3'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API3' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API3' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-          
-          
-                <div class="accordion-item">
-                  <h3 class="accordion-header" id='headerCompliance_Policies_API4'>
-                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapseCompliance_Policies_API4'>
-                        <div class="overflow-hidden text-nowrap">
-                          <span style="text-transform: uppercase; color: #00AEEF;">get</span>&nbsp;&nbsp;<span style="width: 100%; overflow-wrap: break-word;">/archivist/v1/compliance_policies/{uuid}</span>
-                        </div>
-                      </button>
-                  </h3>
-                  <div id='collapseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerCompliance_Policies_API4' data-parent="#accordion">
-                  <div class="accordion-body">
-                    <div style="width: 100%;">
-                      <div class="overflow-auto">
-                      <h4><span style="color: #00AEEF; text-transform: uppercase;">get</span>&nbsp;&nbsp;<span>/archivist/v1/compliance_policies/{uuid}</span></h4>
-                      </div>
-                      <h5>Retrieves a Compliance Policy</h5>
-                      <p><a href=""></a></p>
-                      <p>Description: Retrieves a specific Compliance Policy</p>
-
-                      
-                        
-                      
-
-                      
-                        
-                          
-                            
-                            
-                            
-                            <div class="accordion-item">
-                              <h3 class="accordion-header" id='headerresponseCompliance_Policies_API4'>
-                                  <button class="accordion-button" data-bs-toggle="collapse" data-bs-target='#collapseresponseCompliance_Policies_API4' aria-expanded="true" aria-controls='collapserequestCompliance_Policies_API4'>
-                                    <span>Example Response</span>
-                                  </button>
-                              </h3>
-                              <div id='collapseresponseCompliance_Policies_API4' class="accordion-collapse collapse" aria-labelledby='headerresponseCompliance_Policies_API4' data-parent="#accordion">
-                                <div class="accordion-body">
-                                  <div style="width: 100%;">
-                                    <pre><code>{
-  "asset_filter": [
-    {
-      "or": [
-        "attributes.arc_location_identity:locations/5eef2b71-35c1-4376-a166-6c64bfa72f4b"
-      ]
-    }
-  ],
-  "compliance_type": "COMPLIANCE_SINCE",
-  "description": "Ensure Maintenance is performed daily",
-  "display_name": "Daily Maintenance",
-  "event_display_type": "Maintenance Performed",
-  "identity": "compliance_policies/463fab3a-bae5-4349-8f76-f6454da20c9d",
-  "time_period_seconds": 86800
-}</code></pre>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <table class="table table-striped table-bordered">
-                              <thead>
-                                <tr>
-                                  <th scope="col">Response Parameter</th>
-                                  <th scope="col">Type</th>
-                                  <th scope="col">Description</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                
-                                <tr>
-                                  <th>asset_filter</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>closing_event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>compliance_type</th>
-                                  <td></td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>description</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>display_name</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_variability</th>
-                                  <td>number</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>dynamic_window</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>event_display_type</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>identity</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                                <tr>
-                                  <th>richness_assertions</th>
-                                  <td>array</td>
-                                  
-                                    
-                                    
-                                    
-                                    <td>Filter</td>
-                                  
-                                
-                                <tr>
-                                  <th>time_period_seconds</th>
-                                  <td>string</td>
-                                  
-                                    <td></td>
-                                  
-                                
-                              </tbody>
-                            </table>
-                          
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-                        
-                      
-
-                      <table class="table table-striped table-bordered">
-                        <thead>
-                          <tr>
-                            <th scope="col">Responses</th>
-                            <th scope="col">Description</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          
-                            <tr><th>200</th><td>A successful response.</td>
-                          
-                            <tr><th>401</th><td>Returned when the user is not authenticated to the system.</td>
-                          
-                            <tr><th>403</th><td>Returned when the user is not authorized to access the requested resource.</td>
-                          
-                            <tr><th>404</th><td>Returned when the asset with the id does not exist.</td>
-                          
-                            <tr><th>429</th><td>Returned when a user exceeds their subscription&rsquo;s rate limit for requests.</td>
-                          
-                        </tbody>
-                      </table>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-        
-      
-    
-
-
-
-  </div>
-
-
-`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API (preview)",description:"Events API Reference (preview)",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
+`}).add({id:32,href:"https://docs.datatrails.ai/developers/api-reference/events-api/",title:"Events API (preview)",description:"Events API Reference (preview)",content:`<p>DataTrails provides two mechanisms for persisting provenance metadata:</p>
 <ol>
 <li>
 <a href="/developers/api-reference/asset-events-api">Asset based Events</a>: where a series of Events are grounded to a specific Asset.</li>
@@ -43575,7 +40200,7 @@ Querying across event attributes and trails are coming in a future preview.</div
 <h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
 <p>Integrity protected content can be hashed within an Event using the 
 <a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
-`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
+`}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -45264,7 +41889,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
+`}).add({id:34,href:"https://docs.datatrails.ai/developers/api-reference/iam-subjects-api/",title:"IAM Subjects API",description:"IAM Subjects API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -46181,7 +42806,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:37,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
+`}).add({id:35,href:"https://docs.datatrails.ai/developers/api-reference/locations-api/",title:"Locations API",description:"Locations API Reference",content:`<p><blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -47326,7 +43951,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:38,href:"https://docs.datatrails.ai/developers/api-reference/members-api/",title:"Members API",description:"Members API Reference",content:`<blockquote class="note callout">
+`}).add({id:36,href:"https://docs.datatrails.ai/developers/api-reference/members-api/",title:"Members API",description:"Members API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -48105,7 +44730,7 @@ using the following API call:</p>
   </div>
 
 
-`}).add({id:39,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
+`}).add({id:37,href:"https://docs.datatrails.ai/developers/api-reference/public-assets-api/",title:"Public Assets API",description:"Public Assets API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -48947,7 +45572,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:40,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
+`}).add({id:38,href:"https://docs.datatrails.ai/developers/api-reference/tenancies-api/",title:"Tenancies API",description:"Tenancies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -49360,7 +45985,7 @@ within the product, but its possible to retrieve and modify some configs program
   </div>
 
 <br></p>
-`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
+`}).add({id:39,href:"https://docs.datatrails.ai/developers/yaml-reference/story-runner-components/",title:"YAML Runner Components",description:"Common Keys Used for the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -49400,7 +46025,7 @@ within the product, but its possible to retrieve and modify some configs program
 </tr>
 <tr>
 <td><strong>wait_time</strong></td>
-<td>Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for demonstration and/or testing Compliance Policies.</td>
+<td>Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for live demonstrations.</td>
 </tr>
 </tbody>
 </table>
@@ -49422,14 +46047,15 @@ within the product, but its possible to retrieve and modify some configs program
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-id &lt;your-client-id&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      --client-secret &lt;your-client-secret&gt; <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>      &lt;path-to-yaml-file&gt;
-</span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></code></pre></div>`}).add({id:40,href:"https://docs.datatrails.ai/developers/yaml-reference/assets/",title:"Assets YAML Runner",description:"Asset Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
 </div>
   </blockquote>
 <h2 id="assets-create">Assets Create</h2>
-<p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story. For example, if you want to add a Compliance Policy for the Asset after it is created.</p>
+<p>Adding an <code>asset_label</code> allows your Asset to be referenced in later steps of the story.
+For example, when you want to add an Event to the Asset after it is created.</p>
 <p>The <code>arc_namespace</code> (for the Asset) and the <code>namespace</code> (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable <code>ARCHIVIST_NAMESPACE</code> (default value is namespace).</p>
 <p>The optional <code>confirm: true</code> entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.</p>
 <p>For example:</p>
@@ -49544,7 +46170,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Wait for all Assets in the wipp namespace to be confirmed</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_namespace</span><span class="p">:</span><span class="w"> </span><span class="l">wipp</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:41,href:"https://docs.datatrails.ai/developers/yaml-reference/events/",title:"Events YAML Runner",description:"Event Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -49570,7 +46196,6 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_description</span><span class="p">:</span><span class="w"> </span><span class="l">Opened Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_evidence</span><span class="p">:</span><span class="w"> </span><span class="l">ARQC 0x12345678</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_correlation_value</span><span class="p">:</span><span class="w"> </span><span class="l">be5c8061-236d-4400-a625-b74a34e5801b</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">wavestone_door_name</span><span class="p">:</span><span class="w"> </span><span class="l">Courts of Justice Paris Front Door</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">wavestone_evt_type</span><span class="p">:</span><span class="w"> </span><span class="l">door_open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w">
@@ -49646,7 +46271,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">open</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">arc_display_type</span><span class="p">:</span><span class="w"> </span><span class="l">door</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:42,href:"https://docs.datatrails.ai/developers/yaml-reference/locations/",title:"Locations YAML Runner",description:"Location Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -49695,7 +46320,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">attrs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">director</span><span class="p">:</span><span class="w"> </span><span class="l">John Smith</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:45,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:43,href:"https://docs.datatrails.ai/developers/yaml-reference/subjects/",title:"Subjects YAML Runner",description:"Subject Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -49805,41 +46430,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">subject_label</span><span class="p">:</span><span class="w"> </span><span class="l">A subject</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">\`\`</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:46,href:"https://docs.datatrails.ai/developers/yaml-reference/compliance/",title:"Compliance Policies YAML Runner",description:"Compliance Policy Actions Used with the Yaml Runner",content:`<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
-<p>
-<a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
-</div>
-  </blockquote>
-<h2 id="compliance-policies-create">Compliance Policies Create</h2>
-<p>This action creates a Compliance Policy that assets may be tested against.</p>
-<p>The specific fields required for creating Compliance Policies vary depending on the type of policy being used. Please see the 
-<a href="/platform/administration/compliance-policies/">Compliance Policies</a> section for details regarding Compliance Policy types and YAML Runner examples of each.</p>
-<p>For example, a <code>COMPLIANCE_RICHNESS</code> policy that asserts radiation level must be less than 7:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_POLICIES_CREATE</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Create COMPLIANCE_RICHNESS policy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">print_response</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Radiation level must be less than 7&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">display_name</span><span class="p">:</span><span class="w"> </span><span class="l">Rad Limit</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">compliance_type</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_RICHNESS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">asset_filter</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;attributes.arc_home_location_identity=locations/&lt;location-id&gt;&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">richness_assertions</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">or</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;radiation_level&lt;7&#34;</span><span class="w"> </span><span class="p">]</span><span class="w">
-</span></span></span></code></pre></div><h2 id="compliance-compliant-at">Compliance Compliant At</h2>
-<p>The <code>COMPLIANCE_COMPLIANT_AT</code> action checks an Asset against its Compliance Policies.</p>
-<p><code>asset_label</code> is required, and may be specified as the friendly name defined in a previous step or as the Asset ID of an existing subject, in the form <code>assets/&lt;asset-id&gt;</code>. Setting <code>report: true</code> will trigger a report to be printed on the Asset&rsquo;s compliance status.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPLIANCE_COMPLIANT_AT</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Check Compliance of EV pump 1.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">report</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">asset_label</span><span class="p">:</span><span class="w"> </span><span class="l">ev pump 1</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:47,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
+</span></span></span></code></pre></div>`}).add({id:44,href:"https://docs.datatrails.ai/developers/yaml-reference/estate-info/",title:"Estate Information YAML Runner",description:"Retrieve Estate Info Using the Yaml Runner",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> To use the YAML Runner you will need to install the <code>datatrails-archivist</code> python package.</p>
 <p>
 <a href="https://python.datatrails.ai/runner/index.html" target="_blank" rel="noopener">Click here</a> for installation instructions.</p>
@@ -49852,7 +46443,7 @@ If this is not needed then do not wait for confirmation.</p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">step</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">COMPOSITE_ESTATE_INFO</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Estate Info Report</span><span class="w">
-</span></span></span></code></pre></div>`}).add({id:48,href:"https://docs.datatrails.ai/developers/integrations/",title:"Integrations",description:"",content:`<div class= "row justify-content-center">
+</span></span></span></code></pre></div>`}).add({id:45,href:"https://docs.datatrails.ai/developers/integrations/",title:"Integrations",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Integrations</h1>
       <p>How to integrate DataTrails into partners and platforms
@@ -49860,7 +46451,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/integrations/n8n/">Integrating DataTrails with n8n&rarr;</a><br>
     </div>
 </div>
-`}).add({id:49,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:46,href:"https://docs.datatrails.ai/developers/developer-patterns/",title:"Developer Patterns",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Developer Patterns</h1>
       <p>This sub-section of the Developers subject area contains more detailed information on topics that cannot be covered by the API or YAML Runner references. <br></p>
@@ -49875,7 +46466,7 @@ If this is not needed then do not wait for confirmation.</p>
       <a href="/developers/developer-patterns/software-package-profile/">Software Package Profile &rarr;</a></p>
     </div>
 </div>
-`}).add({id:50,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
+`}).add({id:47,href:"https://docs.datatrails.ai/developers/api-reference/caps-api/",title:"Caps API",description:"Caps API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
 <a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
@@ -49891,7 +46482,7 @@ If you are looking for a simple way to test our API you might prefer our
 <p>Retrieve the number of remaining Access Policies:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -g -v -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>     -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/caps?service=access_policies&#34;</span>    
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>     <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/caps?service=access_policies&#34;</span>
 </span></span></code></pre></div><p>The response is:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;caps&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -49907,7 +46498,6 @@ If you are looking for a simple way to test our API you might prefer our
 <li>applications</li>
 <li>assets</li>
 <li>blobs</li>
-<li>compliance_policies</li>
 <li>locations</li>
 <li>members</li>
 </ul>
@@ -49993,7 +46583,7 @@ If you are looking for a simple way to test our API you might prefer our
   </div>
 
 
-`}).add({id:51,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:48,href:"https://docs.datatrails.ai/platform/administration/",title:"Administration",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Administration</h1>
       <p>This section is for Tenancy Administrators who need to know how to manage their Users and configure access to Assets.<br></p>
@@ -50005,7 +46595,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/administration/dropbox-integration/">Dropbox Integration &rarr;</a><br>
     </div>
 </div>
-`}).add({id:52,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:49,href:"https://docs.datatrails.ai/developers/templates/",title:"Templates",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>DataTrails Templates</h1>
       <p>A collection of templates for various scenarios.
@@ -50016,7 +46606,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/templates/scitt/">Creating SCITT Entries on the DataTrails Platform &rarr;</a><br>
     </div>
 </div>
-`}).add({id:53,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:50,href:"https://docs.datatrails.ai/developers/yaml-reference/",title:"YAML Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>YAML Runner Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the functionality of the DataTrails YAML Runner.<br></p>
@@ -50026,11 +46616,10 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
-      <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>
-`}).add({id:54,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:51,href:"https://docs.datatrails.ai/developers/api-reference/",title:"API Reference",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>API Reference</h1>
       <p>This sub-section of the Developers subject area contains articles that describe and define the DataTrails REST API endpoints.<br></p>
@@ -50040,7 +46629,6 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/asset-events-api/">Asset-Events API &rarr;</a><br>
       <a href="/developers/api-reference/attachments-api/">Attachments API &rarr;</a><br>
       <a href="/developers/api-reference/blobs-api/">Blobs API &rarr;</a><br>
-      <a href="/developers/api-reference/compliance-api/">Compliance API &rarr;</a><br>
       <a href="/developers/api-reference/events-api/">Events API &rarr;</a><br>
       <a href="/developers/api-reference/iam-policies-api/">IAM Policies API &rarr;</a><br>
       <a href="/developers/api-reference/iam-subjects-api/">IAM Subjects API &rarr;</a><br>
@@ -50051,7 +46639,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/developers/api-reference/caps-api/">Tenancy Caps API &rarr;</a></p>
     </div>
 </div>
-`}).add({id:55,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
+`}).add({id:52,href:"https://docs.datatrails.ai/platform/overview/",title:"Overview",description:"",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
       <h1>Overview</h1>
       <p>Begin your DataTrails journey here.<br></p>
@@ -50067,7 +46655,7 @@ If you are looking for a simple way to test our API you might prefer our
       <a href="/platform/overview/public-attestation/">Public Attestation &rarr;</a></p>
     </div>
 </div>
-`}).add({id:56,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
+`}).add({id:53,href:"https://docs.datatrails.ai/developers/",title:"Developers",description:"DataTrails developer documentation",content:`<div class= "row justify-content-center">
     <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Developers</h1>
     <p>If you are a developer who is looking to easily add provenance to their data, this section is for you. <br>
@@ -50095,7 +46683,7 @@ If you are looking for a simple way to test our API you might prefer our
     </div>
   </div>
 </section>
-`}).add({id:57,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
+`}).add({id:54,href:"https://docs.datatrails.ai/platform/",title:"Platform",description:"DataTrails Platform and configuration documentation",content:`<div class= "row justify-content-center">
   <div class="col-md-12 col-lg-10 col-xl-10">
     <h1>Platform</h1>
     <p>If you are new to DataTrails, this is the place to start.<br></p>

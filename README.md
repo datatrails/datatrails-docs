@@ -15,7 +15,7 @@ We'll happily review any suggestions!
 1. To begin, pull the latest DataTrails docs from Github.
 
 ```bash
-git clone git@github.com/datatrails/datatrails-docs.git
+git clone git@github.com:datatrails/datatrails-docs.git
 ```
 
 2. Move into the directory.
@@ -33,7 +33,7 @@ npm install
 4. To run a local DataTrails Docs Server, it is advisable to use the `rkvst-doks` wrapper.
 
 ```bash
-rkvst-doks start
+./rkvst-doks start
 ```
 
 This will build a local version of the server that can be accessed at [http://localhost:1313](https://localhost:1313).

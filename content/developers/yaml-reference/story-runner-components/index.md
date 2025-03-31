@@ -6,12 +6,12 @@ date: 2021-06-09T11:39:03+01:00
 lastmod: 2021-06-09T11:39:03+01:00
 draft: false
 images: []
-menu: 
+menu:
   developers:
     parent: "yaml-reference"
 weight: 201
 toc: true
-aliases: 
+aliases:
   - /docs/yaml-reference/story-runner-components/
 ---
 
@@ -29,7 +29,7 @@ aliases:
 | **location_label** | For a series of steps run as one file, the location label could be a friendly name used by later steps to refer back to a location created in a previous step. If the location already exists, this field may be used to reference the Location ID in the form `locations/<location-id>`. |
 | **subject_label**  | For a series of steps run as one file, the Subject label could be a friendly name used by later steps to refer back to a Subject created in a previous step. If the Subject already exists, this field may be used to reference the Subject ID in the form `subjects/<subject-id>`.      |
 | **print_response** | Specifying this field as true emits a JSON representation of the response, useful for debugging purposes.                                                                                                                                                                                                       |
-| **wait_time**      | Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for demonstration and/or testing Compliance Policies.                                                                                                                                          |
+| **wait_time**      | Optional field specifying a number of seconds the story runner will pause before executing the next step. Useful for live demonstrations.
 
 Each step of the YAML Runner follows the same general pattern:
 

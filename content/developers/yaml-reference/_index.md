@@ -8,7 +8,7 @@ draft: false
 images: []
 weight: 999
 toc: true
-aliases: 
+aliases:
   - /docs/yaml-reference/
 ---
 <div class= "row justify-content-center">
@@ -21,7 +21,6 @@ aliases:
       <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
-      <a href="/developers/yaml-reference/compliance/">Compliance Policies YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>
 </div>

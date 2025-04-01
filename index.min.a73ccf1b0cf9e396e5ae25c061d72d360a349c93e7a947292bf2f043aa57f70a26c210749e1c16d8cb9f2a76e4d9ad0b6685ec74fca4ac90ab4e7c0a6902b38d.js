@@ -16304,15 +16304,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="events-api-examples">Events API Examples</h2>
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> If you are looking for a simple way to test DataTrails APIs you might prefer the 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <ul>
 <li>
@@ -16419,23 +16410,124 @@ BLOB_HASH=h1234567h</p>
 <a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="event-record-retrieval">Event Record Retrieval</h3>
 <p>Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: <code>events/&lt;event-id&gt;</code></p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The current preview limits fetching Events to the Event identity.
-Querying across event attributes and trails are coming in a future preview.</div>
-  </blockquote>
-<h4 id="fetch-events-by-identity">Fetch Events by Identity</h4>
+<h2 id="fetch-events-by-identity">Fetch Events by Identity</h2>
 <ul>
 <li>
-<p>Replace the <code>&lt;event-id&gt;</code> below, using the event-id from the created event above: <code>&quot;identity&quot;: &quot;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</code>:</p>
+<p>Replace the <code>&lt;event-id&gt;</code> below, using the event-id from the created event above.<br>
+<code>&quot;identity&quot;: &quot;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</code>:<br>
+Note, &ldquo;<code>events/</code>&rdquo; must be included as it&rsquo;s part of the resource name:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">EVENT_ID</span><span class="o">=</span>&lt;event-id&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>Query the /events API to retrieve the recorded event:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
+<h2 id="filtering-and-paging-events">Filtering and Paging Events</h2>
+<ul>
+<li>
+<p>To fetch multiple events, use a search document, posting to the <code>/events/search</code> endpoint<br>
+Search document has following form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 20,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 0
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><p>where:<br>
+<code>filter</code> = attribute name/value pairs<br>
+<code>top</code> = number of results to return (max. 50) and<br>
+<code>skip</code> = how many results to skip over before returning set of results</p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> The current preview does not support filtering of Events.
+Filtering across event attributes and trails are coming in a future preview.</div>
+  </blockquote>
+<ul>
+<li>
+<p>Post <code>search.json</code> to the <code>/search</code> endpoint:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/search.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/search&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>The response will include a list of events matching above criteria:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;events&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421873579</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="fetch-paged-results">Fetch Paged Results</h3>
+<p>Use <code>top</code> and <code>skip</code> alongside <code>x-total-count</code> response header to navigate results.
+If sum of <code>skip</code> and number of results in response is less than the count of all results (<code>x-total-count</code> in the response header) there are more results to retrieve.
+To get the next set of results, re-issue the <code>/search</code> request with <code>skip</code> increased by number of results in current response.</p>
+<p>If <code>x-total-count</code> response header has value greater than 2 (as indicated by value of <code>top</code> in <code>search.json</code>) modify <code>search.json</code> to the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 2,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 2
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Post to the <code>/events/search/</code> endpoint to retrieve another page of results, repeating this process until <code>skip</code> + number or results in the response is equal to <code>x-total-count</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d /tmp/search.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/search&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
+<p>Integrity protected content can be hashed within an Event using the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  
@@ -16845,9 +16937,6 @@ Querying across event attributes and trails are coming in a future preview.</div
   </div>
 
 
-<h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
-<p>Integrity protected content can be hashed within an Event using the 
-<a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
 `},{id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 
@@ -39656,15 +39745,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 <a href="/platform/overview/creating-an-asset/">Creating an Asset</a> guide.</div>
   </blockquote>
 <h2 id="events-api-examples">Events API Examples</h2>
-<blockquote class="note callout">
-    <div><strong></strong> <p><strong>Note:</strong> If you are looking for a simple way to test DataTrails APIs you might prefer the 
-<a href="https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview" target="_blank" rel="noopener">Postman collection</a>, the 
-<a href="/developers/yaml-reference/story-runner-components/">YAML runner</a> or the 
-<a href="https://app.datatrails.ai" target="_blank" rel="noopener">Developers</a> section of the web UI.</p>
-<p>Additional YAML examples can be found in the articles in the 
-<a href="/platform/overview/introduction/">Overview</a> section.</p>
-</div>
-  </blockquote>
 <h3 id="event-creation">Event Creation</h3>
 <ul>
 <li>
@@ -39771,23 +39851,124 @@ BLOB_HASH=h1234567h</p>
 <a href="/developers/api-reference/attachments-api/">Attachments API</a></p>
 <h3 id="event-record-retrieval">Event Record Retrieval</h3>
 <p>Event records in DataTrails are assigned UUIDs at creation time and referred to in all future API calls by a their unique identity in the format: <code>events/&lt;event-id&gt;</code></p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The current preview limits fetching Events to the Event identity.
-Querying across event attributes and trails are coming in a future preview.</div>
-  </blockquote>
-<h4 id="fetch-events-by-identity">Fetch Events by Identity</h4>
+<h2 id="fetch-events-by-identity">Fetch Events by Identity</h2>
 <ul>
 <li>
-<p>Replace the <code>&lt;event-id&gt;</code> below, using the event-id from the created event above: <code>&quot;identity&quot;: &quot;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</code>:</p>
+<p>Replace the <code>&lt;event-id&gt;</code> below, using the event-id from the created event above.<br>
+<code>&quot;identity&quot;: &quot;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot;</code>:<br>
+Note, &ldquo;<code>events/</code>&rdquo; must be included as it&rsquo;s part of the resource name:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">EVENT_ID</span><span class="o">=</span>&lt;event-id&gt;
 </span></span></code></pre></div></li>
 <li>
 <p>Query the /events API to retrieve the recorded event:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X GET <span class="se">\\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="p">|</span> jq
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/</span><span class="nv">$EVENT_ID</span><span class="s2">&#34;</span> <span class="p">|</span> jq
 </span></span></code></pre></div></li>
 </ul>
+<h2 id="filtering-and-paging-events">Filtering and Paging Events</h2>
+<ul>
+<li>
+<p>To fetch multiple events, use a search document, posting to the <code>/events/search</code> endpoint<br>
+Search document has following form:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 20,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 0
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><p>where:<br>
+<code>filter</code> = attribute name/value pairs<br>
+<code>top</code> = number of results to return (max. 50) and<br>
+<code>skip</code> = how many results to skip over before returning set of results</p>
+<blockquote class="note callout">
+    <div><strong></strong> <strong>Note:</strong> The current preview does not support filtering of Events.
+Filtering across event attributes and trails are coming in a future preview.</div>
+  </blockquote>
+<ul>
+<li>
+<p>Post <code>search.json</code> to the <code>/search</code> endpoint:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d <span class="s2">&#34;@/tmp/search.json&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/search&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+<li>
+<p>The response will include a list of events matching above criteria:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;events&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421873579</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="fetch-paged-results">Fetch Paged Results</h3>
+<p>Use <code>top</code> and <code>skip</code> alongside <code>x-total-count</code> response header to navigate results.
+If sum of <code>skip</code> and number of results in response is less than the count of all results (<code>x-total-count</code> in the response header) there are more results to retrieve.
+To get the next set of results, re-issue the <code>/search</code> request with <code>skip</code> increased by number of results in current response.</p>
+<p>If <code>x-total-count</code> response header has value greater than 2 (as indicated by value of <code>top</code> in <code>search.json</code>) modify <code>search.json</code> to the following:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 2,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 2
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>Post to the <code>/events/search/</code> endpoint to retrieve another page of results, repeating this process until <code>skip</code> + number or results in the response is equal to <code>x-total-count</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -X POST <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -H <span class="s2">&#34;@</span><span class="nv">$HOME</span><span class="s2">/.datatrails/bearer-token.txt&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -d /tmp/search.json <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="s2">&#34;https://app.datatrails.ai/archivist/v1/events/search&#34;</span> <span class="se">\\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    <span class="p">|</span> jq
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
+<p>Integrity protected content can be hashed within an Event using the 
+<a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
 <h2 id="events-openapi-docs">Events OpenAPI Docs</h2>
 
  
@@ -40197,9 +40378,6 @@ Querying across event attributes and trails are coming in a future preview.</div
   </div>
 
 
-<h2 id="integrity-protecting-content">Integrity Protecting Content</h2>
-<p>Integrity protected content can be hashed within an Event using the 
-<a href="/developers/api-reference/attachments-api/">Attachments API</a>.</p>
 `}).add({id:33,href:"https://docs.datatrails.ai/developers/api-reference/iam-policies-api/",title:"IAM Policies API",description:"IAM Policies API Reference",content:`<blockquote class="note callout">
     <div><strong></strong> <p><strong>Note:</strong> This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
 If you are looking for a simple way to test our API you might prefer our 

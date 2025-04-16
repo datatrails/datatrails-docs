@@ -148,13 +148,13 @@ When adding a policy, you will see this form:
 
 Here you can apply policy filters to the correct Assets. In this case, we shall apply the policy to any Asset of the type `Shipping Container`.
 
-{{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
+{{< img src="PolicyOBACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to categorize assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:
+Filters can use `and` or `or` to categorize assets. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a type, you could use:
 
 ```json
-"attributes.arc_home_location_identity!=*"
+"attributes.arc_display_type!=*"
 ```
 
 The `*` is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.
@@ -166,16 +166,11 @@ Following our Shipping Container example, this is how we would set our Asset fil
     "display_name": "Mandy Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=locations/<location-id>"
-        ]},
-        { "or": [
             "attributes.arc_display_type=Shipping Container"
         ]}
     ]
 }
 ```
-
-[See here for instructions on finding your location ID.](/platform/administration/grouping-assets-by-location/)
 {{< /tab >}}}
 {{< /tabs >}}
 
@@ -233,9 +228,6 @@ Add the desired permissions and the Subject ID found in the previous step
     "display_name": "Mandy Inspect Policy",
     "filters": [
         { "or": [
-            "attributes.arc_home_location_identity=locations/<location-id>"
-        ]},
-        { "or": [
             "attributes.arc_display_type=Shipping Container"
         ]}
     ],
@@ -252,7 +244,7 @@ Add the desired permissions and the Subject ID found in the previous step
 
 {{< /tab >}}}
 {{< /tabs >}}<br>
-    **Note** we have included DataTrails-significant attributes: `arc_display_name`, `arc_display_type` and arc_primary_image.  
+    **Note** we have included DataTrails-significant attributes: `arc_display_name`, `arc_display_type` and arc_primary_image.
 `arc_*` attributes have special significance in DataTrails. In this case, respectively, allowing visibility to the Name and Type of the Asset. Other `arc_*` attributes are also available.
 
 1. Once complete, finish creating the Access Policy

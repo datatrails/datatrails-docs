@@ -27,7 +27,7 @@ Specifically, ABAC policies are created by Administrators to share information w
 
 ABAC policies can be granular, with users only allowed to see single attributes at a time.
 
-It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type and location (eg: "all models trained in Gondwalaland")
+It is possible to control read and write access to Trails based on a combination of properties of the Trail as specified in the Asset attributes, such as type (eg: "all physics models trained")
 
 By default, new users will not see any existing Trails or Events until an Administrator explicitly creates an ABAC policy to allow them.
 
@@ -91,13 +91,13 @@ When adding a policy, you will see this form:
 
 Here you can apply policy filters to apply to specific Trails or groups of Trails. In this case, we shall apply the policy to any Asset with the type `Shipping Container`.
 
-{{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets and Locations</em>" class="border-0" >}}
+{{< img src="PolicyABACFilter.png" alt="Rectangle" caption="<em>Filtering for specific Assets</em>" class="border-0" >}}
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Filters can use `and` or `or` to define scope. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with a location, you could use:
+Filters can use `and` or `or` to define scope. You may also use filters on attribute values, such as `=` and `!=` for equal and not equal, respectively. These can be used for specific attribute values, or to check if the value exists at all. For example, to filter for Assets not associated with any type, you could use:
 
 ```json
-"attributes.arc_home_location_identity!=*"
+"attributes.arc_display_type!=*"
 ```
 
 The `*` is a wildcard that could represent any value. This will match not only on string values, but list and map values as well.
@@ -112,15 +112,11 @@ Following our Shipping Container example, this is how we would set our Asset fil
             "attributes.your_custom_attribute=Your Value>"
         ]},
         { "or": [
-            "attributes.arc_home_location_identity=locations/<location-id>"
-        ]},
-        { "or": [
             "attributes.arc_display_type=Shipping Container"
         ]}
     ]
 }
 ```
-[See here for instructions on finding your location ID.](/platform/administration/grouping-assets-by-location/)
 {{< note >}}
 **Note** We will not use the custom attribute any further as we build the example.
 {{< /note >}}
@@ -155,7 +151,7 @@ There are a few ways you may add a `User` to your Access Policy using JSON. One 
     ]
 ```
 
-You may also grant permissions to an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.  
+You may also grant permissions to an [App Registration](/developers/developer-patterns/getting-access-tokens-using-app-registrations/) within your tenancy. App Registrations are non-root by default; best practice is to use ABAC policies to preserve Principle of Least Privilege.
 
 ```json
  "access_permissions": [
@@ -221,7 +217,7 @@ Add the desired permissions and the desired `user_attributes`
 {{< /tabs >}}<br>
 {{< note >}}
 **Note:** We have included DataTrails-significant attributes: `arc_display_name`, `arc_display_type` and `arc_primary_image`
-`arc_*` attributes have special significance in DataTrails.  
+`arc_*` attributes have special significance in DataTrails.
 In this case, respectively, allowing visibility to the `Name`, `Type`, and `Image` of the Asset. Other `arc_*` attributes are also available.
 {{< /note >}}
 1. Once complete, finish creating the Access Policy.
@@ -244,7 +240,7 @@ curl -v -X POST \
 {{< /tab >}}}
 {{< /tabs >}}
 
-1. Check the Asset is appropriately shared  
+1. Check the Asset is appropriately shared
 
     Mandy should only be allowed to see the Asset's name, type, image, length, and weight attributes.
 {{< img src="PolicyABACMandyView.png" alt="Rectangle" caption="<em>Mandy's view as a Non-Administrator</em>" class="border-0" >}}

@@ -26,7 +26,7 @@ aliases:
 Adding an `asset_label` allows your Asset to be referenced in later steps of the story.
 For example, when you want to add an Event to the Asset after it is created.
 
-The `arc_namespace` (for the Asset) and the `namespace` (for the location) are used to distinguish between Assets and Locations created between runs of the story. Usually, these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
+The `arc_namespace` is used to distinguish between Assets created between runs of the story. Usually, these field values are derived from an environment variable `ARCHIVIST_NAMESPACE` (default value is namespace).
 
 The optional `confirm: true` entry means that the YAML Runner will wait for the Asset to be committed before moving on to the next step. This is beneficial if the Asset will be referenced in later steps.
 

@@ -57,7 +57,7 @@ Create an empty file, in later steps we will add the correct JSON.
 
 ```json
 {
-  
+
 }
 ```
 
@@ -83,11 +83,11 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Container 
-    selector: 
-      - attributes: 
+      asset_label: My First Container
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
 ```
 
@@ -123,14 +123,14 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Container 
-    selector: 
-      - attributes: 
+      asset_label: My First Container
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
-    attributes: 
-      arc_display_name: My First Container 
+    attributes:
+      arc_display_name: My First Container
       arc_display_type: Shipping Container
 ```
 
@@ -168,8 +168,6 @@ Select `Add Attribute`, and add your key-value pairs.
 {{< tab name="YAML" >}}
 Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
 
-This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
-
 
 ```yaml
 ---
@@ -177,34 +175,25 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Container 
-    selector: 
-      - attributes: 
+      asset_label: My First Container
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
-    attributes: 
-      arc_display_name: My First Container 
+    attributes:
+      arc_display_name: My First Container
       arc_display_type: Shipping Container
       arc_description: Originally shipped from Shanghai
       Width: "2.43m"
       Length: "6.06m"
       Height: "2.59m"
-    location: 
-      selector: 
-        - display_name
-      display_name: Parkside Junction
-      description: Box intersection between Mill Road and East Road
-      latitude: 52.2025
-      longitude: 0.1311
     confirm: false
 ```
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `Height` you see below.
-
-This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, [click here](/platform/administration/grouping-assets-by-location/).
 
 ```json
 {
@@ -216,7 +205,6 @@ This example also adds a location to our Asset. To find out more about locations
         "Width": "2.43m",
         "Length": "6.06m",
         "Height": "2.59m",
-        "arc_home_location_identity": "locations/<location-id>"
     }
 }
 ```
@@ -309,7 +297,7 @@ steps:
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.  
+Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.
 
 ```bash
 curl -g -v -X GET \

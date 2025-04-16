@@ -25,7 +25,7 @@ aliases:
 
 The `asset_label` must match the setting when the Asset was created in an earlier step. The `asset_label` may also be specified as the Asset ID of an existing Asset, in the form `assets/<asset-id>`.
 
-There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to DataTrails and the response is added to the Event before posting. `location` creates the location if it does not exist and adds it to the Event. The `sbom` setting uploads the SBOM to DataTrails and adds the response to the Event before posting.
+There are a few optional settings that can be used when creating Events. `attachments` uploads the attachment to DataTrails and the response is added to the Event before posting. The `sbom` setting uploads the SBOM to DataTrails and adds the response to the Event before posting.
 
 `confirm: true` tells the YAML Runner to wait for the Event to be committed before moving to the next step.
 This is optional and only necessary if your workflow requires 3rd parties (public or other DataTrails tenancies) to immediately view the Event.
@@ -49,26 +49,13 @@ steps:
       arc_evidence: ARQC 0x12345678
       wavestone_door_name: Courts of Justice Paris Front Door
       wavestone_evt_type: door_open
-    location:
-      selector:
-        - display_name
-        - attributes:
-          - namespace
-      display_name: Paris Courts of Justice
-      description: Public museum in the former Palais de Justice
-      latitude: 48.855722
-      longitude: 2.345051
-      attributes:
-        namespace: door entry
-        address: 10 Boulevard du Palais, 75001 Paris, France
-        wavestone_ext: managed
     attachments:
       - filename: functests/test_resources/doors/events/door_open.png
         content_type: image/png
     confirm: false
 ```
 
-This example creates an Event with custom Event attributes, creates and adds a location, and adds an image attachment.
+This example creates an Event with custom Event attributes, and adds an image attachment.
 
 Events may also be used to release a software package as an SBOM, such as the example below:
 

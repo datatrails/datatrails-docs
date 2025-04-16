@@ -19,7 +19,6 @@ aliases:
       <p><a href="/developers/yaml-reference/story-runner-components/">YAML Runner Components &rarr;</a><br>
       <a href="/developers/yaml-reference/assets/">Assets YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/events/">Events YAML Runner &rarr;</a><br>
-      <a href="/developers/yaml-reference/locations/">Locations YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/subjects/">Subjects YAML Runner &rarr;</a><br>
       <a href="/developers/yaml-reference/estate-info/">Estate Information YAML Runner &rarr;</a></p>
     </div>

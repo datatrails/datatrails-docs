@@ -204,7 +204,7 @@ Extended attributes are custom key-value pairs, such as `Width`, `Length`, and `
         "arc_description": "Originally shipped from Shanghai",
         "Width": "2.43m",
         "Length": "6.06m",
-        "Height": "2.59m",
+        "Height": "2.59m"
     }
 }
 ```

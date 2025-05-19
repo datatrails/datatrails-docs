@@ -16314,12 +16314,13 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 <p>Define the Event parameters and store in <code>/tmp/event.json</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/event.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Safety Conformance&#34;, &#34;Clouseau&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Clouseau&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;Safety Rating&#34;: &#34;90&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;inspector&#34;: &#34;Clouseau&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;event_type&#34;: &#34;Safety Conformance&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div></li>
@@ -16342,9 +16343,9 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
@@ -16381,7 +16382,7 @@ BLOB_HASH=h1234567h</p>
 <p>Associate a Blob as the Event Primary Image:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
@@ -16391,7 +16392,8 @@ BLOB_HASH=h1234567h</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div></li>
@@ -16432,19 +16434,27 @@ Note, &ldquo;<code>events/</code>&rdquo; must be included as it&rsquo;s part of 
 Search document has following form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;trails/any(t: t eq &#39;Clouseau&#39;) and event_type eq &#39;Safety Conformance&#39;&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 20,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 0
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><p>where:<br>
-<code>filter</code> = attribute name/value pairs<br>
-<code>top</code> = number of results to return (max. 50) and<br>
+<code>filter</code> = 
+<a href="https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#_Toc31360955" target="_blank" rel="noopener">OData filter</a> expression currently following properties of event are filterable:</p>
+<ul>
+<li>trails eg. <code>trails/any(t: t eq 'Clouseau')</code></li>
+<li>event_type eg. <code>event_type eq 'Safety Conformance'</code></li>
+<li>origin_tenant eg. <code>origin_tenant eq 'tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'</code></li>
+<li>created_by eg. <code>created_by eq 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'</code></li>
+<li>created_at eg. <code>created_at gt '1736421833577'</code></li>
+<li>ledger_entry/index eg. <code>ledger_entry/index lt 123</code></li>
+<li>ledger_entry/idtimestamp eg. <code>ledger_entry/idtimestamp eq '0196cf103fe5064c00'</code></li>
+<li>ledger_entry/content_hash eg. <code>ledger_entry/content_hash eq '0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8'</code></li>
+</ul>
+<p>currently following operands are supported: <code>eq, ne, gt, ge, lt, le</code> and following logical operators <code>and, or, not</code></p>
+<p><code>top</code> = number of results to return (max. 50) and<br>
 <code>skip</code> = how many results to skip over before returning set of results</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The current preview does not support filtering of Events.
-Filtering across event attributes and trails are coming in a future preview.</div>
-  </blockquote>
 <ul>
 <li>
 <p>Post <code>search.json</code> to the <code>/search</code> endpoint:</p>
@@ -16466,16 +16476,19 @@ Filtering across event attributes and trails are coming in a future preview.</di
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ledger_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0196cf103fe5064c00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;content_hash&#34;</span><span class="p">:</span> <span class="s2">&#34;0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hash_schema&#34;</span><span class="p">:</span> <span class="s2">&#34;v0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;log_id&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
@@ -16486,16 +16499,19 @@ Filtering across event attributes and trails are coming in a future preview.</di
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421873579</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ledger_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0196c9448b6d064c00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;content_hash&#34;</span><span class="p">:</span> <span class="s2">&#34;791a76d42f7f07470f91226b7eb38645182afe2d4b2114ab52fc6dc4f9dd0260&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hash_schema&#34;</span><span class="p">:</span> <span class="s2">&#34;v0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;log_id&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">]</span>
@@ -16509,7 +16525,7 @@ To get the next set of results, re-issue the <code>/search</code> request with <
 <p>If <code>x-total-count</code> response header has value greater than 2 (as indicated by value of <code>top</code> in <code>search.json</code>) modify <code>search.json</code> to the following:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;trails/any(t: t eq &#39;Clouseau&#39;) and event_type eq &#39;Safety Conformance&#39;&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 2,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 2
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
@@ -39755,12 +39771,13 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 <p>Define the Event parameters and store in <code>/tmp/event.json</code>:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/event.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Safety Conformance&#34;, &#34;Clouseau&#34;],
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Clouseau&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;Safety Rating&#34;: &#34;90&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;inspector&#34;: &#34;Clouseau&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;event_type&#34;: &#34;Safety Conformance&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div></li>
@@ -39783,9 +39800,9 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
@@ -39822,7 +39839,7 @@ BLOB_HASH=h1234567h</p>
 <p>Associate a Blob as the Event Primary Image:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">cat</span> <span class="err">&gt;</span> <span class="err">/tmp/event.json</span> <span class="err">&lt;&lt;EOF</span>
 </span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;Clouseau&#34;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_primary_image&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_attribute_type&#34;</span><span class="p">:</span> <span class="s2">&#34;arc_attachment&#34;</span><span class="p">,</span>
@@ -39832,7 +39849,8 @@ BLOB_HASH=h1234567h</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_blob_hash_alg&#34;</span><span class="p">:</span> <span class="s2">&#34;SHA256&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;arc_file_name&#34;</span><span class="p">:</span> <span class="s2">&#34;$BLOB_FILE&#34;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="err">EOF</span>
 </span></span></code></pre></div></li>
@@ -39873,19 +39891,27 @@ Note, &ldquo;<code>events/</code>&rdquo; must be included as it&rsquo;s part of 
 Search document has following form:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;trails/any(t: t eq &#39;Clouseau&#39;) and event_type eq &#39;Safety Conformance&#39;&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 20,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 0
 </span></span></span><span class="line"><span class="cl"><span class="s">}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span></code></pre></div><p>where:<br>
-<code>filter</code> = attribute name/value pairs<br>
-<code>top</code> = number of results to return (max. 50) and<br>
+<code>filter</code> = 
+<a href="https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#_Toc31360955" target="_blank" rel="noopener">OData filter</a> expression currently following properties of event are filterable:</p>
+<ul>
+<li>trails eg. <code>trails/any(t: t eq 'Clouseau')</code></li>
+<li>event_type eg. <code>event_type eq 'Safety Conformance'</code></li>
+<li>origin_tenant eg. <code>origin_tenant eq 'tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'</code></li>
+<li>created_by eg. <code>created_by eq 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'</code></li>
+<li>created_at eg. <code>created_at gt '1736421833577'</code></li>
+<li>ledger_entry/index eg. <code>ledger_entry/index lt 123</code></li>
+<li>ledger_entry/idtimestamp eg. <code>ledger_entry/idtimestamp eq '0196cf103fe5064c00'</code></li>
+<li>ledger_entry/content_hash eg. <code>ledger_entry/content_hash eq '0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8'</code></li>
+</ul>
+<p>currently following operands are supported: <code>eq, ne, gt, ge, lt, le</code> and following logical operators <code>and, or, not</code></p>
+<p><code>top</code> = number of results to return (max. 50) and<br>
 <code>skip</code> = how many results to skip over before returning set of results</p>
-<blockquote class="note callout">
-    <div><strong></strong> <strong>Note:</strong> The current preview does not support filtering of Events.
-Filtering across event attributes and trails are coming in a future preview.</div>
-  </blockquote>
 <ul>
 <li>
 <p>Post <code>search.json</code> to the <code>/search</code> endpoint:</p>
@@ -39907,16 +39933,19 @@ Filtering across event attributes and trails are coming in a future preview.</di
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421833577</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ledger_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;16&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0196cf103fe5064c00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;content_hash&#34;</span><span class="p">:</span> <span class="s2">&#34;0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hash_schema&#34;</span><span class="p">:</span> <span class="s2">&#34;v0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;log_id&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
@@ -39927,16 +39956,19 @@ Filtering across event attributes and trails are coming in a future preview.</di
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="s2">&#34;Clouseau&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;event_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;origin_tenant&#34;</span><span class="p">:</span> <span class="s2">&#34;tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_by&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;created_at&#34;</span><span class="p">:</span> <span class="mi">1736421873579</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;confirmation_status&#34;</span><span class="p">:</span> <span class="s2">&#34;STORED&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&#34;merklelog_commit&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&#34;ledger_entry&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;index&#34;</span><span class="p">:</span> <span class="s2">&#34;8&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;idtimestamp&#34;</span><span class="p">:</span> <span class="s2">&#34;0196c9448b6d064c00&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;content_hash&#34;</span><span class="p">:</span> <span class="s2">&#34;791a76d42f7f07470f91226b7eb38645182afe2d4b2114ab52fc6dc4f9dd0260&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;hash_schema&#34;</span><span class="p">:</span> <span class="s2">&#34;v0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&#34;log_id&#34;</span><span class="p">:</span> <span class="s2">&#34;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">  <span class="p">]</span>
@@ -39950,7 +39982,7 @@ To get the next set of results, re-issue the <code>/search</code> request with <
 <p>If <code>x-total-count</code> response header has value greater than 2 (as indicated by value of <code>top</code> in <code>search.json</code>) modify <code>search.json</code> to the following:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; /tmp/search.json <span class="s">&lt;&lt;EOF
 </span></span></span><span class="line"><span class="cl"><span class="s">{
-</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;filter&#34;: &#34;trails/any(t: t eq &#39;Clouseau&#39;) and event_type eq &#39;Safety Conformance&#39;&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;top&#34;: 2,
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;skip&#34;: 2
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>

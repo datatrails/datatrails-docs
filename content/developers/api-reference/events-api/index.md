@@ -197,7 +197,7 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
   * ledger_entry/idtimestamp eg. `ledger_entry/idtimestamp eq '0196cf103fe5064c00'`
   * ledger_entry/content_hash eg. `ledger_entry/content_hash eq '0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8'`  
 
-  currently following opertands are supportted: `eq, ne, gt, ge, lt, le` and following logical operators `and, or, not`
+  currently following operands are supported: `eq, ne, gt, ge, lt, le` and following logical operators `and, or, not`
 
   `top` = number of results to return (max. 50) and  
   `skip` = how many results to skip over before returning set of results

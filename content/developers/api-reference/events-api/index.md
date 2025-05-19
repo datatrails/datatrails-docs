@@ -39,12 +39,13 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
   ```bash
   cat > /tmp/event.json <<EOF
   {
-    "trails": ["Safety Conformance", "Clouseau"],
+    "trails": ["Clouseau"],
     "attributes": {
       "arc_display_type": "Safety Conformance",
       "Safety Rating": "90",
       "inspector": "Clouseau"
-    }
+    },
+    "event_type": "Safety Conformance"
   }
   EOF
   ```
@@ -71,9 +72,9 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
       "Safety Rating": "90"
     },
     "trails": [
-      "Safety Conformance",
       "Clouseau"
     ],
+    "event_type": "Safety Conformance",
     "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "created_at": 1736421833577,
@@ -117,7 +118,7 @@ Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associat
   ```json
   cat > /tmp/event.json <<EOF
   {
-    "trails": ["Safety Conformance", "Clouseau"],
+    "trails": ["Clouseau"],
     "attributes": {
       "arc_primary_image": {
         "arc_attribute_type": "arc_attachment",
@@ -127,7 +128,8 @@ Events can use the [Blobs API](/developers/api-reference/blobs-api/) to associat
         "arc_blob_hash_alg": "SHA256",
         "arc_file_name": "$BLOB_FILE"
       }
-    }
+    },
+    "event_type": "Safety Conformance",
   }
   EOF
   ```
@@ -177,7 +179,7 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
   ```bash
   cat > /tmp/search.json <<EOF
   {
-    "filter": "",
+    "filter": "trails/any(t: t eq 'Clouseau') and event_type eq 'Safety Conformance'",
     "top": 20,
     "skip": 0
   }
@@ -185,14 +187,20 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
   ```
 
   where:  
-  `filter` = attribute name/value pairs  
+  `filter` = [OData filter](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#_Toc31360955) expression currently following properties of event are filterable:
+  * trails eg. `trails/any(t: t eq 'Clouseau')`
+  * event_type eg. `event_type eq 'Safety Conformance'`
+  * origin_tenant eg. `origin_tenant eq 'tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'`
+  * created_by eg. `created_by eq 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'`
+  * created_at eg. `created_at gt '1736421833577'`
+  * ledger_entry/index eg. `ledger_entry/index lt 123`
+  * ledger_entry/idtimestamp eg. `ledger_entry/idtimestamp eq '0196cf103fe5064c00'`
+  * ledger_entry/content_hash eg. `ledger_entry/content_hash eq '0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8'`  
+
+  currently following opertands are supportted: `eq, ne, gt, ge, lt, le` and following logical operators `and, or, not`
+
   `top` = number of results to return (max. 50) and  
   `skip` = how many results to skip over before returning set of results
-
-  {{< note >}}
-  **Note:** The current preview does not support filtering of Events.
-  Filtering across event attributes and trails are coming in a future preview.
-  {{< /note >}}
 
   - Post `search.json` to the `/search` endpoint:
 
@@ -217,16 +225,19 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
             "Safety Rating": "90"
           },
           "trails": [
-            "Safety Conformance",
             "Clouseau"
           ],
+          "event_type": "Safety Conformance",
           "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "created_at": 1736421833577,
           "confirmation_status": "STORED",
-          "merklelog_commit": {
-            "index": "0",
-            "idtimestamp": ""
+          "ledger_entry": {
+            "index": "16",
+            "idtimestamp": "0196cf103fe5064c00",
+            "content_hash": "0e9ba3f1815fe893bab3ece6b5e396e8e804ee57061239fbee7b497d94b24ee8",
+            "hash_schema": "v0",
+            "log_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         },
         {
@@ -237,16 +248,19 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
             "Safety Rating": "99"
           },
           "trails": [
-            "Safety Conformance",
             "Clouseau"
           ],
+          "event_type": "Safety Conformance",
           "origin_tenant": "tenant/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "created_by": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "created_at": 1736421873579,
           "confirmation_status": "STORED",
-          "merklelog_commit": {
-            "index": "0",
-            "idtimestamp": ""
+          "ledger_entry": {
+            "index": "8",
+            "idtimestamp": "0196c9448b6d064c00",
+            "content_hash": "791a76d42f7f07470f91226b7eb38645182afe2d4b2114ab52fc6dc4f9dd0260",
+            "hash_schema": "v0",
+            "log_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           }
         }
       ]
@@ -264,7 +278,7 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
   ```bash
   cat > /tmp/search.json <<EOF
   {
-    "filter": "",
+    "filter": "trails/any(t: t eq 'Clouseau') and event_type eq 'Safety Conformance'",
     "top": 2,
     "skip": 2
   EOF

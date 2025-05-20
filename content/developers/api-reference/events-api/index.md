@@ -41,7 +41,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
   {
     "trails": ["Clouseau"],
     "attributes": {
-      "arc_display_type": "Safety Conformance",
       "Safety Rating": "90",
       "inspector": "Clouseau"
     },
@@ -68,7 +67,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
     "identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "attributes": {
       "inspector": "Clouseau",
-      "arc_display_type": "Safety Conformance",
       "Safety Rating": "90"
     },
     "trails": [
@@ -85,8 +83,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
     }
   }
   ```
-
-### DataTrails Reserved Attributes
 
 ### DataTrails Reserved Attributes
 
@@ -221,7 +217,6 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
           "identity": "events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
           "attributes": {
             "inspector": "Clouseau",
-            "arc_display_type": "Safety Conformance",
             "Safety Rating": "90"
           },
           "trails": [
@@ -244,7 +239,6 @@ Event records in DataTrails are assigned UUIDs at creation time and referred to 
           "identity": "events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy",
           "attributes": {
             "inspector": "Clouseau",
-            "arc_display_type": "Safety Conformance",
             "Safety Rating": "99"
           },
           "trails": [

@@ -16316,7 +16316,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Clouseau&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;Safety Rating&#34;: &#34;90&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;inspector&#34;: &#34;Clouseau&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">  },
@@ -16339,7 +16338,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -16358,7 +16356,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
-<h3 id="datatrails-reserved-attributes-1">DataTrails Reserved Attributes</h3>
 <p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
 See 
 <a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
@@ -16472,7 +16469,6 @@ Search document has following form:</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -16495,7 +16491,6 @@ Search document has following form:</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -39773,7 +39768,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span></span><span class="line"><span class="cl"><span class="s">{
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;trails&#34;: [&#34;Clouseau&#34;],
 </span></span></span><span class="line"><span class="cl"><span class="s">  &#34;attributes&#34;: {
-</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;arc_display_type&#34;: &#34;Safety Conformance&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;Safety Rating&#34;: &#34;90&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="s">    &#34;inspector&#34;: &#34;Clouseau&#34;
 </span></span></span><span class="line"><span class="cl"><span class="s">  },
@@ -39796,7 +39790,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -39815,7 +39808,6 @@ To minimize the impact, prior to switching to Asset-free Events, it is recommend
 </span></span></code></pre></div></li>
 </ul>
 <h3 id="datatrails-reserved-attributes">DataTrails Reserved Attributes</h3>
-<h3 id="datatrails-reserved-attributes-1">DataTrails Reserved Attributes</h3>
 <p>The DataTrails platform has reserved attributes starting with <code>arc_</code> to perform specific capabilities.
 See 
 <a href="/glossary/reserved-attributes/">Reserved Attributes</a> for more info.</p>
@@ -39929,7 +39921,6 @@ Search document has following form:</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;90&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -39952,7 +39943,6 @@ Search document has following form:</p>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;identity&#34;</span><span class="p">:</span> <span class="s2">&#34;events/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;attributes&#34;</span><span class="p">:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;inspector&#34;</span><span class="p">:</span> <span class="s2">&#34;Clouseau&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&#34;arc_display_type&#34;</span><span class="p">:</span> <span class="s2">&#34;Safety Conformance&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="nt">&#34;Safety Rating&#34;</span><span class="p">:</span> <span class="s2">&#34;99&#34;</span>
 </span></span><span class="line"><span class="cl">      <span class="p">},</span>
 </span></span><span class="line"><span class="cl">      <span class="nt">&#34;trails&#34;</span><span class="p">:</span> <span class="p">[</span>

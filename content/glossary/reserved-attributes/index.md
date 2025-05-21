@@ -26,7 +26,6 @@ Select an attribute to see an example of it in use.
 | [arc_description](/developers/api-reference/assets-api/)                     | brief description of Asset or Event being recorded |
 | [arc_display_name](/developers/api-reference/assets-api/)                    | friendly name identifier for Assets, Events, and policies |
 | [arc_display_type](/developers/api-reference/assets-api/)                    | classification of the type of Asset being traced that can be used for grouping or access control |
-| arc_home_location_identity                                                   | physical location to which an Asset nominally 'belongs'. NOT related to the Asset's position in space. For that, use `arc_gis_*` (below) |
 | [arc_primary_image](/platform/overview/advanced-concepts/#the-primary-image) | an image attachment that will display as the thumbnail of an Asset |
 
 ## Asset-Event Attributes

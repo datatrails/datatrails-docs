@@ -6,7 +6,7 @@ date: 2021-06-16T11:12:25+01:00
 lastmod: 2023-09-27T11:12:25+01:00
 draft: false
 images: []
-menu: 
+menu:
   developers:
     parent: "developer-patterns"
 weight: 31
@@ -17,7 +17,7 @@ aliases:
 ---
 
 Non-interactive access to the DataTrails platform is managed by creating `Integrations` with either a Custom Integration or one of the built-in Integrations. This is done from the `Integrations` page in the DataTrails UI (reachable
-from the `Settings` page or the `Integrations` shortcut in the sidebar.) You can also do this via 
+from the `Settings` page or the `Integrations` shortcut in the sidebar.) You can also do this via
 the App Registrations REST API.
 
 {{< note >}}
@@ -40,7 +40,7 @@ The high level steps are:
 If you have already saved a `CLIENT_ID` and a `SECRET`, with the correct [permissions applied](#grant-permissions-to-custom-integration), skip to [Getting a Token With the Custom Integration](#getting-a-token-with-the-custom-integration)
 
 {{< note >}}
-**Note:** Creating App Registrations requires **Owner** privileges.  
+**Note:** Creating App Registrations requires **Owner** privileges.
 If `Settings` or `Integrations` does not appear in the navigation, see your DataTrails Administrator for access.
 {{< /note >}}
 
@@ -57,17 +57,17 @@ If `Settings` or `Integrations` does not appear in the navigation, see your Data
   **Note:** Optionally add any `Custom claims` at this step by clicking the `+ Add` button.<br>In this context, claims are pieces of information that are asserted in a JSON Web Token (JWT). *Registered* claims are name/value pairs that are defined by the JWT standard, *Custom* claims are not defined and can have any name/value combination.
 
   Ensure the `Name` *does not start* with `jit_` or `arc_` (DataTrails reserved names) or use any other well-known reserved claims.
-  
+
   See [here](https://auth0.com/docs/security/tokens/json-web-tokens/json-web-token-claims#reserved-claims) for more information on JWT Claims
-  {{< /note >}}  
-1. If this Custom Integration should have administrator privileges, assign it the `Owner` role by 
+  {{< /note >}}
+1. If this Custom Integration should have administrator privileges, assign it the `Owner` role by
    checking that option. If you do this, ensure the client credentials are securely protected.
 1. Once complete, click `Confirm` to complete the custom integration
 1. You will then be presented with the `CLIENT_ID` and `SECRET` required by the archivist token endpoint
 {{< img src="RecordClientIDandSecret.png" alt="Rectangle" caption="<em>Record your Client ID and Secret</em>" class="border-0" >}}
 {{< caution >}}
 **Caution:** Save the `CLIENT_ID` and `SECRET` to a password manager or secret management service as the `SECRET` can **not** be viewed again. A new `SECRET` can be regenerated in the Integration configuration screen but this replaces and invalidates the previous `SECRET`.
-{{< /caution >}}  
+{{< /caution >}}
 
 ### Grant Access Permissions to your Custom Integration
 
@@ -133,7 +133,7 @@ Having completed the steps to create a [custom integration](./#creating-a-custom
     # in an `./datatrails/` directory
     mkdir -p $HOME/.datatrails
     chmod 0700 $HOME/.datatrails
-    
+
     # Create the Bearer Token
     echo Authorization: Bearer $TOKEN > $HOME/.datatrails/bearer-token.txt
     cat $HOME/.datatrails/bearer-token.txt
@@ -178,7 +178,6 @@ If you have existing assets, the output will be similar to:
         "arc_description": "A shipping container being tracked",
         "arc_display_name": "New Shipping Container #1",
         "arc_display_type": "Shipping Container",
-        "arc_home_location_identity": "locations/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "height": "8'"
       },
       "confirmation_status": "COMMITTED",

@@ -49,7 +49,6 @@ These are the available values for "**?service=**":
 * applications
 * assets
 * blobs
-* locations
 * members
 
 

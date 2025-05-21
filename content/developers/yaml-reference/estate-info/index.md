@@ -6,12 +6,12 @@ date: 2021-06-09T11:39:03+01:00
 lastmod: 2021-06-09T11:39:03+01:00
 draft: false
 images: []
-menu: 
+menu:
   developers:
     parent: "yaml-reference"
 weight: 207
 toc: true
-aliases: 
+aliases:
   - /docs/yaml-reference/estate-info/
 ---
 
@@ -23,7 +23,7 @@ aliases:
 
 ## Composite Estate Info
 
-This action returns a report on the current number of Assets, Events, and locations in your DataTrails estate.
+This action returns a report on the current number of Assets and Events in your DataTrails estate.
 
 ```yaml
 ---

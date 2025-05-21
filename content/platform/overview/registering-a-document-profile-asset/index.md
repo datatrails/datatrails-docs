@@ -6,7 +6,7 @@ date: 2023-06-29T15:11:03+01:00
 lastmod: 2023-06-29T15:11:03+01:00
 draft: false
 images: []
-menu: 
+menu:
   platform:
     parent: "overview"
 weight: 35
@@ -52,16 +52,16 @@ Create an empty file, in later steps we will add the correct JSON.
 
 ```json
 {
-  
+
 }
 ```
 
 {{< /tab >}}
 {{< /tabs >}}<br>
 
-1. You will see the Document Registration form  
-  The `Document Information` tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.  
-  The Trust data:  
+1. You will see the Document Registration form
+  The `Document Information` tab is where you enter the information that is required by the document profile. You have the option to drag your document into the Auto-fill box or you can enter the information into the form manually.
+  The Trust data:
 
       * `Name` - This is the unique name of the Document i.e. 'My First Document'
       * `Version` - The version of your document
@@ -69,7 +69,7 @@ Create an empty file, in later steps we will add the correct JSON.
 
     Additional options:
       * `Upload on Creation` - Upload the document in addition to the trust data
-      * `Attest Publicly` - Enable to allow public attestation of the document<br>  
+      * `Attest Publicly` - Enable to allow public attestation of the document<br>
 {{< tabs name="add_asset_details" >}}
 {{{< tab name="UI" >}}
 
@@ -88,15 +88,15 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Document 
-    selector: 
-      - attributes: 
+      asset_label: My First Document
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
     public: true
-    attributes: 
-      arc_display_name: My First Document 
+    attributes:
+      arc_display_name: My First Document
       arc_profile: Document
       document_hash_value: ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c
       document_hash_alg: sha256
@@ -119,7 +119,7 @@ In the file you created earlier, begin adding metadata for your Asset:
         "document_hash_value": "ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c",
         "document_hash_alg":"sha256",
         "document_version":"1"
-    },  
+    },
    "behaviours": ["RecordEvidence"],
    "public": true
 }
@@ -148,15 +148,15 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Document 
-    selector: 
-      - attributes: 
+      asset_label: My First Document
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
     public: true
-    attributes: 
-      arc_display_name: My First Document 
+    attributes:
+      arc_display_name: My First Document
       arc_profile: Document
       document_hash_value: ff2f6191ec870e5120a94795274068f520168108cb8fc87f1239ffa72bd2550c
       document_hash_alg: sha256
@@ -190,9 +190,9 @@ The DataTrails API uses the reserved attributes `arc_display_name` and `arc_disp
 
     Extended attributes are user-defined and can be added to each unique Document.
 
-    Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.  
+    Not all Documents of a specific type need to have the same extended attributes, but in most cases it is better to do so for consistency.
 
-    To add a new attribute to a Document, enter your key-value pair.  
+    To add a new attribute to a Document, enter your key-value pair.
 
     For Example:
 {{< tabs name="add_extended_attributes" >}}
@@ -203,8 +203,6 @@ Select `Add Attribute`, and add your key-value pairs
 {{< tab name="YAML" >}}
 Extended attributes are custom key-value pairs, such as `document_version`, `format`, and `some_custom_attribute` you see below.
 
-This example also adds a location to our asset. To find out more about locations, [click here](/platform/administration/grouping-assets-by-location/).
-
 It's also good practice to include `confirm: true` which tells DataTrails to finish committing the Asset before moving to the next step.
 
 ```yaml
@@ -213,15 +211,15 @@ steps:
   - step:
       action: ASSETS_CREATE_IF_NOT_EXISTS
       description: Create an asset.
-      asset_label: My First Document 
-    selector: 
-      - attributes: 
+      asset_label: My First Document
+    selector:
+      - attributes:
         - arc_display_name
-    behaviours: 
+    behaviours:
       - RecordEvidence
     public: true
-    attributes: 
-      arc_display_name: My First Document 
+    attributes:
+      arc_display_name: My First Document
       arc_display_type: Promotional Material
       arc_profile: Document
       arc_description: PUBLIC promotional document
@@ -237,8 +235,6 @@ steps:
 {{< /tab >}}
 {{< tab name="JSON" >}}
 Extended attributes are custom key-value pairs, such as `document_version`, `format`, and `some_custom_attribute` you see below.
-
-This example also adds a location to our Asset. To find out more about locations and how to find your Location ID, [click here](/platform/administration/grouping-assets-by-location/).
 
 ```json
 {
@@ -353,7 +349,7 @@ Each
 
 {{< /tab >}}
 {{< tab name="JSON" >}}
-Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.  
+Details of a specific asset can be retrieved using identifying attributes (`attrs`), such as name, type, or presence of a certain field.
 
 ```bash
 curl -g -v -X GET \

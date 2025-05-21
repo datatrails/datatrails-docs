@@ -11,12 +11,12 @@ menu:
     parent: "api-reference"
 weight: 115
 toc: true
-aliases: 
+aliases:
   - /docs/api-reference/iam-policies-api/
 ---
 {{< note >}}
-**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance. 
-If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI. 
+**Note:** This page is primarily intended for developers who will be writing applications that will use DataTrails for provenance.
+If you are looking for a simple way to test our API you might prefer our [Postman collection](https://www.postman.com/datatrails-inc/workspace/datatrails-public/overview), the [YAML runner](/developers/yaml-reference/story-runner-components/) or the [Developers](https://app.datatrails.ai) section of the web UI.
 
 Additional YAML examples can be found in the articles in the [Overview](/platform/overview/introduction/) section.
 {{< /note >}}
@@ -104,10 +104,6 @@ The response is:
     "description": "Description of the policy",
     "filters": [
         {"or": [
-            "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-            "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc"
-        ]},
-        {"or": [
             "attributes.arc_display_type=Valve",
             "attributes.arc_display_type=Pump"
         ]},
@@ -188,10 +184,6 @@ Each of these calls returns a list of matching IAM Access Policies records in th
             "description": "Description of the policy",
             "filters": [
                 {"or": [
-                    "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-                    "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc"
-                ]},
-                {"or": [
                     "attributes.arc_display_type=Valve",
                     "attributes.arc_display_type=Pump"
                 ]},
@@ -270,10 +262,6 @@ Define the Access Policy parameters to be changed and store in `/path/to/jsonfil
 {
    "filters": [
         {"or": [
-            "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-            "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc"
-        ]},
-        {"or": [
             "attributes.arc_display_type=Valve",
             "attributes.arc_display_type=Pump"
         ]},
@@ -319,10 +307,6 @@ The response is:
     "display_name": "Friendly name of the policy",
     "description": "Description of the policy",
     "filters": [
-        {"or": [
-            "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-            "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc"
-        ]},
         {"or": [
             "attributes.arc_display_type=Valve",
             "attributes.arc_display_type=Pump"
@@ -384,7 +368,6 @@ Each of these calls returns a list of matching Asset records in the form:
         "attributes": {
             "arc_display_type": "Pump",
             "arc_firmware_version": "1.0",
-            "arc_home_location_identity": "locations/866790d8-4ed6-4cc9-8f60-07672609b331",
             "arc_serial_number": "vtl-x4-07",
             "arc_description": "Pump at A603 North East",
             "arc_display_name": "tcl.ccj.003",
@@ -424,10 +407,6 @@ Each of these calls returns a list of matching IAM `access_policies` records in 
             "identity": "access_policies/6a951b62-0a26-4c22-a886-1082297b063b",
             "display_name": "Some description",
             "filters": [
-                { "or": [
-                    "attributes.arc_home_location_identity=locations/5ea815f0-4de1-4a84-9377-701e880fe8ae",
-                    "attributes.arc_home_location_identity=locations/27eed70b-9e2b-4db1-b8c4-e36505350dcc",
-                ]},
                 { "or": [
                     "attributes.arc_display_type=Valve",
                     "attributes.arc_display_type=Pump"
